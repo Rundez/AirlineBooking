@@ -9,17 +9,23 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>welcome</title>
+    <title>Welcome to Airline Booking!</title>
 </head>
+
 <body>
-    <div>
-    <form action="Login" method="post">
-        Enter username: <input type="text" name="uname"><br>
-        Enter password: <input type="password" name="pass"><br>
-        <input type="submit" value="Login">
-    </form>
+        <div class="login-page">
+            <div class="form">
+                <form action="Login" method="post" class="login-form">
+                    <input type="text" placeholder="Name" name="uname"/>
+                    <input type="password" placeholder="Password" name="pass"/>
+                    <input type="submit" value="Login">
 
-    </div>
-
+                    <form action="createAccount.jsp">
+                    <p class="message">Not registered? <a href="createAccount.jsp">Create an account</a></p>
+                     </form>
+                </form>
+            </div>
+        </div>
 </body>
 </html>
+
