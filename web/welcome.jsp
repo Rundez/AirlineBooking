@@ -23,7 +23,6 @@
 Welcome, ${username}
     <br>
 <a href="videos.jsp">Videos here</a> <br>
-
     <form action="Logout" name="logout">
         <input type="submit" value="Logout">
     </form>
