@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: martinruud
   Date: 16/09/2019
@@ -14,13 +17,13 @@
 <body>
         <div class="login-page">
             <div class="form">
-              <form class="login-form">
-                  <input type="text" placeholder="name"/>
-                  <input type="password" placeholder="password"/>
-
+              <form action="Registration" method="post" class="login-form">
+                  <input type="text" placeholder="Name" name="name"/>
+                  <input type="password" placeholder="Password" name="pass"/>
                    <button>create</button>
               </form>
             </div>
         </div>
+
 </body>
 </html>
