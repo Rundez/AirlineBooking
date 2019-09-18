@@ -12,7 +12,7 @@ public class Registration extends HttpServlet {
     String username = "root";
     String password = "siemensmobil2";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String name = request.getParameter("name");
         String pass = request.getParameter("pass");
