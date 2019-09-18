@@ -14,10 +14,10 @@
 <body>
         <div class="login-page">
             <div class="form">
-              <form class="login-form">
+              <form action="RegisterDao" class="login-form">
                   <input type="text" placeholder="name"/>
                   <input type="password" placeholder="password"/>
-                  <input type="text" placeholder="email address"/>
+
                    <button>create</button>
               </form>
             </div>
