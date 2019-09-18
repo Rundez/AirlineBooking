@@ -5,7 +5,7 @@ public class LoginDao
     String sql = "select * from login where uname=? and pass=?";
     String url = "jdbc:mysql://localhost:3306/javaTest";
     String username = "root";
-    String password = "siemensmobil2";
+    String password = "Kantasit123";
     public boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");

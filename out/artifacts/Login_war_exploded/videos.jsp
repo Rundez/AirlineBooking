@@ -20,7 +20,7 @@
     }
 %>
 
-<iframe width="420" height="315"
+<iframe width="700" height="400"
         src="https://www.youtube.com/embed/agi4geKb8v8">
 </iframe>
 </body>
