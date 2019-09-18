@@ -14,7 +14,7 @@
 <body>
         <div class="login-page">
             <div class="form">
-              <form action="RegisterDao" class="login-form">
+              <form class="login-form">
                   <input type="text" placeholder="name"/>
                   <input type="password" placeholder="password"/>
 
