@@ -17,7 +17,7 @@
 <body>
         <div class="login-page">
             <div class="form">
-              <form action="Registration" method="get" class="login-form">
+              <form action="Registration" method="post" class="login-form">
                   <input type="text" placeholder="Name" name="name"/>
                   <input type="password" placeholder="Password" name="pass"/>
                    <button>create</button>

@@ -7,12 +7,12 @@ import java.sql.*;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
-    String sql = "INSERT INTO login (uname, pass) VALUES (?,?,?)";
+    String sql = "INSERT INTO login (uname, pass) VALUES (?,?)";
     String url = "jdbc:mysql://localhost:3306/javaTest";
     String username = "root";
     String password = "siemensmobil2";
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String name = request.getParameter("name");
         String pass = request.getParameter("pass");

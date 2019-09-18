@@ -7,7 +7,7 @@ import java.sql.*;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
-    String sql = "INSERT INTO login (uname, pass) VALUES (?,?,?)";
+    String sql = "INSERT INTO login (uname, pass) VALUES (?,?)";
     String url = "jdbc:mysql://localhost:3306/javaTest";
     String username = "root";
     String password = "siemensmobil2";
