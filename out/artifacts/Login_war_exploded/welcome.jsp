@@ -13,8 +13,10 @@
 <body>
 
     <%
+        // Deletes cache if the user have been logged out
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
+        // Checks if the user is logged in. If not, they are redirected to the login page.
         if (session.getAttribute("username") == null) {
             response.sendRedirect("login.jsp");
     }

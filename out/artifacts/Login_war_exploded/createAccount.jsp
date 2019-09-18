@@ -8,16 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="Style/style.css">
     <title>Register</title>
 </head>
 <body>
         <div class="login-page">
             <div class="form">
-              <form class="login-form">
+              <form action="RegisterDao" class="login-form">
                   <input type="text" placeholder="name"/>
                   <input type="password" placeholder="password"/>
-                  <input type="text" placeholder="email address"/>
+
                    <button>create</button>
               </form>
             </div>

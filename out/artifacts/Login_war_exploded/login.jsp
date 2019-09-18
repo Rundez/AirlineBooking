@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8"  language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="Style/style.css">
     <title>Welcome to Airline Booking!</title>
 </head>
 
@@ -18,7 +18,7 @@
                 <form action="Login" method="post" class="login-form">
                     <input type="text" placeholder="Name" name="uname"/>
                     <input type="password" placeholder="Password" name="pass"/>
-                    <input type="submit" value="Login">
+                    <button>Login</button>
 
                     <form action="createAccount.jsp">
                     <p class="message">Not registered? <a href="createAccount.jsp">Create an account</a></p>
