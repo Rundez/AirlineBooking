@@ -15,9 +15,9 @@
 <body>
         <div class="login-page">
             <div class="form">
-                <form action="Login" method="get" class="login-form">
-                    <input type="text" placeholder="Name" name="uname"/>
-                    <input type="password" placeholder="Password" name="pass"/>
+                <form action="Login" method="post" class="login-form">
+                    <input type="text" placeholder="Name" name="FirstName"/>
+                    <input type="password" placeholder="Password" name="PasswordLogin"/>
                     <button>Login</button>
 
                     <form action="createAccount.jsp">
