@@ -11,14 +11,16 @@
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 
+
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
-        background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+        background-image: linear-gradient(to top, #96fbc4 25%, #f9f586 100%);
         height: 600px;
+
     }
 
-    /*Button*/
+
     .w3-black, .w3-hover-black:hover {
         color: #034a06!important;
         background-color: #fff!important;
@@ -32,7 +34,7 @@
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
-        <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Book</a>
+        <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey">Book</a>
         <a href="mybookings.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
@@ -50,12 +52,32 @@
     </div>
 </div>
 
+
+
+
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo">Viking Airways</h1>
-    <p class="w3-xlarge">Takes you where you need to go!</p>
-    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Book your next flight now</button>
+    <h1 class="w3-margin w3-jumbo">Book your flight</h1>
+    <p class="w3-xxlarge">Choose your destinations</p>
+
+    <div class="container">
+        <form>
+            <P></P>
+            <div class="input-fields">
+                <input type="text" from="" required="" placeholder="From" style ="text-align: center" class="w3-large"> <input type="text" to="" required="" placeholder="To" style="text-align: center" class="w3-large">
+
+                <span></span>
+            </div>
+
+        </form>
+
+
+        <p></p>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
 </header>
+
+
+
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">

@@ -97,4 +97,6 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
 }
