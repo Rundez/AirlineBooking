@@ -64,7 +64,7 @@
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo">Book your flight</h1>
+    <h1 class="w3-margin w3-jumbo">Your flights</h1>
     <p class="w3-xxlarge">Choose your destinations</p>
 
     <div class="container">

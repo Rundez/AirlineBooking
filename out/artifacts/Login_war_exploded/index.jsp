@@ -10,7 +10,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" import="Classes.DatabaseDev" language="java" %>
 <%@ page import="java.sql.SQLException" %>
->>>>>>> martinsbranch
+
 <html lang="en">
 <title>Viking Airways</title>
 <meta charset="UTF-8">

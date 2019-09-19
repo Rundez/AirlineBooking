@@ -10,11 +10,8 @@ public class Registration extends HttpServlet {
     String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
     String url = "jdbc:mysql://localhost:3306/java";
     String username = "root";
-<<<<<<< HEAD
-    String password = "";
-=======
     String password = "gruppe14";
->>>>>>> martinsbranch
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
