@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: martinruud
-  Date: 19/09/2019
-  Time: 09:38
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <title>Viking Airways</title>
@@ -17,14 +10,15 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-    .fa-anchor,.fa-coffee {font-size:200px}
 
-
+    /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
-        background-color: #034a06!important;
+        background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+        height: 600px;
     }
 
+    /*Button*/
     .w3-black, .w3-hover-black:hover {
         color: #034a06!important;
         background-color: #fff!important;
@@ -35,23 +29,23 @@
 
 <!-- Navbar -->
 <div class="w3-top">
-    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">VA</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Book</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">My bookings</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Travel info</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact us</a>
-        <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+    <div class="w3-bar w3-white w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
+        <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Book</a>
+        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
+        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
+        <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
+        <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
     </div>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">VA</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Book</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
+        <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large">VA</a>
+        <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
+        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
+        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
+        <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
 </div>
@@ -128,3 +122,4 @@
 
 </body>
 </html>
+

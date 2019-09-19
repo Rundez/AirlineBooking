@@ -1,0 +1,50 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+/*Body Text*/
+.body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+
+/*NavBar text/button*/
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+
+/*Bakgrunn på toppen*/
+.w3-red, .w3-hover-red:hover {
+    color: #fff!important;
+    background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
+
+/*Button color*/
+.w3-black, .w3-hover-black:hover {
+    color: #034a06!important;
+    background-color: #fff!important;}
+
+
+
+
+
+
+/*<!-- Navbar -->*/
+/*<div class="w3-top"> */
+/*<div class="w3-bar w3-green w3-card w3-left-align w3-large"> */
+/*<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a> */
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">VA</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Book</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">My bookings</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Travel info</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact us</a> <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>*/
+/*</div>*/
+
+
+/*<!-- Navbar on small screens -->*/
+/*<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">*/
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large">VA</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large">Book</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large">My bookings</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large">Travel info</a> */
+/*<a href="#" class="w3-bar-item w3-button w3-padding-large">Contact us</a>*/
+/*<a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a> */
+/*</div> */
+
+/*</div>*/
