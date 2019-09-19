@@ -1,3 +1,5 @@
+import Classes.DatabaseDev;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,19 +11,19 @@ import java.sql.SQLException;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String uname = request.getParameter("uname");
-        String pass = request.getParameter("pass");
+        String FirstName = request.getParameter("FirstName");
+        String PasswordLogin = request.getParameter("PasswordLogin");
 
+        // Creates new login database class to check username and password.
         LoginDao dao = new LoginDao();
-
         try {
-            if (dao.check(uname, pass)) {
+            if (dao.check(FirstName, PasswordLogin)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("username", uname);
+                session.setAttribute("username", FirstName);
 
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("welcome.jsp");
             }
             else {
                 response.sendRedirect("login.jsp");
