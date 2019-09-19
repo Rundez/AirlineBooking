@@ -42,7 +42,7 @@
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">My bookings</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Travel info</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact us</a>
-        <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+        <a href="login.jsp" class=  "w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
     </div>
 
     <!-- Navbar on small screens -->
