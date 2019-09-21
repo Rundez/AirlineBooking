@@ -20,6 +20,9 @@
         if (session.getAttribute("username") == null) {
             response.sendRedirect("login.jsp");
     }
+
+        String name =(String)session.getAttribute("username");
+        session.setAttribute("username", name);
     %>
 
 Welcome, ${username}
@@ -28,6 +31,11 @@ Welcome, ${username}
     <form action="Logout" name="logout">
         <input type="submit" value="Logout">
     </form>
+
+   <form action="index.jsp">
+       <button>To the index page!</button>
+   </form>
+
 
 </body>
 </html>

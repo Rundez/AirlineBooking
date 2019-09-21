@@ -7,6 +7,7 @@ public class DatabaseHandler
     String url = "jdbc:mysql://localhost:3306/java";
     String username = "root";
     String password = "gruppe14";
+    String driver = "com.mysql.jdbc.Driver";
 
     // This method checks the username and password with the database.
     public boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
@@ -14,7 +15,7 @@ public class DatabaseHandler
         String sql = "select * from RegistrationForm where FirstName=? and PasswordLogin=?";
 
         //Initiate DB driver
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName(driver);
         //Getting Database connection
         Connection con = DriverManager.getConnection(url, username, password);
         //Inserting the SQL query to the prepared statement
@@ -31,7 +32,7 @@ public class DatabaseHandler
 
        public void addUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber) throws ClassNotFoundException, SQLException {
 
-           Class.forName("com.mysql.jdbc.Driver");
+           Class.forName(driver);
            Connection con = DriverManager.getConnection(url, username, password);
            String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
            //Choose the input for the database
