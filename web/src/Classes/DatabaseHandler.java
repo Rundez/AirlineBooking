@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class LoginDao
+public class DatabaseHandler
 {
     String sql = "select * from RegistrationForm where FirstName=? and PasswordLogin=?";
     String url = "jdbc:mysql://localhost:3306/java";
@@ -8,7 +8,7 @@ public class LoginDao
     String password = "gruppe14";
 
 
-    public boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
+    private boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, username, password);
@@ -21,5 +21,11 @@ public class LoginDao
         }
 
         return false;
+       }
+
+       private void addUser(){
+
+
+       }
 }
-}
+
