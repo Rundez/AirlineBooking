@@ -1,3 +1,5 @@
+import Classes.DatabaseHandler;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,21 +27,8 @@ public class Registration extends HttpServlet {
 
 
         try {
-            //Initialize the DB
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
-
-            //Choose the input for the database
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, FirstName);
-            st.setString(2, LastName);
-            st.setString(3, Email);
-            st.setString(4, PasswordLogin);
-            st.setInt(5, DoB);
-            st.setInt(6, PhoneNumber);
-
-            st.executeUpdate();
-
+            DatabaseHandler db = new DatabaseHandler();
+            db.addUser(FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber);
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

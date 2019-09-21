@@ -8,26 +8,23 @@ public class DatabaseHandler
     String username = "root";
     String password = "gruppe14";
 
-    // This method checks the username and password with the database.
+
     public boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
-        //SQL query
+
         String sql = "select * from RegistrationForm where FirstName=? and PasswordLogin=?";
 
-        //Initiate DB driver
         Class.forName("com.mysql.jdbc.Driver");
-        //Getting Database connection
         Connection con = DriverManager.getConnection(url, username, password);
-        //Inserting the SQL query to the prepared statement
         PreparedStatement st = con.prepareStatement(sql);
-
-        //Parameters to be checked
         st.setString(1, uname);
         st.setString(2, pass);
-
-        //Fetches data FROM the database
         ResultSet rs = st.executeQuery();
-        return rs.next();
-    }
+        if(rs.next()){
+            return true;
+        }
+
+        return false;
+       }
 
        public void addUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber) throws ClassNotFoundException, SQLException {
 
@@ -43,7 +40,6 @@ public class DatabaseHandler
            st.setInt(5, DoB);
            st.setInt(6, PhoneNumber);
 
-           //Puts data INTO the database
            st.executeUpdate();
 
        }
