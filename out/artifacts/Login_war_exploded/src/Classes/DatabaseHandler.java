@@ -6,7 +6,7 @@ public class DatabaseHandler
 {
     String url = "jdbc:mysql://localhost:3306/java";
     String username = "root";
-    String password = "gruppe14";
+    String password = "";
     String driver = "com.mysql.jdbc.Driver";
 
     // This method checks the username and password with the database.

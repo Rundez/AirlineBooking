@@ -1,4 +1,7 @@
 <%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
+<%@ page import="java.sql.*" %>
+<%ResultSet resultset =null;%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <
 
@@ -60,15 +63,15 @@
 
 
 
-<sql:setDataSource var="ds"
-                   driver="com.mysql.jdbc.Driver"
-                   url="jdbc:mysql://<localhost:3306>/<java>"
-                   user="<root>"
-                   password="<gruppe14>"/>
+<%--<sql:setDataSource var="ds"--%>
+                   <%--driver="com.mysql.jdbc.Driver"--%>
+                   <%--url="jdbc:mysql://<localhost:3306>/<java>"--%>
+                   <%--user="<root>"--%>
+                   <%--password="<gruppe14>"/>--%>
 
-<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'
-SELECT * from <Destination>;
-    </sql:query>
+<%--<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'--%>
+<%--SELECT * from <Destination>;--%>
+    <%--</sql:query>--%>
 
 
 <!-- Header -->
@@ -80,12 +83,36 @@ SELECT * from <Destination>;
         <form>
             <P></P>
             <div class="input-fields">
-                    <h1>From:</h1>
-                    <select>
-                        <c:forEach var="row" items="${result.rows}">   //ref set var 'result'
-                            <option value='<c:out value="${row.key}"/>'><c:out value="${row.value}"/></option>
-                        </c:forEach>
-                    </select>
+                <%
+                    try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        Connection connection =
+                                DriverManager.getConnection
+                                        ("jdbc:mysql://localhost/java?user=root&password=");
+
+                        Statement statement = connection.createStatement() ;
+
+                        resultset =statement.executeQuery("select * from java.destination") ;
+                %>
+
+                <center>
+
+                <select>
+                    <%  while(resultset.next()){ %>
+                    <option><%= resultset.getString(2)%></option>
+                    <% } %>
+                </select>
+
+
+                </center>
+
+                <%
+                        //**Should I input the codes here?**
+                    }
+                    catch(Exception e)
+                    {
+                        out.println("wrong entry"+e);
+                    }
+                %>
 
             </div>
 
@@ -94,6 +121,7 @@ SELECT * from <Destination>;
 
         <p></p>
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
+
 </header>
 
 

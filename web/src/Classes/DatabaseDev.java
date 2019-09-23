@@ -12,7 +12,7 @@ public class DatabaseDev {
         String sql = "INSERT INTO RegistrationForm (FirstName,LastName, Email, PasswordLogin, DOB, PhoneNumber) VALUES (?,?,?,?,?,?)";
         String url = "jdbc:mysql://localhost:3306/java";
         String username = "root";
-        String password = "gruppe14";
+        String password = "";
 
         //Initiate connection
         Class.forName("com.mysql.jdbc.Driver");
