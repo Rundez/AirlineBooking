@@ -37,15 +37,7 @@
     }
 </style>
 <body>
-<%
-    try {
-        DatabaseDev.generateUsers();
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-%>
+
 
 <!-- Navbar -->
 <div class="w3-top">
