@@ -3,7 +3,7 @@
 <%ResultSet resultset =null;%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<
+
 
 
 
@@ -25,7 +25,7 @@
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
         background-image: linear-gradient(to top, #96fbc4 25%, #f9f586 100%);
-        height: 600px;
+        height: 750px;
 
     }
 
@@ -63,25 +63,16 @@
 
 
 
-<%--<sql:setDataSource var="ds"--%>
-                   <%--driver="com.mysql.jdbc.Driver"--%>
-                   <%--url="jdbc:mysql://<localhost:3306>/<java>"--%>
-                   <%--user="<root>"--%>
-                   <%--password="<gruppe14>"/>--%>
-
-<%--<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'--%>
-<%--SELECT * from <Destination>;--%>
-    <%--</sql:query>--%>
-
-
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h1 class="w3-margin w3-jumbo">Book your flight</h1>
-    <p class="w3-xxlarge">Choose your destinations</p>
+
+
+
 
     <div class="container">
         <form>
-            <P></P>
+            <p class="w3-xxlarge">Choose your destinations</p>
             <div class="input-fields">
                 <%
                     try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -96,11 +87,11 @@
 
                 <center>
 
-                <select>
-                    <%  while(resultset.next()){ %>
-                    <option><%= resultset.getString(2)%></option>
-                    <% } %>
-                </select>
+                    <select>
+                        <%  while(resultset.next()){ %>
+                        <option><%= resultset.getString(2)%></option>
+                        <% } %>
+                    </select>
 
 
                 </center>
@@ -118,6 +109,50 @@
 
         </form>
 
+
+    <%--Drop down "From"--%>
+
+        <div class="container">
+            <form>
+                <p class="w3-xxlarge">From</p>
+                <div class="input-fields">
+                    <%
+                        try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
+                            Connection connection =
+                                    DriverManager.getConnection
+                                            ("jdbc:mysql://localhost/java?user=root&password=");
+
+                            Statement statement = connection.createStatement() ;
+
+                            resultset =statement.executeQuery("select * from java.from");
+                    %>
+
+                    <center>
+
+                        <select>
+                            <%  while(resultset.next()){ %>
+                            <option><%= resultset.getString(2)%></option>
+                            <% } %>
+                        </select>
+
+
+                    </center>
+
+                    <%
+                            //**Should I input the codes here?**
+                        }
+                        catch(Exception e)
+                        {
+                            out.println("wrong entry"+e);
+                        }
+                    %>
+
+                </div>
+
+            </form>
+
+
+        <%--Search button--%>
 
         <p></p>
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
