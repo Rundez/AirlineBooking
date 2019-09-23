@@ -3,7 +3,7 @@
 <%ResultSet resultset =null;%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<
+
 
 
 
@@ -61,17 +61,6 @@
     </div>
 </div>
 
-
-
-<%--<sql:setDataSource var="ds"--%>
-                   <%--driver="com.mysql.jdbc.Driver"--%>
-                   <%--url="jdbc:mysql://<localhost:3306>/<java>"--%>
-                   <%--user="<root>"--%>
-                   <%--password="<gruppe14>"/>--%>
-
-<%--<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'--%>
-<%--SELECT * from <Destination>;--%>
-    <%--</sql:query>--%>
 
 
 <!-- Header -->
