@@ -9,11 +9,6 @@ import java.sql.*;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
-    String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
-    String url = "jdbc:mysql://localhost:3306/java";
-    String username = "root";
-    String password = "gruppe14";
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -30,9 +25,7 @@ public class Registration extends HttpServlet {
             DatabaseHandler db = new DatabaseHandler();
             db.addUser(FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber);
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
