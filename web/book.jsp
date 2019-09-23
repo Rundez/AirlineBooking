@@ -1,4 +1,10 @@
+<%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<
+
+
+
+
 <html lang="en">
 <title>Viking Airways</title>
 <meta charset="UTF-8">
@@ -54,6 +60,16 @@
 
 
 
+<sql:setDataSource var="ds"
+                   driver="com.mysql.jdbc.Driver"
+                   url="jdbc:mysql://<localhost:3306>/<java>"
+                   user="<root>"
+                   password="<gruppe14>"/>
+
+<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'
+SELECT * from <Destination>;
+    </sql:query>
+
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
@@ -64,9 +80,13 @@
         <form>
             <P></P>
             <div class="input-fields">
-                <input type="text" from="" required="" placeholder="From" style ="text-align: center" class="w3-large"> <input type="text" to="" required="" placeholder="To" style="text-align: center" class="w3-large">
+                    <h1>From:</h1>
+                    <select>
+                        <c:forEach var="row" items="${result.rows}">   //ref set var 'result'
+                            <option value='<c:out value="${row.key}"/>'><c:out value="${row.value}"/></option>
+                        </c:forEach>
+                    </select>
 
-                <span></span>
             </div>
 
         </form>
