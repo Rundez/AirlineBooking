@@ -37,15 +37,7 @@
     }
 </style>
 <body>
-<%
-    try {
-        DatabaseDev.generateUsers();
-    } catch (SQLException e) {
-        e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-%>
+
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -57,6 +49,8 @@
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
+        <a class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Welcome ${username}</a>
+
     </div>
 
     <!-- Navbar on small screens -->

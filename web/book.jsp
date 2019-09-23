@@ -1,4 +1,13 @@
+<%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
+<%@ page import="java.sql.*" %>
+<%ResultSet resultset =null;%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<
+
+
+
+
 <html lang="en">
 <title>Viking Airways</title>
 <meta charset="UTF-8">
@@ -54,6 +63,16 @@
 
 
 
+<%--<sql:setDataSource var="ds"--%>
+                   <%--driver="com.mysql.jdbc.Driver"--%>
+                   <%--url="jdbc:mysql://<localhost:3306>/<java>"--%>
+                   <%--user="<root>"--%>
+                   <%--password="<gruppe14>"/>--%>
+
+<%--<sql:query dataSource="${ds}" var="result"> //ref  defined 'ds'--%>
+<%--SELECT * from <Destination>;--%>
+    <%--</sql:query>--%>
+
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
@@ -64,9 +83,37 @@
         <form>
             <P></P>
             <div class="input-fields">
-                <input type="text" from="" required="" placeholder="From" style ="text-align: center" class="w3-large"> <input type="text" to="" required="" placeholder="To" style="text-align: center" class="w3-large">
+                <%
+                    try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        Connection connection =
+                                DriverManager.getConnection
+                                        ("jdbc:mysql://localhost/java?user=root&password=");
 
-                <span></span>
+                        Statement statement = connection.createStatement() ;
+
+                        resultset =statement.executeQuery("select * from java.destination") ;
+                %>
+
+                <center>
+
+                <select>
+                    <%  while(resultset.next()){ %>
+                    <option><%= resultset.getString(2)%></option>
+                    <% } %>
+                </select>
+
+
+                </center>
+
+                <%
+                        //**Should I input the codes here?**
+                    }
+                    catch(Exception e)
+                    {
+                        out.println("wrong entry"+e);
+                    }
+                %>
+
             </div>
 
         </form>
@@ -74,6 +121,7 @@
 
         <p></p>
         <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
+
 </header>
 
 

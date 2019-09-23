@@ -1,3 +1,5 @@
+import Classes.DatabaseHandler;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,11 +9,6 @@ import java.sql.*;
 
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
-    String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
-    String url = "jdbc:mysql://localhost:3306/java";
-    String username = "root";
-    String password = "gruppe14";
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -25,25 +22,10 @@ public class Registration extends HttpServlet {
 
 
         try {
-            //Initialize the DB
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+            DatabaseHandler db = new DatabaseHandler();
+            db.addUser(FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber);
 
-            //Choose the input for the database
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, FirstName);
-            st.setString(2, LastName);
-            st.setString(3, Email);
-            st.setString(4, PasswordLogin);
-            st.setInt(5, DoB);
-            st.setInt(6, PhoneNumber);
-
-            st.executeUpdate();
-
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 

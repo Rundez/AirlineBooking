@@ -1,4 +1,4 @@
-import Classes.DatabaseDev;
+import Classes.DatabaseHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ public class Login extends HttpServlet {
         String PasswordLogin = request.getParameter("PasswordLogin");
 
         // Creates new login database class to check username and password.
-        LoginDao dao = new LoginDao();
+        DatabaseHandler dao = new DatabaseHandler();
         try {
             if (dao.check(FirstName, PasswordLogin)) {
                 HttpSession session = request.getSession();
@@ -28,9 +28,7 @@ public class Login extends HttpServlet {
             else {
                 response.sendRedirect("login.jsp");
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
