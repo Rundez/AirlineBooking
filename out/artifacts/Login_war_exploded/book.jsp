@@ -124,7 +124,7 @@
 
                             Statement statement = connection.createStatement() ;
 
-                            resultset =statement.executeQuery("select * from java.from");
+                            resultset =statement.executeQuery("select * from java.destination");
                     %>
 
                     <center>
