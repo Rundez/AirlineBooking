@@ -127,7 +127,7 @@
                             resultset =statement.executeQuery("select * from java.destination");
                     %>
 
-                    <center>
+
 
                         <select>
                             <%  while(resultset.next()){ %>
@@ -136,7 +136,7 @@
                         </select>
 
 
-                    </center>
+
 
                     <%
                             //**Should I input the codes here?**
