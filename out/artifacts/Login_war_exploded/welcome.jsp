@@ -33,7 +33,7 @@ Welcome, ${username}
     </form>
 
    <form action="index.jsp">
-       <button>To the index page!</button>
+       <button>To the index!</button>
    </form>
 
 
