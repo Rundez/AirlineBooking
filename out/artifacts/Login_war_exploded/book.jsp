@@ -72,7 +72,7 @@
 
     <div class="container">
         <form>
-            <p class="w3-xxlarge">Choose your destinations</p>
+            <p class="w3-xxlarge">Choose your departure and destination</p>
             <div class="input-fields">
                 <%
                     try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -114,7 +114,7 @@
 
         <div class="container">
             <form>
-                <p class="w3-xxlarge">From</p>
+                <p class="w3-xxlarge">To</p>
                 <div class="input-fields">
                     <%
                         try{//Class.forName("com.mysql.jdbc.Driver").newInstance();

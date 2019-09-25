@@ -38,7 +38,7 @@ Welcome, ${username}
 
     <form action="createAirport" method="post">
          Legg til flyplass:
-        <input type="text" name="airport">
+        <input type="text" name="airport" placeholder="Navn">
         <button>Create!</button>
     </form>
 

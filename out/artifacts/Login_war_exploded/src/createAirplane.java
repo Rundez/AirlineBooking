@@ -31,16 +31,18 @@ public class createAirplane extends HttpServlet {
 
         // Assigns airName with the user input of Airport Name and creates a new airportController.
         String airplaneName = request.getParameter("airplaneName");
+        int økonomi = Integer.parseInt(request.getParameter(("economy")));
+        int business = Integer.parseInt(request.getParameter(("business")));
 
         // Creates a new Airport and assign the parameters with the user input.
         // The controller creates an airport and returns it to "airport" which is added to the DB by DAO.
         AirplaneController airplane = new AirplaneController();
-        airplane.createReturnAirplane()
+        airplane.createReturnAirplane(business, økonomi, airplaneName);
         DatabaseHandler dao = new DatabaseHandler();
 
         response.sendRedirect("welcome.jsp");
         try {
-            dao.addAirport(airport.toString());
+            dao.addAirplane(airplaneName, økonomi, business);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
