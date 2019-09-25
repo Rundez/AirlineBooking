@@ -33,8 +33,22 @@ Welcome, ${username}
     </form>
 
    <form action="index.jsp">
-       <button>To the index!</button>
+       <button>To the index page!</button>
    </form>
+
+    <form action="createAirport" method="post">
+         Legg til flyplass:
+        <input type="text" name="airport">
+        <button>Create!</button>
+    </form>
+
+    <form action="createAirplane" method="post">
+        Legg til et fly:
+        <input type="text" name="airplaneName" placeholder="Flynavn">
+        <input type="number" name="economy" placeholder="Økonomiplasser">
+        <input type="number" name="business" placeholder="Businessplasser">
+        <button>Create!</button>
+    </form>
 
 
 </body>

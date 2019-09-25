@@ -1,4 +1,4 @@
-import Classes.DatabaseHandler;
+import DB.DatabaseHandler;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

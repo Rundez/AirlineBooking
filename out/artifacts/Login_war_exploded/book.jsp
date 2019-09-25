@@ -2,8 +2,8 @@
 <%@ page import="java.sql.*" %>
 <%ResultSet resultset =null;%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
 
@@ -82,14 +82,14 @@
 
                         Statement statement = connection.createStatement() ;
 
-                        resultset =statement.executeQuery("select * from java.destination") ;
+                        resultset =statement.executeQuery("select * from java.Airport") ;
                 %>
 
                 <center>
 
                     <select>
                         <%  while(resultset.next()){ %>
-                        <option><%= resultset.getString(2)%></option>
+                        <option> <%= resultset.getString(2)%></option>
                         <% } %>
                     </select>
 
@@ -124,7 +124,7 @@
 
                             Statement statement = connection.createStatement() ;
 
-                            resultset =statement.executeQuery("select * from java.destination");
+                            resultset =statement.executeQuery("select * from java.Airport");
                     %>
 
 
