@@ -4,6 +4,7 @@ public class Booking {
 
     int cID;
     int fID;
+    int RN;
 
     public void setcID(int cID) {
         this.cID = cID;
@@ -19,6 +20,14 @@ public class Booking {
 
     public int getfID() {
         return fID;
+    }
+
+    public int getRN() {
+        return RN;
+    }
+
+    public void setRN(int RN) {
+        this.RN = RN;
     }
 }
 
