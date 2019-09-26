@@ -6,6 +6,7 @@ public class Flight {
     int departureID;
     int arrivalID;
     int airplaneID;
+    int flightID;
 
 
     public void setAirplaneID(int airplaneID) {
@@ -46,6 +47,14 @@ public class Flight {
 
     public String getDepartureTime() {
         return departureTime;
+    }
+
+    public int getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
     }
 }
 
