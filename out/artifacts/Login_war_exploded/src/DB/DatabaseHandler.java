@@ -15,10 +15,9 @@ public class DatabaseHandler
         //SQL query
         String sql = "select * from RegistrationForm where FirstName=? and PasswordLogin=?";
 
-        //Initiate DB driver
-        Class.forName(driver);
-        //Getting Database connection
-        Connection con = DriverManager.getConnection(url, username, password);
+        // Executes a static method "openconnection" which connects to the DB.
+        Connection con = DBconnection.openConnection();
+
         //Inserting the SQL query to the prepared statement
         PreparedStatement st = con.prepareStatement(sql);
 
@@ -33,8 +32,9 @@ public class DatabaseHandler
 
        public void addUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber) throws ClassNotFoundException, SQLException {
 
-           Class.forName(driver);
-           Connection con = DriverManager.getConnection(url, username, password);
+           // Executes a static method "openconnection" which connects to the DB.
+           Connection con = DBconnection.openConnection();
+
            String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
            //Choose the input for the database
            PreparedStatement st = con.prepareStatement(sql);
@@ -50,9 +50,11 @@ public class DatabaseHandler
        }
 
        // Adds a plane into the DB
-       public void addAirplane(String model, int economySeats, int businessSeats) throws ClassNotFoundException, SQLException {
-           Class.forName(driver);
-           Connection con = DriverManager.getConnection(url, username, password);
+       public void addAirplane(String model, int economySeats, int businessSeats) throws SQLException {
+
+        // Executes a static method "openconnection" which connects to the DB.
+           Connection con = DBconnection.openConnection();
+
            String sql = "INSERT INTO Airplane (Model, EconomySeats, BusinessSeats) VALUES (?,?,?)";
            //Choose the input for the database
            PreparedStatement st = con.prepareStatement(sql);
@@ -64,9 +66,11 @@ public class DatabaseHandler
            st.executeUpdate();
        }
 
-       public void addAirport(String name) throws ClassNotFoundException, SQLException {
-           Class.forName(driver);
-           Connection con = DriverManager.getConnection(url, username, password);
+       public void addAirport(String name) throws SQLException {
+
+           // Executes a static method "openconnection" which connects to the DB.
+           Connection con = DBconnection.openConnection();
+
            String sql = "INSERT INTO Airport (AirportName) VALUES (?)";
 
            //Choose the input for the database

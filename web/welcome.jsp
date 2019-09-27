@@ -36,19 +36,26 @@ Welcome, ${username}
        <button>To the index page!</button>
    </form>
 
-    <form action="createAirport" method="post">
+    <form action="AirportController" method="post">
          Legg til flyplass:
-        <input type="text" name="airport" placeholder="Navn">
-        <button>Create!</button>
+        <input type="text" name="airportName" placeholder="Navn">
+        <input type="hidden" name="action" value="createairport">
+        <button type="submit" name="Create"></button>
     </form>
 
-    <form action="createAirplane" method="post">
+    <form action="AirplaneController" method="post">
         Legg til et fly:
         <input type="text" name="airplaneName" placeholder="Flynavn">
         <input type="number" name="economy" placeholder="Økonomiplasser">
         <input type="number" name="business" placeholder="Businessplasser">
-        <button>Create!</button>
+        <input type="hidden" name="action" value="createplane">
+        <button type="submit" name="Create"></button>
     </form>
+
+    <div>
+        ${notification}
+    </div>
+
 
 
 </body>

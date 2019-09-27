@@ -2,55 +2,34 @@ package Controllers;
 
 import Classes.Airplane;
 import DB.AirplaneDAO;
+
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+@WebServlet("/AirplaneController")
 public class AirplaneController extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
 
-    RequestDispatcher dispatcher = null;
     AirplaneDAO airplaneDAO = null;
 
     public AirplaneController() {
         airplaneDAO = new AirplaneDAO();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action = request.getParameter("action");
+       String action =  request.getParameter("action");
+       if(action.equals("createplane"))
+           createAirplane(request, response);
+       }
 
-        if(action == null) {
-            action = "LIST";
-        }
 
-        switch(action) {
-
-            case "LIST":
-                listAirplane(request, response);
-                break;
-
-            case "EDIT":
-                getSingleAirplane(request, response);
-                break;
-
-            case "DELETE":
-                deleteAirplane(request, response);
-                break;
-
-            default:
-                listAirplane(request, response);
-                break;
-
-        }
-
-    }
 
     private void deleteAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -71,48 +50,42 @@ public class AirplaneController extends HttpServlet {
 
         request.setAttribute("airplane", theAirplane);
 
-        dispatcher = request.getRequestDispatcher("/airplane-form.jsp");
 
-        dispatcher.forward(request, response);
+
+        response.sendRedirect("../airplane-list.jsp");
+
+
     }
 
     private void listAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Airplane> theList = airplaneDAO.get();
 
-
         request.setAttribute("list", theList);
 
-        dispatcher = request.getRequestDispatcher("/airplane-form.jsp");
 
-        dispatcher.forward(request, response);
+       response.sendRedirect("../airplane-list.jsp");
+
+
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void createAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+        String model = request.getParameter("airplaneName");
+        int economy = Integer.parseInt(request.getParameter("economy"));
+        int business = Integer.parseInt(request.getParameter("business"));
 
-        String id = request.getParameter("id");
+
 
         Airplane e = new Airplane();
-        e.setModel(request.getParameter("Model"));
-        e.setEconomySeats(Integer.parseInt(request.getParameter("EconomySeats")));
-        e.setBusinessSeats(Integer.parseInt(request.getParameter("dob")));
+        e.setModel(model);
+        e.setEconomySeats(economy);
+        e.setBusinessSeats(business);
 
-        if(id.isEmpty() || id == null) {
+        airplaneDAO.save(e);
+        request.setAttribute("notification", "Airplane created");
+        response.sendRedirect("welcome.jsp");
 
-            if(airplaneDAO.save(e)) {
-                request.setAttribute("NOTIFICATION", "Airplane Saved Successfully!");
-            }
 
-        }else {
-
-            e.setAirplaneId(Integer.parseInt(id));
-            if(airplaneDAO.update(e)) {
-                request.setAttribute("NOTIFICATION", "Airplane Updated Successfully!");
-            }
-
-        }
-
-        listAirplane(request, response);
     }
 
 }

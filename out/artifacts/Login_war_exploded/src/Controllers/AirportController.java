@@ -1,18 +1,43 @@
 package Controllers;
 
 import Classes.Airport;
+import DB.AirplaneDAO;
+import DB.AirportDAO;
 
-public class AirportController {
-    private Airport model;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    public void setAirportName(){
 
-    }
+@WebServlet("/AirportController")
+public class AirportController extends HttpServlet {
 
-    public static Airport createReturnAirport(String airportname){
-        Airport airport = new Airport();
-        airport.setAirportName(airportname);
 
-        return airport;
+        AirportDAO airportDAO = null;
+
+        public AirportController() {
+            airportDAO = new AirportDAO();
+        }
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+            String action =  request.getParameter("action");
+            if(action.equals("createairport"))
+                createAirport(request, response);
+        }
+
+    protected void createAirport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String name = request.getParameter("airportName");
+
+        Airport e = new Airport();
+        e.setAirportName(name);
+
+
+        airportDAO.save(e);
+        request.setAttribute("notification", "Airport created");
+        response.sendRedirect("welcome.jsp");
     }
 }

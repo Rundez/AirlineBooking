@@ -1,6 +1,8 @@
 package Classes;
 
-public class Airport {
+import java.io.Serializable;
+
+public class Airport implements Serializable {
     String airportName;
     int id;
 

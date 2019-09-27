@@ -1,10 +1,15 @@
 package Classes;
 
-public class Airplane {
+import java.io.Serializable;
+
+public class Airplane implements Serializable {
     String model;
     int businessSeats;
     int economySeats;
     int airplaneId;
+
+
+    public Airplane(){};
 
     public void setBusinessSeats(int businessSeats) {
         this.businessSeats = businessSeats;

@@ -22,17 +22,16 @@ public class AirplaneDAO {
     public List<Airplane> get() {
 
         List<Airplane> list = null;
-        Airplane airplane = null;
 
         try {
 
-            list = new ArrayList<Airplane>();
-            String sql = "SELECT * FROM Airplane";
+            list = new ArrayList<>();
+            String sql = "SELECT * FROM java.Airplane";
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
             while(resultSet.next()) {
-                airplane = new Airplane();
+                Airplane airplane = new Airplane();
                 airplane.setAirplaneId(resultSet.getInt("AirplaneID"));
                 airplane.setModel(resultSet.getString("Model"));
                 airplane.setEconomySeats(resultSet.getInt("EconomySeats"));
@@ -50,7 +49,7 @@ public class AirplaneDAO {
         Airplane airplane = null;
         try {
             airplane = new Airplane();
-            String sql = "SELECT * FROM Airplane where AirplaneID="+id;
+            String sql = "SELECT * FROM java.Airplane where AirplaneID="+id;
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
@@ -70,12 +69,16 @@ public class AirplaneDAO {
     public boolean save(Airplane e) {
         boolean flag = false;
         try {
-            String sql = "INSERT INTO Airplane(Model, BusinessSeats, EconomySeats)VALUES"
-                    + "('"+e.getModel()+"', '"+e.getBusinessSeats()+"', '"+e.getEconomySeats()+"')";
+            String sql = "INSERT INTO Airplane (Model, BusinessSeats, EconomySeats) VALUES (?,?,?)";
+
             connection = DBconnection.openConnection();
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.executeUpdate();
-            flag = true;
+            Connection con = DBconnection.openConnection();
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, e.getModel());
+            st.setInt(2, e.getBusinessSeats());
+            st.setInt(3, e.getEconomySeats());
+            st.executeUpdate();
         }catch(SQLException ex) {
             ex.printStackTrace();
         }
@@ -86,7 +89,7 @@ public class AirplaneDAO {
     public boolean delete(int id) {
         boolean flag = false;
         try {
-            String sql = "DELETE FROM Airplane where AirplaneID="+id;
+            String sql = "DELETE FROM java.Airplane where AirplaneID="+id;
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
@@ -101,7 +104,7 @@ public class AirplaneDAO {
     public boolean update(Airplane airplane) {
         boolean flag = false;
         try {
-            String sql = "UPDATE Airplane SET Model = '"+airplane.getModel()+"', "
+            String sql = "UPDATE java.Airplane SET Model = '"+airplane.getModel()+"', "
                     + "BusinessSeats = '"+airplane.getBusinessSeats()+"', EconomySeats = '"+airplane.getEconomySeats()+"' where id="+airplane.getId();
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);

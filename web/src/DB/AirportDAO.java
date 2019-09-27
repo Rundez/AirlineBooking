@@ -67,11 +67,15 @@ public class AirportDAO {
     public boolean save(Airport e) {
         boolean flag = false;
         try {
-            String sql = "INSERT INTO Airport(AirportID, AirportName) VALUES"
-                    + "('"+e.getId()+"', '"+e.getAirportName()+"', '')";
-            connection = DBconnection.openConnection();
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.executeUpdate();
+            String airportName = e.getAirportName();
+            String sql = "INSERT INTO Airport (AirportName) VALUES (?)";
+
+            Connection con = DBconnection.openConnection();
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, airportName);
+            st.executeUpdate();
+
             flag = true;
         }catch(SQLException ex) {
             ex.printStackTrace();
