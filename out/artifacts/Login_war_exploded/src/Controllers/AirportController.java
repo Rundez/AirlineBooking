@@ -36,7 +36,7 @@ public class AirportController extends HttpServlet {
         e.setAirportName(name);
 
 
-        airportDAO.save(e);
+
         request.setAttribute("notification", "Airport created");
         response.sendRedirect("welcome.jsp");
     }

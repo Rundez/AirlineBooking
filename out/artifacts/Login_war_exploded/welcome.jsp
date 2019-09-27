@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: martinruud
-  Date: 15/09/2019
-  Time: 18:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -40,7 +33,7 @@ Welcome, ${username}
          Legg til flyplass:
         <input type="text" name="airportName" placeholder="Navn">
         <input type="hidden" name="action" value="createairport">
-        <button type="submit" name="Create"></button>
+        <button type="submit" value="Create"></button>
     </form>
 
     <form action="AirplaneController" method="post">
@@ -49,12 +42,19 @@ Welcome, ${username}
         <input type="number" name="economy" placeholder="Økonomiplasser">
         <input type="number" name="business" placeholder="Businessplasser">
         <input type="hidden" name="action" value="createplane">
-        <button type="submit" name="Create"></button>
+        <button type="submit" value="Create"></button>
     </form>
 
-    <div>
-        ${notification}
-    </div>
+
+    <form action="FlightController" method="post">
+        Legg til en flight:
+        <input type="text" name="departureTime" placeholder="YYYY-MM-DD hh:mm:ss">
+        <input type="text" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss">
+        <input type="hidden" name="action" value="createFlight">
+        <button type="submit" name="Create" value="Create"></button>
+
+    </form>
+
 
 
 

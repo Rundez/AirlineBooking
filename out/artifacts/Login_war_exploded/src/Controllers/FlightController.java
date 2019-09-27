@@ -1,32 +1,46 @@
 package Controllers;
 
 import Classes.Flight;
+import DB.AirportDAO;
+import DB.FlightDAO;
 
-public class FlightController {
-    private Flight flight = new Flight();
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    public Flight createReturnFlight(){
-        return flight;
+@WebServlet("/FlightController")
+public class FlightController extends HttpServlet {
+
+
+    FlightDAO flightDAO = null;
+
+    public FlightController() {
+         flightDAO = new FlightDAO();
+    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String action =  request.getParameter("action");
+
+
+        if(action.equals("createFlight"))
+            createAirport(request, response);
     }
 
-    public void setArrivalTime(String arrivalTime){
-        flight.setArrivalTime(arrivalTime);
-    }
+    public void createAirport(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    public void setDepartureTime(String departureTime){
-        flight.setDepartureTime(departureTime);
-    }
+        String departureTime = request.getParameter("departureTime");
+        String arrivalTime = request.getParameter("arrivalTime");
 
-    public void setAirplaneID(int airplaneID){
-        flight.setAirplaneID(airplaneID);
-    }
+        Flight e = new Flight();
+        e.setArrivalTime(arrivalTime);
+        e.setDepartureTime(departureTime);
 
-    public void setDestinationID(int destinationID){
-        flight.setDepartureID(destinationID);
-    }
+        flightDAO.save(e);
 
-    public void setArrivalID(int arrivalID){
-        flight.setArrivalID(arrivalID);
+        response.sendRedirect("welcome.jsp");
     }
 
 }
