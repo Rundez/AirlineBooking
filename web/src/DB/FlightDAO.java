@@ -33,6 +33,7 @@ public class FlightDAO {
             st.setString(2, departureTime);
             st.executeUpdate();
 
+
             flag = true;
         }catch(SQLException ex) {
             ex.printStackTrace();

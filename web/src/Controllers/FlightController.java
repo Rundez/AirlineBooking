@@ -40,6 +40,7 @@ public class FlightController extends HttpServlet {
 
         flightDAO.save(e);
 
+        request.setAttribute("notification", "Airport created");
         response.sendRedirect("welcome.jsp");
     }
 

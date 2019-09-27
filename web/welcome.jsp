@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<@ taglib %>
 <html>
 <head>
     <title>Title</title>
@@ -16,6 +17,7 @@
 
         String name =(String)session.getAttribute("username");
         session.setAttribute("username", name);
+
     %>
 
 Welcome, ${username}
@@ -56,6 +58,8 @@ Welcome, ${username}
     </form>
 
 
+
+${notification}
 
 
 </body>
