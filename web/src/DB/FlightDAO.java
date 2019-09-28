@@ -41,4 +41,10 @@ public class FlightDAO {
         return flag;
     }
 
+    public void getFlights(){
+        connection = DBconnection.openConnection();
+        
+
+    }
+
 }

@@ -25,7 +25,6 @@ public class FlightController extends HttpServlet {
 
         String action =  request.getParameter("action");
 
-
         if(action.equals("createFlight")){
             createFlight(request, response);
         } else if (action.equals("searchFlight")){
