@@ -70,8 +70,8 @@ public class AirportDAO {
             String airportName = e.getAirportName();
             String sql = "INSERT INTO Airport (AirportName) VALUES (?)";
 
-            Connection con = DBconnection.openConnection();
-            PreparedStatement st = con.prepareStatement(sql);
+            connection = DBconnection.openConnection();
+            PreparedStatement st = connection.prepareStatement(sql);
 
             st.setString(1, airportName);
             st.executeUpdate();

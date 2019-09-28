@@ -54,9 +54,7 @@ public class FlightController extends HttpServlet {
         String from = request.getParameter("from");
         String to = request.getParameter("to");
 
-        PrintWriter out = response.getWriter();
-        out.println(from);
-        out.println(to);
+
     }
 
 }
