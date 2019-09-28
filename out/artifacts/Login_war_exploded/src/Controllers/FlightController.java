@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/FlightController")
 public class FlightController extends HttpServlet {
@@ -25,11 +26,15 @@ public class FlightController extends HttpServlet {
         String action =  request.getParameter("action");
 
 
-        if(action.equals("createFlight"))
-            createAirport(request, response);
+        if(action.equals("createFlight")){
+            createFlight(request, response);
+        } else if (action.equals("searchFlight")){
+            searchFlights(request, response);
+        }
+
     }
 
-    public void createAirport(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
@@ -40,7 +45,18 @@ public class FlightController extends HttpServlet {
 
         flightDAO.save(e);
 
-        response.sendRedirect("welcome.jsp");
+        request.setAttribute("notification", "Airport created");
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
+    }
+
+    public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        String from = request.getParameter("from");
+        String to = request.getParameter("to");
+
+        PrintWriter out = response.getWriter();
+        out.println(from);
+        out.println(to);
     }
 
 }

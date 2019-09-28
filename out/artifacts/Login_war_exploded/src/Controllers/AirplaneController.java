@@ -83,7 +83,8 @@ public class AirplaneController extends HttpServlet {
 
         airplaneDAO.save(e);
         request.setAttribute("notification", "Airplane created");
-        response.sendRedirect("welcome.jsp");
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
+
 
 
     }

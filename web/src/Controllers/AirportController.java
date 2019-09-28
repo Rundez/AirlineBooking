@@ -38,6 +38,6 @@ public class AirportController extends HttpServlet {
 
 
         request.setAttribute("notification", "Airport created");
-        response.sendRedirect("welcome.jsp");
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 }
