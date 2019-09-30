@@ -1,6 +1,8 @@
 package Classes;
 
-public class Flight {
+import java.io.Serializable;
+
+public class Flight implements Serializable {
     String arrivalTime;
     String departureTime;
     int departureID;

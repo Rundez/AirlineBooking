@@ -1,7 +1,7 @@
 package Controllers;
 
 import Classes.Flight;
-import DB.AirportDAO;
+
 import DB.FlightDAO;
 
 import javax.servlet.ServletException;
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet("/FlightController")
 public class FlightController extends HttpServlet {
@@ -25,14 +27,23 @@ public class FlightController extends HttpServlet {
 
         String action =  request.getParameter("action");
 
-
         if(action.equals("createFlight")){
             createFlight(request, response);
-        } else if (action.equals("searchFlight")){
-            searchFlights(request, response);
+        }
+
+        if (action.equals("searchflight")){
+            try {
+                searchFlights(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }
+
+
+
+
 
     public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
@@ -49,11 +60,17 @@ public class FlightController extends HttpServlet {
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 
-    public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
-        String from = request.getParameter("from");
-        String to = request.getParameter("to");
+        //String from = request.getParameter("from");
+        //String to = request.getParameter("to");
 
+
+        ArrayList<Flight> list;
+        list = flightDAO.getFlights();
+
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
 
     }
 
