@@ -13,9 +13,13 @@
 <html>
 <head>
     <title>Flights</title>
-
+Alle flights: <br>
     <c:forEach items="${list}" var="item">
+        ${item.departureID}<br>
         ${item.departureTime}<br>
+        ${item.arrivalID}<br>
+        ${item.arrivalTime}<br>
+
     </c:forEach>
 
 
