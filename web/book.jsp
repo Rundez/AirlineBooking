@@ -1,9 +1,10 @@
 <%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
 <%@ page import="java.sql.*" %>
+<%@ page import="DB.DBconnection" %>
 <%ResultSet resultset =null;%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
 
@@ -71,30 +72,27 @@
 
 
     <div class="container">
-        <form>
-            <p class="w3-xxlarge">Choose your destinations</p>
-            <div class="input-fields">
-                <%
-                    try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        Connection connection =
-                                DriverManager.getConnection
-                                        ("jdbc:mysql://localhost/java?user=root&password=");
 
+            <p class="w3-xxlarge">Choose your departure and destination</p>
+
+                <%
+                    try{
+                       Connection connection = DBconnection.openConnection();
                         Statement statement = connection.createStatement() ;
 
-                        resultset =statement.executeQuery("select * from java.destination") ;
+                        resultset = statement.executeQuery("select * from java.Airport") ;
+
                 %>
 
-                <center>
 
-                    <select>
-                        <%  while(resultset.next()){ %>
-                        <option><%= resultset.getString(2)%></option>
+                <form action="FlightController" method="post">
+                    <select name="from">
+                        <% while(resultset.next()) {
+                            String from = resultset.getString(2);
+                        %>
+                        <option name="from"> <%=from%></option>
                         <% } %>
                     </select>
-
-
-                </center>
 
                 <%
                         //**Should I input the codes here?**
@@ -105,38 +103,34 @@
                     }
                 %>
 
-            </div>
 
-        </form>
 
 
     <%--Drop down "From"--%>
 
         <div class="container">
-            <form>
-                <p class="w3-xxlarge">From</p>
+
+                <p class="w3-xxlarge">To</p>
                 <div class="input-fields">
                     <%
-                        try{//Class.forName("com.mysql.jdbc.Driver").newInstance();
-                            Connection connection =
-                                    DriverManager.getConnection
-                                            ("jdbc:mysql://localhost/java?user=root&password=");
-
+                        try{
+                            Connection connection = DBconnection.openConnection();
                             Statement statement = connection.createStatement() ;
 
-                            resultset =statement.executeQuery("select * from java.destination");
+                            resultset =statement.executeQuery("select * from java.Airport");
                     %>
 
 
-
-                        <select>
-                            <%  while(resultset.next()){ %>
-                            <option><%= resultset.getString(2)%></option>
+                        <select name="to">
+                            <%  while(resultset.next()){
+                                    String to = resultset.getString(2);
+                            %>
+                            <option name="to"> <%=to%></option>
                             <% } %>
                         </select>
 
 
-
+                    </center>
 
                     <%
                             //**Should I input the codes here?**
@@ -146,17 +140,13 @@
                             out.println("wrong entry"+e);
                         }
                     %>
-
                 </div>
 
-            </form>
-
-
         <%--Search button--%>
-
-        <p></p>
-        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
-
+            <input type="hidden" name="action" value="searchflight">
+        <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
+        </form>
+    </div>
 </header>
 
 

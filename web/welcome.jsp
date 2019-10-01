@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: martinruud
-  Date: 15/09/2019
-  Time: 18:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>Title</title>
@@ -23,6 +17,7 @@
 
         String name =(String)session.getAttribute("username");
         session.setAttribute("username", name);
+
     %>
 
 Welcome, ${username}
@@ -35,6 +30,36 @@ Welcome, ${username}
    <form action="index.jsp">
        <button>To the index page!</button>
    </form>
+
+    <form action="AirportController" method="post">
+         Legg til flyplass:
+        <input type="text" name="airportName" placeholder="Navn">
+        <input type="hidden" name="action" value="createairport">
+        <button type="submit" value="Create"></button>
+    </form>
+
+    <form action="AirplaneController" method="post">
+        Legg til et fly:
+        <input type="text" name="airplaneName" placeholder="Flynavn">
+        <input type="number" name="economy" placeholder="Økonomiplasser">
+        <input type="number" name="business" placeholder="Businessplasser">
+        <input type="hidden" name="action" value="createplane">
+        <button type="submit" value="Create"></button>
+    </form>
+
+
+    <form action="FlightController" method="post">
+        Legg til en flight:
+        <input type="text" name="departureTime" placeholder="YYYY-MM-DD hh:mm:ss">
+        <input type="text" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss">
+        <input type="hidden" name="action" value="createFlight">
+        <button type="submit" name="Create" value="Create"></button>
+
+    </form>
+
+    <br>
+
+    ${notification}
 
 
 </body>
