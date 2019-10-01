@@ -129,6 +129,9 @@
                             <% } %>
                         </select>
 
+
+                    </center>
+
                     <%
                             //**Should I input the codes here?**
                         }

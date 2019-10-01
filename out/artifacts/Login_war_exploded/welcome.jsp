@@ -28,7 +28,7 @@ Welcome, ${username}
     </form>
 
    <form action="index.jsp">
-       <button>To the index!</button>
+       <button>To the index page!</button>
    </form>
 
     <form action="AirportController" method="post">

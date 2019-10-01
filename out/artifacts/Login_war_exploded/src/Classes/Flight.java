@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Flight implements Serializable {
     String arrivalTime;
     String departureTime;
+    String arrivalName;
+    String departureName;
     int departureID;
     int arrivalID;
     int airplaneID;
@@ -58,6 +60,22 @@ public class Flight implements Serializable {
     public void setFlightID(int flightID) {
         this.flightID = flightID;
     }
+
+    public void setDepartureName(String departureName){
+        this.departureName = departureName;
+    }
+    public String getDepartureName(){
+        return departureName;
+    }
+    public String getArrivalName() {
+        return arrivalName;
+    }
+
+    public void setArrivalName(String arrivalName){
+        this.arrivalName = arrivalName;
+    }
+
+
 }
 
 
