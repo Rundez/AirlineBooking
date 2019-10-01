@@ -64,8 +64,10 @@ public class FlightController extends HttpServlet {
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
 
+
+
         ArrayList<Flight> list;
-        ArrayList<Flight> flightsFound = new ArrayList<>();
+      //  ArrayList<Flight> flightsFound = new ArrayList<>();
         list = flightDAO.getChosenFlights();
 
         Iterator<Flight> it = list.iterator();
@@ -73,16 +75,12 @@ public class FlightController extends HttpServlet {
 
         while (it.hasNext()) {
             object = it.next();
-            if (object.getArrivalName() == arrival && object.getDepartureName() == departure) {
-                flightsFound.add(object);
-
-            } else{
+            if (object.getArrivalName() != arrival) {
                 it.remove();
             }
-
         }
 
-            request.setAttribute("list", flightsFound);
+            request.setAttribute("list", it);
             request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
 
         }
