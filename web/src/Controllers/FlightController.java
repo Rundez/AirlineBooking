@@ -71,16 +71,15 @@ public class FlightController extends HttpServlet {
         list = flightDAO.getChosenFlights();
 
         Iterator<Flight> it = list.iterator();
-        Flight object;
+
 
         while (it.hasNext()) {
-            object = it.next();
-            if (object.getArrivalName() != arrival) {
+            if (!it.next().getArrivalName().equals(arrival) || !it.next().getDepartureName().equals(departure) ){
                 it.remove();
             }
         }
 
-            request.setAttribute("list", it);
+            request.setAttribute("list", list);
             request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
 
         }
