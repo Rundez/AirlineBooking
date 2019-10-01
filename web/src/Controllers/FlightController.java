@@ -60,25 +60,26 @@ public class FlightController extends HttpServlet {
     }
 
     public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-
+        //Fetches the airports where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
 
 
-
+        // Generates a list for the information and creation of Flight objects which holds the information
+        // about flights.
         ArrayList<Flight> list;
-      //  ArrayList<Flight> flightsFound = new ArrayList<>();
         list = flightDAO.getChosenFlights();
 
         Iterator<Flight> it = list.iterator();
 
-
+        // Filtrates the ArrayList of flight objects. If the current flight object does not contain
+        // the selected airports, the object will be deleted from the list.
         while (it.hasNext()) {
             if (!it.next().getArrivalName().equals(arrival) || !it.next().getDepartureName().equals(departure) ){
                 it.remove();
             }
         }
-
+            // Sends the filtered ArrayList of flights to the next page. 
             request.setAttribute("list", list);
             request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
 
