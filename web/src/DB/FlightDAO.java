@@ -67,6 +67,34 @@ public class FlightDAO {
         return list;
     }
 
+    public ArrayList<Flight> getChosenFlights(String airport) throws SQLException {
+        Flight flight = null;
+        airport = airport;
+
+        ArrayList<Flight> list = new ArrayList<>();
+
+        String sql =  "select * from java.Flight";
+
+        connection = DBconnection.openConnection();
+        statement = connection.createStatement();
+
+        resultSet = statement.executeQuery(sql);
+
+        while(resultSet.next()) {
+            flight = new Flight();
+            flight.setDepartureTime(resultSet.getString("DepartureTime"));
+            flight.setArrivalTime(resultSet.getString("ArrivalTime"));
+            flight.setArrivalID(resultSet.getInt("ArrivalID"));
+            flight.setDepartureID(resultSet.getInt("DepartureID"));
+            flight.setAirplaneID(resultSet.getInt("AirplaneID"));
+            flight.setFlightID(resultSet.getInt("FlightID"));
+            flight.setArrivalName(resultSet.getString(airport));
+            list.add(flight);
+        }
+        statement.close();
+        return list;
+    }
+
     }
 
 
