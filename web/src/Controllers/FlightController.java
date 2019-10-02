@@ -79,7 +79,7 @@ public class FlightController extends HttpServlet {
                 it.remove();
             }
         }
-            // Sends the filtered ArrayList of flights to the next page. 
+            // Sends the filtered ArrayList of flights to the next page.
             request.setAttribute("list", list);
             request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
 

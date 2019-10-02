@@ -13,12 +13,18 @@
 <html>
 <head>
     <title>Flights</title>
+
 Alle flights: <br><br>
+
+
+
     <c:forEach items="${list}" var="item">
+
         Avgang: ${item.departureName} Ankomst: ${item.arrivalName}<br>
         Dato fra: ${item.departureTime} Dato til:${item.arrivalTime}<br>
         Fly: ${item.airplaneName}<br>
         <br><br><br>
+
     </c:forEach>
 
 
