@@ -9,6 +9,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="username" value="${username}" scope="session"/>
+
 
 <head>
     <title>Flights</title>
@@ -21,9 +23,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
         .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-
+        h4{font-size: 30px; padding-left: 20px}
 
         /*Bakgrunn på toppen*/
         .w3-red, .w3-hover-red:hover {
@@ -33,11 +35,29 @@
 
         }
 
-
         .w3-black, .w3-hover-black:hover {
             color: #034a06!important;
             background-color: #fff!important;
         }
+        .grid-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid black;
+            text-align: center;
+            font-size: 20px;
+            width: 50%;
+
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto;
+            grid-gap: 10px;
+            background-color:;
+            padding: 10px;
+
+            align-items: center;
+
+        }
+
     </style>
 <body>
 
@@ -52,19 +72,26 @@
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
+        <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
+        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
+
     </div>
 
-    Alle flights: <br><br>
+<h4>
+    Available flights
+</h4>
 
     <c:forEach items="${list}" var="item">
-
-        Avgang: ${item.departureName} Ankomst: ${item.arrivalName}<br>
-        Dato fra: ${item.departureTime} Dato til:${item.arrivalTime}<br>
-        Fly: ${item.airplaneName}<br>
-        <br><br><br>
-
+    <form action="bookFlight.jsp">
+        <div class="grid-container">
+            <div>From: ${item.departureName} <br> Date and time: ${item.departureTime} <br> Airplane: ${item.airplaneName} <br><br>
+                 To: ${item.arrivalName} <br> Date and time: ${item.arrivalTime} <br> Airplane: ${item.airplaneName} <br> <br>
+                <button name="select" type="submit">Select flight</button>
+                    <c:set var="par" scope="request" value="${item.departureName}"/>
+            </div>
+        </div>
+    </form>
     </c:forEach>
-
 
 </div>
 
