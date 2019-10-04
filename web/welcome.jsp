@@ -60,6 +60,7 @@ Welcome, ${username}
     <br>
 
     ${notification}
+    <c:out value="notification"/>
 
 
 </body>

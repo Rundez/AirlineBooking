@@ -7,6 +7,7 @@ public class Flight implements Serializable {
     String departureTime;
     String arrivalName;
     String departureName;
+    String airplaneName;
     int departureID;
     int arrivalID;
     int airplaneID;
@@ -75,7 +76,13 @@ public class Flight implements Serializable {
         this.arrivalName = arrivalName;
     }
 
+    public String getAirplaneName() {
+        return airplaneName;
+    }
 
+    public void setAirplaneName(String airplaneName) {
+        this.airplaneName = airplaneName;
+    }
 }
 
 

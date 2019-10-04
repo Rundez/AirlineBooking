@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-=======
-
-  Created by IntelliJ IDEA.
-  User: martinruud
-  Date: 19/09/2019
-  Time: 09:38
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+//Sets the session
+<c:set var="username" value="${username}" scope="session">
 
 <html lang="en">
 <title>Viking Airways</title>
@@ -50,6 +41,7 @@
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Welcome ${username}</a>
+        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
 
     </div>
 

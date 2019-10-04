@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 @WebServlet("/FlightController")
 public class FlightController extends HttpServlet {
@@ -21,17 +22,18 @@ public class FlightController extends HttpServlet {
     FlightDAO flightDAO = null;
 
     public FlightController() {
-         flightDAO = new FlightDAO();
+        flightDAO = new FlightDAO();
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action =  request.getParameter("action");
+        String action = request.getParameter("action");
 
-        if(action.equals("createFlight")){
+        if (action.equals("createFlight")) {
             createFlight(request, response);
         }
 
-        if (action.equals("searchflight")){
+        if (action.equals("searchflight")) {
             try {
                 searchFlights(request, response);
             } catch (SQLException e) {
@@ -40,9 +42,6 @@ public class FlightController extends HttpServlet {
         }
 
     }
-
-
-
 
 
     public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -56,22 +55,36 @@ public class FlightController extends HttpServlet {
 
         flightDAO.save(e);
 
-        request.setAttribute("notification", "Airport created");
+        request.setAttribute("notification", "Flight created");
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 
     public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        //Fetches the airports where the user wants to travel from and to.
+        String departure = request.getParameter("from");
+        String arrival = request.getParameter("to");
 
-        //String from = request.getParameter("from");
-        //String to = request.getParameter("to");
 
-
+        // Generates a list for the information and creation of Flight objects which holds the information
+        // about flights.
         ArrayList<Flight> list;
-        list = flightDAO.getFlights();
+        list = flightDAO.getChosenFlights();
 
-        request.setAttribute("list", list);
-        request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
+        Iterator<Flight> it = list.iterator();
+
+        // Filtrates the ArrayList of flight objects. If the current flight object does not contain
+        // the selected airports, the object will be deleted from the list.
+        while (it.hasNext()) {
+            if (!it.next().getArrivalName().equals(arrival) || !it.next().getDepartureName().equals(departure) ){
+                it.remove();
+            }
+        }
+            // Sends the filtered ArrayList of flights to the next page.
+            request.setAttribute("list", list);
+            request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
+
+        }
 
     }
 
-}
+

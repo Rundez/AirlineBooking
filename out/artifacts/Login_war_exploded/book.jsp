@@ -5,6 +5,7 @@
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 
@@ -38,6 +39,12 @@
 </style>
 <body>
 
+//Sets the session
+<c:set var="username" value="${username}" scope="session"/>
+<%
+    String username = request.getParameter("username");
+    request.setAttribute("user", username);
+%>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -49,6 +56,9 @@
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
+        <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
+        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
+
     </div>
 
     <!-- Navbar on small screens -->
@@ -61,8 +71,6 @@
         <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
 </div>
-
-
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
@@ -106,7 +114,7 @@
 
 
 
-    <%--Drop down "From"--%>
+<%--Drop down "From"--%>
 
         <div class="container">
 
