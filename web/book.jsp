@@ -41,7 +41,10 @@
 
 //Sets the session
 <c:set var="username" value="${username}" scope="session"/>
-
+<%
+    String username = request.getParameter("username");
+    request.setAttribute("user", username);
+%>
 
 <!-- Navbar -->
 <div class="w3-top">

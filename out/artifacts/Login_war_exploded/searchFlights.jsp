@@ -87,7 +87,6 @@
             <div>From: ${item.departureName} <br> Date and time: ${item.departureTime} <br> Airplane: ${item.airplaneName} <br><br>
                  To: ${item.arrivalName} <br> Date and time: ${item.arrivalTime} <br> Airplane: ${item.airplaneName} <br> <br>
                 <button name="select" type="submit">Select flight</button>
-                    <c:set var="par" scope="request" value="${item.departureName}"/>
             </div>
         </div>
     </form>
