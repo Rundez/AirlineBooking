@@ -92,6 +92,39 @@
     </form>
     </c:forEach>
 
+
+    <body>
+    <h2>Cities</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Takeoff</th>
+            <th>Landing</th>
+            <th>Airplane</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach items="${list}" var="item">
+            <tr>
+                <td>${item.departureName}</td>
+                <td>${item.arrivalName}</td>
+                <td>${item.departureTime}</td>
+                <td>${item.arrivalTime}</td>
+                <td>${item.airplaneName}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    </body>
+    </html>
+
+
+
+
 </div>
 
 <script>
