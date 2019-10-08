@@ -26,6 +26,9 @@
         color: #034a06!important;
         background-color: #fff!important;
     }
+    th, td {
+    padding: 15px;
+    }
 </style>
 <body>
 

@@ -51,11 +51,16 @@
             display: grid;
             grid-template-columns: auto;
             grid-gap: 10px;
-            background-color:;
             padding: 10px;
 
             align-items: center;
-
+        }
+        th, td {
+            padding: 15px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
         }
 
     </style>
@@ -77,11 +82,9 @@
 
     </div>
 
-<h4>
-    Available flights
-</h4>
 
-    <c:forEach items="${list}" var="item">
+
+<% /*
     <form action="bookFlight.jsp">
         <div class="grid-container">
             <div>From: ${item.departureName} <br> Date and time: ${item.departureTime} <br> Airplane: ${item.airplaneName} <br><br>
@@ -90,11 +93,12 @@
             </div>
         </div>
     </form>
-    </c:forEach>
+    */
+%>
 
 
     <body>
-    <h2>Cities</h2>
+    <h2>Available flights from ${from} to ${to}</h2>
 
     <table>
         <thead>
@@ -104,18 +108,24 @@
             <th>Takeoff</th>
             <th>Landing</th>
             <th>Airplane</th>
+
         </tr>
         </thead>
 
         <tbody>
         <c:forEach items="${list}" var="item">
+            <form action="bookFlight.jsp" method="post">
             <tr>
                 <td>${item.departureName}</td>
                 <td>${item.arrivalName}</td>
                 <td>${item.departureTime}</td>
                 <td>${item.arrivalTime}</td>
                 <td>${item.airplaneName}</td>
+
+                <c:set var="flight" value="${item.arrivalName}, ${item.departureName}" scope="session"/>
+                <td><form><input type="submit" value="Choose"/></form></td>
             </tr>
+            </form>
         </c:forEach>
         </tbody>
     </table>

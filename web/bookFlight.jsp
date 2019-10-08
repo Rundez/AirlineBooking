@@ -15,7 +15,6 @@
 </head>
 <body>
 
-
-
+${flight}
 </body>
 </html>
