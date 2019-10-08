@@ -75,7 +75,8 @@ public class FlightController extends HttpServlet {
         // Filtrates the ArrayList of flight objects. If the current flight object does not contain
         // the selected airports, the object will be deleted from the list.
         while (it.hasNext()) {
-            if (!it.next().getArrivalName().equals(arrival) || !it.next().getDepartureName().equals(departure) ){
+            Flight y = it.next();
+            if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure) ){
                 it.remove();
             }
         }
