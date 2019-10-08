@@ -121,8 +121,11 @@
                 <td>${item.departureTime}</td>
                 <td>${item.arrivalTime}</td>
                 <td>${item.airplaneName}</td>
+                <td><form><input type="submit" value="Choose"/></form></td>
 
-                <c:set var="flight" value="${item.arrivalName}, ${item.departureName}" scope="session"/>
+
+                <c:set var="flight" value="${item.airplaneName}" scope="session"/>
+
                 <td><form><input type="submit" value="Choose"/></form></td>
             </tr>
             </form>

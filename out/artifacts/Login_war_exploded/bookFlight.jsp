@@ -16,5 +16,6 @@
 <body>
 
 ${flight}
+${username}
 </body>
 </html>
