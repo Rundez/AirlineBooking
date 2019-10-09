@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Classes.Flight" %><%--
   Created by IntelliJ IDEA.
   User: martinruud
   Date: 03/10/2019
@@ -15,7 +15,8 @@
 </head>
 <body>
 
-${flight}
+
 ${username}
+${flight}
 </body>
 </html>

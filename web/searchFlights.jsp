@@ -112,6 +112,9 @@
         </tr>
         </thead>
 
+
+
+
         <tbody>
         <c:forEach items="${list}" var="item">
             <form action="bookFlight.jsp" method="post">
@@ -121,12 +124,9 @@
                 <td>${item.departureTime}</td>
                 <td>${item.arrivalTime}</td>
                 <td>${item.airplaneName}</td>
-                <td><form><input type="submit" value="Choose"/></form></td>
+                <input type="hidden" name="flight" value="item.departureName">
+                <td><form><input type="submit"  value="Chose}"/></form></td>
 
-
-                <c:set var="flight" value="${item.airplaneName}" scope="session"/>
-
-                <td><form><input type="submit" value="Choose"/></form></td>
             </tr>
             </form>
         </c:forEach>
