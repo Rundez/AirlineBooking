@@ -15,8 +15,7 @@
 </head>
 <body>
 
+${item.departureName}
 
-${username}
-${flight}
 </body>
 </html>

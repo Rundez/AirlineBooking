@@ -26,7 +26,7 @@
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
         .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
         h4{font-size: 30px; padding-left: 20px}
-
+        h2{padding-left: 20px}
         /*Bakgrunn på toppen*/
         .w3-red, .w3-hover-red:hover {
             color: #fff!important;
@@ -100,6 +100,7 @@
     <body>
     <h2>Available flights from ${from} to ${to}</h2>
 
+
     <table>
         <thead>
         <tr>
@@ -112,9 +113,6 @@
         </tr>
         </thead>
 
-
-
-
         <tbody>
         <c:forEach items="${list}" var="item">
             <form action="bookFlight.jsp" method="post">
@@ -124,8 +122,15 @@
                 <td>${item.departureTime}</td>
                 <td>${item.arrivalTime}</td>
                 <td>${item.airplaneName}</td>
-                <input type="hidden" name="flight" value="item.departureName">
-                <td><form><input type="submit"  value="Chose}"/></form></td>
+
+                <input type="hidden" name="departureName" value="${item.departureName}">
+                <input type="hidden" name="arrivalName" value="${item.arrivalName}">
+                <input type="hidden" name="departureTime" value="${item.departureTime}">
+                <input type="hidden" name="arrivalTime" value="${item.arrivalTime}">
+                <input type="hidden" name="airplaneName" value="${item.airplaneName}">
+                <input type="hidden" name="flightID" value="${item.flightID}">
+
+                <td><form><input type="submit" name="knapp"  value="Choose"/></form></td>
 
             </tr>
             </form>
