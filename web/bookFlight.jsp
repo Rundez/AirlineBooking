@@ -41,34 +41,37 @@
 </head>
 <body>
 
+<div class="welcome">
+   <h4>Din bestilling: </h4>
+</div>
 
 <div class="wrapper">
     <div class="qr_code">
-        <img src="QR_Code.png" alt="QR_code">
+        <img src="./images/mountains-hero.jpg" alt="QR_code">
     </div>
     <div class="content">
         <div class="location">
             <div class="item">
                 <h1><% out.print(departureName);%> </h1>
-                <p>2:00AM JULY. 10 2019</p>
+                <p><% out.print(departureTime); %></p>
             </div>
             <div class="path">
                 <i class="fas fa-plane"></i>
             </div>
             <div class="item">
                 <h1><%out.print(arrivalName); %></h1>
-                <p>12:00PM JULY. 11 2019</p>
+                <p><% out.print(arrivalTime); %></p>
             </div>
         </div>
 
         <div class="info">
             <div class="item">
                 <h4>passenger</h4>
-                <p>Mark Wood</p>
+                <p>${username}</p>
             </div>
             <div class="item">
                 <h4>flight</h4>
-                <p>GF - 545</p>
+                <p><% out.print("FG - " + flightID); %></p>
             </div>
             <div class="item">
                 <h4>gate</h4>
@@ -79,12 +82,18 @@
                 <p>18W</p>
             </div>
             <div class="item">
-                <h4>terminal</h4>
-                <p>P4</p>
+                <h4>airplane</h4>
+                <p><% out.print(airplaneName); %> </p>
             </div>
         </div>
     </div>
 </div>
+
+
+<form action="/src/Controllers/BookingController.java" method="post">
+
+    <input type="submit" value="Bekreft bestilling!">
+</form>
 
 
 </body>
