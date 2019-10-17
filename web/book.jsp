@@ -1,6 +1,7 @@
 <%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="DB.DBconnection" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%ResultSet resultset =null;%>
 
 
@@ -150,7 +151,42 @@
                     %>
                 </div>
 
-        <%--Search button--%>
+            <!--Bruker kan velge avgangstid-->
+            <div class="container">
+
+                <p class="w3-xxlarge">Avgangstid</p>
+                <div class="input-fields">
+                    <%
+                        try{
+                            Connection connection = DBconnection.openConnection();
+                            Statement statement = connection.createStatement() ;
+
+                            resultset =statement.executeQuery("select * from java.flight");
+                    %>
+
+
+                    <select name="departureTime">
+                        <%  while(resultset.next()){
+                            String departureTime = resultset.getString(5);
+                        %>
+                        <option name="departureTime"> <%=departureTime%></option>
+                        <% } %>
+                    </select>
+
+
+                    </center>
+
+                    <%
+                            //**Should I input the codes here?**
+                        }
+                        catch(Exception e)
+                        {
+                            out.println("wrong entry"+e);
+                        }
+                    %>
+                </div>
+
+            <%--Search button--%>
             <input type="hidden" name="action" value="searchflight">
         <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
         </form>

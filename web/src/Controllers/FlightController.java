@@ -60,9 +60,10 @@ public class FlightController extends HttpServlet {
     }
 
     public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        //Fetches the airports where the user wants to travel from and to.
+        //Fetches the airports and the departure time where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
+        String departureTime = request.getParameter("departureTime");
 
 
         // Generates a list for the information and creation of Flight objects which holds the information

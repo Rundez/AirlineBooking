@@ -89,7 +89,8 @@
     </div>
 </div>
 
-<form action="/src/Controllers/BookingController.java">
+
+<form action="/src/Controllers/BookingController.java" method="post">
 
     <input type="submit" value="Bekreft bestilling!">
 </form>
