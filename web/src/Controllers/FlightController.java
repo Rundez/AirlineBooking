@@ -46,6 +46,7 @@ public class FlightController extends HttpServlet {
 
     public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
 
@@ -57,6 +58,8 @@ public class FlightController extends HttpServlet {
 
         request.setAttribute("notification", "Flight created");
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
+
+
     }
 
     public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {

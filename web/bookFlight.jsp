@@ -23,6 +23,7 @@
     String arrivalTime = request.getParameter("arrivalTime");
     String airplaneName = request.getParameter("airplaneName");
     String flightID = request.getParameter("flightID");
+    String user = request.getParameter("username");
 
 
     out.print(departureName + "<br>");
@@ -34,16 +35,17 @@
 %>
 
 
+
     <meta charset="UTF-8">
     <title>CSS Boarding Pass</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./Style/booking.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
 </head>
 <body>
 
-<div class="welcome">
-   <h4>Din bestilling: </h4>
-</div>
+
 
 <div class="wrapper">
     <div class="qr_code">
@@ -89,10 +91,18 @@
     </div>
 </div>
 
+<%--
+Form which takes the user from confirmation page to Controller servlet to add database values to
+a reservation. 
+ --%>
+<form action="BookingController" method="post">
 
-<form action="/src/Controllers/BookingController.java" method="post">
+    <input type="submit" class="btn btn-primary btn-lg" value="Bekreft bestilling!">
+    <input type="hidden" name="depName" value="<%out.print(departureName);%>">
+    <input type="hidden" name="flightID" value="<%out.print(flightID);%>">
+    <input type="hidden" name="userName" value="${username}">
 
-    <input type="submit" value="Bekreft bestilling!">
+    <input type="hidden" value="book" name="action">
 </form>
 
 
