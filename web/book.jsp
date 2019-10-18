@@ -2,6 +2,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="DB.DBconnection" %>
 <%@ page import="java.time.LocalDateTime" %>
+
 <%ResultSet resultset =null;%>
 
 
@@ -115,6 +116,7 @@
 
 
 
+
 <%--Drop down "From"--%>
 
         <div class="container">
@@ -184,7 +186,29 @@
                             out.println("wrong entry"+e);
                         }
                     %>
+
                 </div>
+
+                <!-- datepicker -->
+                <div>
+
+                    <input type="text" name="datetimes" />
+                </div>
+
+                <script>
+                    $(function() {
+                        $('input[name="datetimes"]').daterangepicker({
+                            timePicker: true,
+                            startDate: moment().startOf('hour'),
+                            endDate: moment().startOf('hour').add(32, 'hour'),
+                            locale: {
+                                format: 'M/DD hh:mm A'
+                            }
+                        });
+                    });
+                </script>
+
+
 
             <%--Search button--%>
             <input type="hidden" name="action" value="searchflight">
@@ -257,6 +281,9 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
+
+
+
 </script>
 
 </body>
