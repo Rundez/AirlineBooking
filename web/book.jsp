@@ -20,6 +20,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src=https://code.jquery.com/jquery-1.12.4.js></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -190,22 +194,12 @@
                 </div>
 
                 <!-- datepicker -->
-                <div>
-
-                    <input type="text" name="datetimes" />
-                </div>
+                <p>Date: <input type="text" id="datepicker"></p>
 
                 <script>
-                    $(function() {
-                        $('input[name="datetimes"]').daterangepicker({
-                            timePicker: true,
-                            startDate: moment().startOf('hour'),
-                            endDate: moment().startOf('hour').add(32, 'hour'),
-                            locale: {
-                                format: 'M/DD hh:mm A'
-                            }
-                        });
-                    });
+                $(function() {
+                $("#datepicker").datepicker();
+                });
                 </script>
 
 
