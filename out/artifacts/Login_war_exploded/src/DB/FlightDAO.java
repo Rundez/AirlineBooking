@@ -80,7 +80,8 @@ public class FlightDAO {
                 "            JOIN    airport ar\n" +
                 "                    ON      ar.AirportID = f.ArrivalID\n" +
                 "            JOIN    airplane a\n" +
-                "                    ON f.AirplaneID = a.AirplaneID";
+                "                    ON f.AirplaneID = a.AirplaneID" +
+                " order by DepartureTime";
 
         connection = DBconnection.openConnection();
         statement = connection.createStatement();
