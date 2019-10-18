@@ -4,25 +4,24 @@ import Classes.Booking;
 
 import java.sql.*;
 
+import static DB.DBconnection.*;
+
 public class BookingDAO {
-    Connection connection = null;
-    ResultSet resultSet = null;
-    PreparedStatement statement = null;
 
 
     public boolean save(Booking e) {
         boolean flag = false;
         try {
-            int flightID = (e.getfID());
-            int customerID = (e.getcID());
+          //  int flightID = (e.getfID());
+          //  int customerID = (e.getcID());
 
-            String sql = "INSERT INTO java.Booking (fID, cID) VALUES (?),(?)";
+            String sql = "INSERT INTO Booking (fID, cID) VALUES (?),(?)";
 
-            Connection con = DBconnection.openConnection();
+            Connection con = openConnection();
             PreparedStatement st = con.prepareStatement(sql);
 
-            st.setInt(1, flightID);
-            st.setInt(2, customerID);
+            st.setInt(1, e.getfID());
+            st.setInt(2, e.getcID());
             st.executeUpdate();
 
             flag = true;

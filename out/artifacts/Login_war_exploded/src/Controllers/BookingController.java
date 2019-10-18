@@ -42,9 +42,8 @@ public class BookingController extends HttpServlet {
     }
 
 
-    public void book(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    private void book(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
-        PrintWriter out = response.getWriter();
 
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
@@ -57,12 +56,12 @@ public class BookingController extends HttpServlet {
         BookingDAO bookingDAO = new BookingDAO();
 
         // Creating a new booking object to be put into the database
-        Booking e = new Booking();
-        e.setfID(flight);
-        e.setcID(userID);
+        Booking b = new Booking();
+        b.setfID(flight);
+        b.setcID(userID);
 
         // Save the booking object into the database
-        bookingDAO.save(e);
+        bookingDAO.save(b);
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
