@@ -93,7 +93,7 @@
 
 <%--
 Form which takes the user from confirmation page to Controller servlet to add database values to
-a reservation. 
+a reservation.
  --%>
 <form action="BookingController" method="post">
 

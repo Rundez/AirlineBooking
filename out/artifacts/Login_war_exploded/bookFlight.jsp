@@ -91,7 +91,10 @@
     </div>
 </div>
 
-
+<%--
+Form which takes the user from confirmation page to Controller servlet to add database values to
+a reservation.
+ --%>
 <form action="BookingController" method="post">
 
     <input type="submit" class="btn btn-primary btn-lg" value="Bekreft bestilling!">
