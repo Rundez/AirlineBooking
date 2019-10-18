@@ -158,49 +158,29 @@
                 </div>
 
             <!--Bruker kan velge avgangstid-->
+
             <div class="container">
 
-                <p class="w3-xxlarge">Avgangstid</p>
+                <p class="w3-xlarge">When</p>
                 <div class="input-fields">
-                    <%
-                        try{
-                            Connection connection = DBconnection.openConnection();
-                            Statement statement = connection.createStatement() ;
-
-                            resultset =statement.executeQuery("select * from java.flight");
-                    %>
-
-
-                    <select name="departureTime">
-                        <%  while(resultset.next()){
-                            String departureTime = resultset.getString(5);
-                        %>
-                        <option name="departureTime"> <%=departureTime%></option>
-                        <% } %>
-                    </select>
-
-
-                    </center>
-
-                    <%
-                            //**Should I input the codes here?**
-                        }
-                        catch(Exception e)
-                        {
-                            out.println("wrong entry"+e);
-                        }
-                    %>
-
-                </div>
 
                 <!-- datepicker -->
-                <p>Date: <input type="text" id="datepicker"></p>
+
+                <input type="text" id="datepicker">
 
                 <script>
                 $(function() {
                 $("#datepicker").datepicker();
                 });
+                $.datepicker.setDefaults({
+                    dateFormat: "yy-mm-dd",
+                    autoSize: true
+                });
                 </script>
+
+                </div>
+
+                </div>
 
 
 

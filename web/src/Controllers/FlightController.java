@@ -63,7 +63,7 @@ public class FlightController extends HttpServlet {
         //Fetches the airports and the departure time where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
-        String departureTime = request.getParameter("departureTime");
+        //String departureTime = request.getParameter("datepicker");
 
 
         // Generates a list for the information and creation of Flight objects which holds the information
