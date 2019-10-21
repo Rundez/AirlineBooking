@@ -17,6 +17,10 @@
 
 
 <%
+    if (session.getAttribute("username") == null) {
+        response.sendRedirect("login.jsp");
+    }
+
     String departureName = request.getParameter("departureName");
     String arrivalName = request.getParameter("arrivalName");
     String departureTime = request.getParameter("departureTime");
@@ -44,8 +48,6 @@
 
 </head>
 <body>
-
-
 
 <div class="wrapper">
     <div class="qr_code">
