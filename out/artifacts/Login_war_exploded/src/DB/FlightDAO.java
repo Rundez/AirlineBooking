@@ -142,7 +142,6 @@ public class FlightDAO {
         statement.close();
         return list;
 
-
     }
 }
 

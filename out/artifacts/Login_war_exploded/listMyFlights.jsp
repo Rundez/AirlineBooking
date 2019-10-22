@@ -14,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <c:forEach items="${list}" var="item">
     ${item.departureName}
 </c:forEach>

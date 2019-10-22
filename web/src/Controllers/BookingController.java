@@ -1,6 +1,7 @@
 package Controllers;
 
 import Classes.Booking;
+import Classes.Customer;
 import Classes.Flight;
 import DB.BookingDAO;
 import DB.CustomerDAO;
@@ -74,17 +75,20 @@ public class BookingController extends HttpServlet {
     }
 
     private void showMyFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        System.out.println("My flights");
 
         FlightDAO flightDAO = new FlightDAO();
         CustomerDAO customerDAO = new CustomerDAO();
-        ArrayList list = new ArrayList();
+        ArrayList<Flight> list = new ArrayList();
+        ArrayList<Customer> customerList = new ArrayList<>();
 
         // Gets the session stored username and then fetches the userID for the username in the DB.
         String user = request.getParameter("username");
-        int userID = customerDAO.getcustomerID(user);
+        int customerID = customerDAO.getcustomerID(user);
 
         // Gets the list of Flights which is booked to the userID for the logged in user.
-        list = flightDAO.myFlights(userID);
+        list = flightDAO.myFlights(customerID);
+
 
         request.setAttribute("list", list);
         request.getRequestDispatcher("listMyFlights.jsp").forward(request, response);
