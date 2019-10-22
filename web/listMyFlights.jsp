@@ -16,7 +16,8 @@
 <body>
 
 <c:forEach items="${list}" var="item">
-    ${item.departureName}
+    ${item}
+
 </c:forEach>
 
 </body>

@@ -8,11 +8,13 @@ import DB.CustomerDAO;
 import DB.FlightDAO;
 
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.print.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,10 +25,6 @@ import java.util.Iterator;
 @WebServlet("/BookingController")
 public class BookingController extends HttpServlet {
 
-
-    public BookingController() {
-
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Getting the parameter "action" to check for which method to call.
@@ -75,7 +73,6 @@ public class BookingController extends HttpServlet {
     }
 
     private void showMyFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        System.out.println("My flights");
 
         FlightDAO flightDAO = new FlightDAO();
         CustomerDAO customerDAO = new CustomerDAO();
@@ -83,7 +80,8 @@ public class BookingController extends HttpServlet {
         ArrayList<Customer> customerList = new ArrayList<>();
 
         // Gets the session stored username and then fetches the userID for the username in the DB.
-        String user = request.getParameter("username");
+        HttpSession ses = request.getSession();
+        String user = (String) ses.getAttribute("username");
         int customerID = customerDAO.getcustomerID(user);
 
         // Gets the list of Flights which is booked to the userID for the logged in user.
