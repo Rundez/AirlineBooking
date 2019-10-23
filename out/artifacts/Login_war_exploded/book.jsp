@@ -166,21 +166,19 @@
 
                 <!-- datepicker -->
 
-                <input type="text" id="datepicker">
-
-                <script>
-                $(function() {
-                $("#datepicker").datepicker();
-                });
-                $.datepicker.setDefaults({
-                    dateFormat: "yy-mm-dd",
-                    autoSize: true
-                });
-                </script>
-
-                </div>
+                <input type="text" id="datepicker" name="datepicker">
+                    <script>
+                    $(function() {
+                    $("#datepicker").datepicker();
+                    });
+                    $.datepicker.setDefaults({
+                        dateFormat: "yy-mm-dd",
+                        autoSize: true
+                    });
+                    </script>
 
                 </div>
+            </div>
 
 
 

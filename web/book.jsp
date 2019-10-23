@@ -166,7 +166,7 @@
 
                 <!-- datepicker -->
 
-                <input type="text" id="datepicker">
+                <input type="text" id="datepicker" name="datepicker">
                     <script>
                     $(function() {
                     $("#datepicker").datepicker();
@@ -176,6 +176,7 @@
                         autoSize: true
                     });
                     </script>
+
                 </div>
             </div>
 
