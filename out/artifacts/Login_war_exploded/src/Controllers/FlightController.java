@@ -3,6 +3,7 @@ package Controllers;
 import Classes.Flight;
 
 import DB.FlightDAO;
+import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,9 +64,13 @@ public class FlightController extends HttpServlet {
     }
 
     public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        //Fetches the airports where the user wants to travel from and to.
+        //Fetches the airports and the departure time where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
+        String departureTimeInput = request.getParameter("datepicker");
+
+
+
 
 
         // Generates a list for the information and creation of Flight objects which holds the information
@@ -73,13 +78,20 @@ public class FlightController extends HttpServlet {
         ArrayList<Flight> list;
         list = flightDAO.getChosenFlights();
 
+
         Iterator<Flight> it = list.iterator();
 
         // Filtrates the ArrayList of flight objects. If the current flight object does not contain
-        // the selected airports, the object will be deleted from the list.
+        // the selected airports and departure time, the object will be deleted from the list.
         while (it.hasNext()) {
+            //iterator henter en og en fligth
             Flight y = it.next();
-            if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure) ){
+            // Lager en ny departure time variablel med kun år, måned og dag, som kan sammenliknes med input
+            String s = y.getDepartureTime();
+            String DepartureTimeShort = s.substring(0, s.length() - 11);
+
+            if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure)
+                    || !DepartureTimeShort.equals(departureTimeInput)){
                 it.remove();
             }
         }

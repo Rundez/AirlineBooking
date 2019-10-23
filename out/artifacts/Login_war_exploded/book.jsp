@@ -1,6 +1,8 @@
 <%@ page import="java.sql.*, javax.servlet.jsp.jstl.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="DB.DBconnection" %>
+<%@ page import="java.time.LocalDateTime" %>
+
 <%ResultSet resultset =null;%>
 
 
@@ -18,6 +20,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src=https://code.jquery.com/jquery-1.12.4.js></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -114,6 +120,7 @@
 
 
 
+
 <%--Drop down "From"--%>
 
         <div class="container">
@@ -150,7 +157,32 @@
                     %>
                 </div>
 
-        <%--Search button--%>
+            <!--Bruker kan velge avgangstid-->
+
+            <div class="container">
+
+                <p class="w3-xlarge">When</p>
+                <div class="input-fields">
+
+                <!-- datepicker -->
+
+                <input type="text" id="datepicker" name="datepicker">
+                    <script>
+                    $(function() {
+                    $("#datepicker").datepicker();
+                    });
+                    $.datepicker.setDefaults({
+                        dateFormat: "yy-mm-dd",
+                        autoSize: true
+                    });
+                    </script>
+
+                </div>
+            </div>
+
+
+
+            <%--Search button--%>
             <input type="hidden" name="action" value="searchflight">
         <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Search flights</button>
         </form>
@@ -221,6 +253,9 @@
             x.className = x.className.replace(" w3-show", "");
         }
     }
+
+
+
 </script>
 
 </body>
