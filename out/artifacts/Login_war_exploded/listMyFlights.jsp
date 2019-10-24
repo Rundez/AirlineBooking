@@ -14,11 +14,60 @@
     <title>Title</title>
 </head>
 <body>
+<style>
+.grid-container > div {
+background-color: rgba(255, 255, 255, 0.8);
+border: 1px solid black;
+text-align: center;
+font-size: 20px;
+width: 50%;
 
+}
+.grid-container {
+display: grid;
+grid-template-columns: auto;
+grid-gap: 10px;
+padding: 10px;
+
+align-items: center;
+}
+th, td {
+padding: 15px;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+</style>
+
+
+
+
+<table>
+<thead>
+     <tr>
+         <th>Departure</th>
+         <th>Arrival</th>
+         <th>Takeoff</th>
+         <th>Landing</th>
+         <th>Airplane</th>
+         <th>FlightID</th>
+    </tr>
+</thead>
+
+<tbody>
 <c:forEach items="${list}" var="item">
-    ${item}
-
+    <tr>
+    <td>${item.departureName}</td>
+    <td>${item.arrivalName}</td>
+    <td>${item.departureTime}</td>
+    <td>${item.arrivalTime}</td>
+    <td>${item.airplaneName}</td>
+    <td>${item.flightID}</td>
+    </tr>
 </c:forEach>
+</tbody>
+</table>
 
 </body>
 </html>
