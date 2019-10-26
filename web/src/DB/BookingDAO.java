@@ -12,8 +12,6 @@ public class BookingDAO {
     public boolean save(Booking e) throws SQLException {
         boolean flag = false;
 
-          //  int flightID = (e.getfID());
-          //  int customerID = (e.getcID());
 
             String sql = "INSERT INTO Booking  ("
                     + " fID,"
@@ -34,5 +32,9 @@ public class BookingDAO {
             ex.printStackTrace();
         }
         return flag;
+    }
+
+    public void cancelBooking(){
+
     }
 }

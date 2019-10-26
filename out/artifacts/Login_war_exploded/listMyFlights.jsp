@@ -10,6 +10,8 @@
 <c:set var="username" value="${username}" scope="session"/>
 
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <head>
     <title>Title</title>
 </head>
@@ -51,20 +53,24 @@ border-collapse: collapse;
          <th>Takeoff</th>
          <th>Landing</th>
          <th>Airplane</th>
-         <th>FlightID</th>
+
     </tr>
 </thead>
 
 <tbody>
 <c:forEach items="${list}" var="item">
+    <form action="BookingController" method="post">
     <tr>
     <td>${item.departureName}</td>
     <td>${item.arrivalName}</td>
     <td>${item.departureTime}</td>
     <td>${item.arrivalTime}</td>
     <td>${item.airplaneName}</td>
-    <td>${item.flightID}</td>
-    </tr>
+        <input type="hidden" name="flightID" value="${item.flightID}" >
+        <input type="hidden" name="userName" value="${username}">
+        <input type="hidden" name="action" value="cancel">
+    <td><form><input type="submit" name="cancel" class="btn btn-primary"  value="Cancel Booking"/></form></td></tr>
+    </form>
 </c:forEach>
 </tbody>
 </table>

@@ -44,6 +44,13 @@ public class BookingController extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        if (action.equals("cancel")) {
+            try {
+                cancelBooking(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
@@ -93,4 +100,11 @@ public class BookingController extends HttpServlet {
 
     }
 
+    private void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+        String flightID = request.getParameter("flightID");
+        String username = request.getParameter("userName");
+
+        System.out.println(flightID);
+        System.out.println(username);
+    }
 }
