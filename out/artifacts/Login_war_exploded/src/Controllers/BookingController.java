@@ -101,10 +101,21 @@ public class BookingController extends HttpServlet {
     }
 
     private void cancelBooking(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
-        String flightID = request.getParameter("flightID");
+        int flightID = Integer.parseInt(request.getParameter("flightID"));
         String username = request.getParameter("userName");
 
         System.out.println(flightID);
         System.out.println(username);
+        BookingDAO bookingDAO = new BookingDAO();
+        CustomerDAO customerDAO = new CustomerDAO();
+
+        // Uses the username as input parameter to get the userID saved in the DB.
+        int userID = customerDAO.getcustomerID(username);
+
+        // Cancels the booking in sql using flightID number selected and the associated ID of the customer.
+        bookingDAO.cancelBooking(flightID, userID);
+
+        request.setAttribute("notification", "Booking deleted");
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

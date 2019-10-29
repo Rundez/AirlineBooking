@@ -12,9 +12,6 @@ public class BookingDAO {
     public boolean save(Booking e) throws SQLException {
         boolean flag = false;
 
-          //  int flightID = (e.getfID());
-          //  int customerID = (e.getcID());
-
             String sql = "INSERT INTO Booking  ("
                     + " fID,"
                     + " cID) VALUES ("
@@ -34,5 +31,22 @@ public class BookingDAO {
             ex.printStackTrace();
         }
         return flag;
+    }
+    
+    // IKKE FERDIG
+    public void cancelBooking(int fID, int userID) throws SQLException {
+        String sql = "DELETE FROM Booking WHERE cID = "
+                + userID
+                + " and "
+                + "fID = "
+                + fID;
+
+        Connection con = openConnection();
+
+        Statement st = con.createStatement();
+
+        st.executeUpdate(sql);
+
+
     }
 }

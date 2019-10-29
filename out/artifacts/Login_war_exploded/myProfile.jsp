@@ -68,6 +68,7 @@
         <input type="hidden" name="userName" value="${username}">
     </form>
 </div>
+${notification}
 
 
 
