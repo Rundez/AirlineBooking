@@ -45,6 +45,8 @@
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Welcome ${username}</a>
         <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
+        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">My profile</a>
+
 
     </div>
 
@@ -61,6 +63,7 @@
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo">Viking Airways</h1>
     <p class="w3-xlarge">Takes you where you need to go!</p>
     <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Book your next flight now</button>

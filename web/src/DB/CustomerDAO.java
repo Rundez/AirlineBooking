@@ -1,6 +1,9 @@
 package DB;
 
+import Classes.Customer;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CustomerDAO {
     Connection connection = null;
@@ -21,18 +24,18 @@ public class CustomerDAO {
         //Parameters to be checked
         preparedStatement.setString(1, username);
 
-
         //Fetches data FROM the database
         resultSet = preparedStatement.executeQuery();
 
-        int id = 0;
-        if(resultSet.next()) {
-            id = resultSet.getInt("PersonID");
+
+        Customer customer = new Customer();
+        while(resultSet.next()) {
+            customer.setPersonID(resultSet.getInt("PersonID"));
         }
 
         //Returns the id associated to the username input parameter
-        return id;
-
+        System.out.println(customer.getPersonID());
+        return customer.getPersonID();
 
     }
 }
