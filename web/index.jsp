@@ -24,7 +24,7 @@
     /*Button*/
     .w3-black, .w3-hover-black:hover {
         color: #034a06!important;
-        background-color: #fff!important;
+        background-image: url(https://source.unsplash.com/1920x1080?stars);
     }
     th, td {
     padding: 15px;
@@ -33,33 +33,31 @@
 <body>
 
 
-<!-- Navbar -->
-<div class="w3-top">
+    <!-- Navbar -->
+    <div class="w3-top">
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
-        <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Book</a>
-        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
-        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
-        <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
-        <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
-        <a class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Welcome ${username}</a>
-        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
-        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">My profile</a>
-
-
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey w3-grey">VA</a>
+    <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey ">Book</a>
+    <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
+    <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
+    <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
+    <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
+    <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
+    <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
+    <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">My profile</a>
     </div>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-        <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large">VA</a>
-        <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
-        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
-        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
-        <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
-        <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
+    <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large">VA</a>
+    <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
+    <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
+    <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
+    <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
+    <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
-</div>
+    </div>
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">

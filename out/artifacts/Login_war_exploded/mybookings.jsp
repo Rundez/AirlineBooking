@@ -22,7 +22,7 @@
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
-        background-image: linear-gradient(to top, #96fbc4 25%, #f9f586 100%);
+        background-image: url(https://source.unsplash.com/1920x1080?stars);
         height: 600px;
 
     }
