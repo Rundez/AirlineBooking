@@ -70,9 +70,6 @@ public class FlightController extends HttpServlet {
         String departureTimeInput = request.getParameter("datepicker");
 
 
-
-
-
         // Generates a list for the information and creation of Flight objects which holds the information
         // about flights.
         ArrayList<Flight> list;
@@ -84,12 +81,11 @@ public class FlightController extends HttpServlet {
         // Filtrates the ArrayList of flight objects. If the current flight object does not contain
         // the selected airports and departure time, the object will be deleted from the list.
         while (it.hasNext()) {
-            //iterator henter en og en fligth
             Flight y = it.next();
-            // Lager en ny departure time variablel med kun år, måned og dag, som kan sammenliknes med input
+            // makes a new variable from fight departure time that can be compared to the date input from the user
             String s = y.getDepartureTime();
             String DepartureTimeShort = s.substring(0, s.length() - 11);
-
+            //Removes flights that has one or more variables that dont match with input
             if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure)
                     || !DepartureTimeShort.equals(departureTimeInput)){
                 it.remove();
