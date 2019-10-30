@@ -1,14 +1,10 @@
 package DB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import Classes.Airplane;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import Classes.Airplane;
 
 
 public class AirplaneDAO {
@@ -117,3 +113,6 @@ public class AirplaneDAO {
     }
 
 }
+
+
+

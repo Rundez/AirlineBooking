@@ -129,7 +129,7 @@
 
         <tbody>
         <c:forEach items="${list}" var="item">
-            <form action="bookFlight.jsp" method="post">
+            <form action="seats.jsp" method="post">
             <tr>
                 <td>${item.departureName}</td>
                 <td>${item.arrivalName}</td>
