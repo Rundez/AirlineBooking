@@ -20,15 +20,7 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-</style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
-<head>
-    <title>Title</title>
-</head>
-<body>
-<style>
 .grid-container > div {
 background-color: rgba(255, 255, 255, 0.8);
 border: 1px solid black;
@@ -54,9 +46,11 @@ border-collapse: collapse;
 }
 
 .w3-red, .w3-hover-red:hover {
-    color: #fff!important;
-    background-image: url(https://source.unsplash.com/1920x1080?stars);
-    height: 600px;
+    color: #ffffff!important;
+    background-color: #ffffff!important;
+    /*background-image: url(https://source.unsplash.com/1920x1080?landscape);*/
+    background-image: url(http://www.graciaviva.cat/png/big/4/45364_beautiful-sky-background.png);
+    height: 1000px;
 }
 
 .table1 {
@@ -99,7 +93,7 @@ border-collapse: collapse;
 </div>
 
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-    <h1 class="w3-margin w3-jumbo">Mine Reiser</h1>
+    <h1 class="w3-margin w3-jumbo" style="text-shadow:1px 1px 0 #444"> My bookings</h1>
     <H2 class="w-3-margin w3-xlarge"></H2>
     <table class="w3-card-4 w3-table-all">
         <thead>
@@ -130,7 +124,7 @@ border-collapse: collapse;
 </tbody>
 </table>
 
-    <p class="w3-xlarge">Takes you where you need to go!</p>
+    <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Takes you where you need to go!</p>
 
 </body>
 </html>

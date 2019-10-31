@@ -32,8 +32,8 @@
         h2{padding-left: 20px}
         /*Bakgrunn på toppen*/
         .w3-red, .w3-hover-red:hover {
-            color: #fff!important;
-            background-image: url(https://source.unsplash.com/1920x1080?stars);
+            background-color: #ffffff!important;
+            background-image: url(https://source.unsplash.com/1920x1080?landscape);
             height: 750px;
 
         }
