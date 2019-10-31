@@ -95,7 +95,7 @@ border-collapse: collapse;
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h1 class="w3-margin w3-jumbo" style="text-shadow:1px 1px 0 #444"> My bookings</h1>
     <H2 class="w-3-margin w3-xlarge"></H2>
-    <table class="w3-card-4 w3-table-all">
+    <table class="w3-table-all w3-card-4 w3-hoverable">
         <thead>
         <tr>
             <th>Departure</th>

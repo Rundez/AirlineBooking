@@ -10,7 +10,7 @@
 <c:set var="username" value="${username}" scope="session"/>
 
 <html>
-<head>
+<head class="w3-container w3-red w3-center" style="padding:128px 16px">
     <title>Book flight</title>
 </head>
 

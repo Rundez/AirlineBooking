@@ -111,11 +111,11 @@
 %>
 
 
-    <body>
+    <body style="padding:30px 0px">
     <h2>Available flights from ${from} to ${to}</h2>
 
 
-    <table>
+    <table class="w3-table-all w3-card-4 w3-hoverable">
         <thead>
         <tr>
             <th>Departure</th>
