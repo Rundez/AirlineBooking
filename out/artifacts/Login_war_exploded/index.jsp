@@ -16,15 +16,16 @@
 
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
-        color: #fff!important;
-        background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
-        height: 600px;
+    color: #ffffff!important;
+    background-color: #ffffff!important;
+    background-image: url(https://source.unsplash.com/1920x1080?landscape);
+    height: 600px;
     }
 
     /*Button*/
     .w3-black, .w3-hover-black:hover {
-        color: #034a06!important;
-        background-image: url(https://source.unsplash.com/1920x1080?stars);
+    color: #034a06!important;
+    background-color: #fff!important;
     }
     th, td {
     padding: 15px;
@@ -59,7 +60,7 @@
     </div>
     </div>
 
-<!-- Header -->
+<!-- Header  (WhiteBanner&Picture) -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo">Viking Airways</h1>
