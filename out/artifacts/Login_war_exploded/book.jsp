@@ -32,8 +32,9 @@
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
-        background-image: linear-gradient(to top, #96fbc4 25%, #f9f586 100%);
-        background-image: url(https://source.unsplash.com/1920x1080?stars);
+        background-color: #ffffff!important;
+        /*background-image: url(https://source.unsplash.com/1920x1080?landscape);*/
+        background-image: url(https://i0.wp.com/wallpapers.ae/wp-content/uploads/2018/11/Beautiful-summer-beach-wallpaper-45-1920x1080.jpg?fit=1920%2C1080);
         height: 750px;
 
     }
