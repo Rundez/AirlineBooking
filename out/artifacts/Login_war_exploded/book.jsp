@@ -32,7 +32,9 @@
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
         color: #fff!important;
-        background-image: linear-gradient(to top, #96fbc4 25%, #f9f586 100%);
+        background-color: #ffffff!important;
+        /*background-image: url(https://source.unsplash.com/1920x1080?landscape);*/
+        background-image: url(https://i0.wp.com/wallpapers.ae/wp-content/uploads/2018/11/Beautiful-summer-beach-wallpaper-45-1920x1080.jpg?fit=1920%2C1080);
         height: 750px;
 
     }
@@ -58,21 +60,20 @@
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey">Book</a>
-        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
+        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
         <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
         <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">My profile</a>
-
     </div>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
-        <a href="mybookings.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
+        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
