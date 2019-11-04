@@ -93,7 +93,6 @@ public class FlightController extends HttpServlet {
             request.setAttribute("to", arrival);
             request.setAttribute("list", list);
             request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
-
         }
 
     }
