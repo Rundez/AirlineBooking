@@ -51,22 +51,21 @@ public class BookingController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
 
 
     private void book(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
-
+        // Gets the parameters in the request object from the view.
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
 
+        // Generates the DAO objects
         CustomerDAO customerDAO = new CustomerDAO();
+        BookingDAO bookingDAO = new BookingDAO();
 
         //Getting the associated userID linked to the session stored name
         int userID = customerDAO.getcustomerID(user);
-
-        BookingDAO bookingDAO = new BookingDAO();
 
         // Creating a new booking object to be put into the database
         Booking b = new Booking();
@@ -76,6 +75,7 @@ public class BookingController extends HttpServlet {
         // Save the booking object into the database
         bookingDAO.save(b);
 
+        // Forwards the user to the next view.
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
@@ -94,7 +94,6 @@ public class BookingController extends HttpServlet {
         // Gets the list of Flights which is booked to the userID for the logged in user.
         list = flightDAO.myFlights(customerID);
 
-
         request.setAttribute("list", list);
         request.getRequestDispatcher("listMyFlights.jsp").forward(request, response);
 
@@ -104,8 +103,6 @@ public class BookingController extends HttpServlet {
         int flightID = Integer.parseInt(request.getParameter("flightID"));
         String username = request.getParameter("userName");
 
-        System.out.println(flightID);
-        System.out.println(username);
         BookingDAO bookingDAO = new BookingDAO();
         CustomerDAO customerDAO = new CustomerDAO();
 
