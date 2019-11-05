@@ -61,9 +61,9 @@ public class BookingController extends HttpServlet {
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
         String seatType = request.getParameter("radio");
-        String airplaneID = request.getParameter("airplaneID");
+        int airplaneID = Integer.parseInt(request.getParameter("airplaneID"));
+        ArrayList<Seats> list = new ArrayList<>();
 
-        System.out.println(airplaneID);
 
 
         // Generates the DAO objects
@@ -71,18 +71,30 @@ public class BookingController extends HttpServlet {
         BookingDAO bookingDAO = new BookingDAO();
         SeatDAO seatDAO = new SeatDAO();
 
-        //Getting the associated userID linked to the session stored name
+        //Getting the associated userID linked to the session stored name.
         int userID = customerDAO.getcustomerID(user);
+
+        // Checks and assign which seat to be chosen for the customer.
+        list = seatDAO.checkSeats(seatType, airplaneID);
+
+        Iterator<Seats> it = list.iterator();
+        while (it.hasNext()) {
+            Seats y = it.next();
+
+            if (!y.getSeatType().equals(seatType) || y.getAirplaneID() != (airplaneID) || y.getOccupied().equals("Yes")) {
+                it.remove();
+            }
+        }
+
+
+        Seats selectedSeat = list.get(0);
+        System.out.println(selectedSeat.getSeatID());
+
 
         // Creating a new booking object to be put into the database
         Booking b = new Booking();
         b.setfID(flight);
         b.setcID(userID);
-
-
-
-
-
 
         // Save the booking object into the database
         bookingDAO.save(b);

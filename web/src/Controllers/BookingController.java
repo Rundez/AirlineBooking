@@ -61,8 +61,8 @@ public class BookingController extends HttpServlet {
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
         String seatType = request.getParameter("radio");
-        String airplaneID = request.getParameter("airplaneID");
-
+        int airplaneID = Integer.parseInt(request.getParameter("airplaneID"));
+        ArrayList<Seats> list = new ArrayList<>();
 
 
 
@@ -75,7 +75,21 @@ public class BookingController extends HttpServlet {
         int userID = customerDAO.getcustomerID(user);
 
         // Checks and assign which seat to be chosen for the customer.
-        seatDAO.checkSeats(seatType, airplaneID);
+        list = seatDAO.checkSeats(seatType, airplaneID);
+
+        Iterator<Seats> it = list.iterator();
+        while (it.hasNext()) {
+            Seats y = it.next();
+
+            if (!y.getSeatType().equals(seatType) || y.getAirplaneID() != (airplaneID) || y.getOccupied().equals("Yes")) {
+                it.remove();
+            }
+        }
+
+
+        Seats selectedSeat = list.get(0);
+        System.out.println(selectedSeat.getSeatID());
+
 
         // Creating a new booking object to be put into the database
         Booking b = new Booking();

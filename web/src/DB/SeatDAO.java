@@ -42,24 +42,30 @@ public class SeatDAO {
         return flag;
     }
 
-    public ArrayList<Seats> checkSeats(String seatType, String airplaneID) throws SQLException {
+    public ArrayList<Seats> checkSeats(String seatType, int airplaneID) throws SQLException {
 
+        ArrayList<Seats> list = new ArrayList<Seats>();
         Seats seats = null;
-
 
         String sql = "select * from java.Seats";
 
         connection = DBconnection.openConnection();
-
         statement = connection.createStatement();
-
         resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
+            seats = new Seats();
+            seats.setSeatID(resultSet.getInt("seatID"));
+            seats.setAirplaneID(resultSet.getInt("airplaneID"));
+            seats.setSeatType(resultSet.getString("seatType"));
+            seats.setSeatNumber(resultSet.getString("seatNumber"));
+            seats.setOccupied(resultSet.getString("Occupied"));
 
+            list.add(seats);
         }
         statement.close();
 
+        return list;
     }
 
     public ArrayList<Flight> getChosenFlights() throws SQLException {
