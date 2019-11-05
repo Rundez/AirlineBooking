@@ -28,7 +28,7 @@
     String airplaneName = request.getParameter("airplaneName");
     String flightID = request.getParameter("flightID");
     String user = request.getParameter("username");
-
+    String radio = request.getParameter("radio");
 
     out.print(departureName + "<br>");
     out.print(arrivalName + "<br>");
@@ -36,6 +36,7 @@
     out.print(arrivalTime + "<br>");
     out.print(airplaneName + "<br>");
     out.print(flightID + "<br>");
+    out.print(radio);
 %>
 
 
@@ -78,8 +79,8 @@
                 <p><% out.print("FG - " + flightID); %></p>
             </div>
             <div class="item">
-                <h4>gate</h4>
-                <p>12</p>
+                <h4>Class</h4>
+                <p><% out.print(radio); %></p>
             </div>
             <div class="item">
                 <h4>seat</h4>

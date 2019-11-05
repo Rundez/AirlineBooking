@@ -123,6 +123,7 @@
             <th>Takeoff</th>
             <th>Landing</th>
             <th>Airplane</th>
+            <th>Class</th>
 
         </tr>
         </thead>
@@ -136,6 +137,7 @@
                 <td>${item.departureTime}</td>
                 <td>${item.arrivalTime}</td>
                 <td>${item.airplaneName}</td>
+                <td><input type="radio" name="radio" value="Business">Business <br> <input type="radio" name="radio" value="Economy">Economy</td>
 
                 <input type="hidden" name="departureName" value="${item.departureName}">
                 <input type="hidden" name="arrivalName" value="${item.arrivalName}">
@@ -143,6 +145,7 @@
                 <input type="hidden" name="arrivalTime" value="${item.arrivalTime}">
                 <input type="hidden" name="airplaneName" value="${item.airplaneName}">
                 <input type="hidden" name="flightID" value="${item.flightID}">
+
 
                 <td><form><input type="submit" name="knapp" class="btn btn-primary"  value="Choose"/></form></td>
 

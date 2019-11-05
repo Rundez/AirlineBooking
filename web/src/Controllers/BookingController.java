@@ -53,7 +53,6 @@ public class BookingController extends HttpServlet {
         }
     }
 
-
     private void book(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
         // Gets the parameters in the request object from the view.
