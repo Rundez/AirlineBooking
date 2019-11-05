@@ -6,6 +6,15 @@ public class Booking {
     int fID;
     int RN;
     int payment;
+    int seatID;
+
+    public int getSeatID() {
+        return seatID;
+    }
+
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
+    }
 
     public void setcID(int cID) {
         this.cID = cID;

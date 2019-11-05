@@ -145,6 +145,7 @@
                 <input type="hidden" name="arrivalTime" value="${item.arrivalTime}">
                 <input type="hidden" name="airplaneName" value="${item.airplaneName}">
                 <input type="hidden" name="flightID" value="${item.flightID}">
+                <input type="hidden" name="airplaneID" value="${item.airplaneID}">
 
 
                 <td><form><input type="submit" name="knapp" class="btn btn-primary"  value="Choose"/></form></td>

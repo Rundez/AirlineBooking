@@ -3,9 +3,11 @@ package Controllers;
 import Classes.Booking;
 import Classes.Customer;
 import Classes.Flight;
+import Classes.Seats;
 import DB.BookingDAO;
 import DB.CustomerDAO;
 import DB.FlightDAO;
+import DB.SeatDAO;
 
 
 import javax.jms.Session;
@@ -58,10 +60,16 @@ public class BookingController extends HttpServlet {
         // Gets the parameters in the request object from the view.
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
+        String seatType = request.getParameter("radio");
+        String airplaneID = request.getParameter("airplaneID");
+
+        System.out.println(airplaneID);
+
 
         // Generates the DAO objects
         CustomerDAO customerDAO = new CustomerDAO();
         BookingDAO bookingDAO = new BookingDAO();
+        SeatDAO seatDAO = new SeatDAO();
 
         //Getting the associated userID linked to the session stored name
         int userID = customerDAO.getcustomerID(user);
@@ -70,6 +78,11 @@ public class BookingController extends HttpServlet {
         Booking b = new Booking();
         b.setfID(flight);
         b.setcID(userID);
+
+
+
+
+
 
         // Save the booking object into the database
         bookingDAO.save(b);

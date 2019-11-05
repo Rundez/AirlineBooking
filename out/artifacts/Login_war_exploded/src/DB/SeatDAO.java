@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import Classes.Flight;
 
 
-public class FlightDAO {
+public class SeatDAO {
 
     Connection connection = null;
     ResultSet resultSet = null;

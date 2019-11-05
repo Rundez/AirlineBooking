@@ -15,7 +15,7 @@ public class FlightDAO {
     Connection connection = null;
     ResultSet resultSet = null;
     Statement statement = null;
-    PreparedStatement preparedStatement = null;
+
 
 
     public boolean save(Flight e) {

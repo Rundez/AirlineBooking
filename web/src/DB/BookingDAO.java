@@ -47,6 +47,5 @@ public class BookingDAO {
 
         st.executeUpdate(sql);
 
-
     }
 }
