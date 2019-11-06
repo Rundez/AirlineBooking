@@ -14,8 +14,9 @@ public class BookingDAO {
 
             String sql = "INSERT INTO Booking  ("
                     + " fID,"
-                    + " cID) VALUES ("
-                    + "?, ?)";
+                    + " cID,"
+                    + " seatID) VALUES ("
+                    + "?, ?, ?)";
 
             Connection con = openConnection();
             PreparedStatement st = con.prepareStatement(sql);
@@ -23,6 +24,7 @@ public class BookingDAO {
             try{
             st.setInt(1, e.getfID());
             st.setInt(2, e.getcID());
+            st.setInt(3,e.getSeatID());
             st.executeUpdate();
             st.close();
 
@@ -40,6 +42,30 @@ public class BookingDAO {
                 + " and "
                 + "fID = "
                 + fID;
+
+        Connection con = openConnection();
+
+        Statement st = con.createStatement();
+
+        st.executeUpdate(sql);
+
+    }
+
+    public void setOccupiedSeat(int occupiedSeat) throws SQLException {
+        String sql = "UPDATE Seats SET Occupied = 'Yes' WHERE seatID = "
+                + occupiedSeat;
+
+        Connection con = openConnection();
+
+        Statement st = con.createStatement();
+
+        st.executeUpdate(sql);
+
+    }
+
+    public void setNotOccupiedSeat(int notOccupiedSeat) throws SQLException {
+        String sql = "UPDATE Seats SET Occupied = 'No' WHERE seatID = "
+                + notOccupiedSeat;
 
         Connection con = openConnection();
 

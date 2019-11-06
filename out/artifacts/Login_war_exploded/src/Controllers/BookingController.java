@@ -65,7 +65,6 @@ public class BookingController extends HttpServlet {
         ArrayList<Seats> list = new ArrayList<>();
 
 
-
         // Generates the DAO objects
         CustomerDAO customerDAO = new CustomerDAO();
         BookingDAO bookingDAO = new BookingDAO();
@@ -74,30 +73,33 @@ public class BookingController extends HttpServlet {
         //Getting the associated userID linked to the session stored name.
         int userID = customerDAO.getcustomerID(user);
 
-        // Checks and assign which seat to be chosen for the customer.
+        // Fetches the Seat data from the database and assigns it to a list of Seats objects.
         list = seatDAO.checkSeats(seatType, airplaneID);
 
+        // Iterates through the list and removes the objects that does not meet the requirements
+        // (Type of seat and is not occupied.
         Iterator<Seats> it = list.iterator();
         while (it.hasNext()) {
             Seats y = it.next();
-
             if (!y.getSeatType().equals(seatType) || y.getAirplaneID() != (airplaneID) || y.getOccupied().equals("Yes")) {
                 it.remove();
             }
         }
 
-
+        //Chooses the index position 0 in the list.
         Seats selectedSeat = list.get(0);
-        System.out.println(selectedSeat.getSeatID());
-
+        int seatID = selectedSeat.getSeatID();
 
         // Creating a new booking object to be put into the database
         Booking b = new Booking();
         b.setfID(flight);
         b.setcID(userID);
+        b.setSeatID(seatID);
 
-        // Save the booking object into the database
+        // Save the booking object into the database and sets "Occupied" to "Yes".
         bookingDAO.save(b);
+        bookingDAO.setOccupiedSeat(seatID);
+
 
         // Forwards the user to the next view.
         request.getRequestDispatcher("index.jsp").forward(request, response);
