@@ -44,6 +44,9 @@
         color: #034a06!important;
         background-color: #fff!important;
     }
+    .error-messsage{
+        color: red;
+    }
 </style>
 <body>
 
@@ -82,6 +85,7 @@
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <h1 class="error-messsage">${notification}</h1>
     <h1 class="w3-margin w3-jumbo">Book your flight</h1>
 
 

@@ -104,10 +104,11 @@ public class BookingController extends HttpServlet {
 
             // Forwards the user to the next view.
             request.getRequestDispatcher("index.jsp").forward(request, response);
+        } else {
+            // Forwards the user to the next view with a notification that it is no available seats.
+            request.setAttribute("notification", "There are currently no seats available, maybe try another type of ticket? :)");
+            request.getRequestDispatcher("book.jsp").forward(request, response);
         }
-        // Forwards the user to the next view.
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-
     }
 
     private void showMyFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
