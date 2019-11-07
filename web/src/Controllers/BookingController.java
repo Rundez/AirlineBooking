@@ -86,23 +86,28 @@ public class BookingController extends HttpServlet {
             }
         }
 
-        //Chooses the index position 0 in the list.
-        Seats selectedSeat = list.get(0);
-        int seatID = selectedSeat.getSeatID();
+        //Chooses the index position 0 in the list, if it contains value.
+        if (list.size() >= 1){
+            Seats selectedSeat = list.get(0);
+            int seatID = selectedSeat.getSeatID();
 
-        // Creating a new booking object to be put into the database
-        Booking b = new Booking();
-        b.setfID(flight);
-        b.setcID(userID);
-        b.setSeatID(seatID);
+            // Creating a new booking object to be put into the database
+            Booking b = new Booking();
+            b.setfID(flight);
+            b.setcID(userID);
+            b.setSeatID(seatID);
 
-        // Save the booking object into the database and sets "Occupied" to "Yes".
-        bookingDAO.save(b);
-        bookingDAO.setOccupiedSeat(seatID);
+            // Save the booking object into the database and sets "Occupied" to "Yes".
+            bookingDAO.save(b);
+            bookingDAO.setOccupiedSeat(seatID);
 
 
+            // Forwards the user to the next view.
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
         // Forwards the user to the next view.
         request.getRequestDispatcher("index.jsp").forward(request, response);
+
     }
 
     private void showMyFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {

@@ -88,6 +88,7 @@ public class FlightController extends HttpServlet {
                 it.remove();
             }
         }
+
             // Sends the filtered ArrayList of flights to the next page.
             request.setAttribute("from", departure);
             request.setAttribute("to", arrival);

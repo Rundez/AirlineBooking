@@ -128,6 +128,7 @@
         </tr>
         </thead>
 
+
         <tbody>
         <c:forEach items="${list}" var="item">
             <form action="bookFlight.jsp" method="post">
