@@ -34,7 +34,7 @@
         color: #fff!important;
         background-color: #ffffff!important;
         /*background-image: url(https://source.unsplash.com/1920x1080?landscape);*/
-        background-image: url(https://i0.wp.com/wallpapers.ae/wp-content/uploads/2018/11/Beautiful-summer-beach-wallpaper-45-1920x1080.jpg?fit=1920%2C1080);
+        background-image: url(http://www.fondsecran.eu/a/get_photo/143198/1920/1080);
         height: 750px;
 
     }
@@ -89,7 +89,7 @@
 
     <div class="container">
 
-            <p class="w3-xxlarge">Choose your departure and destination</p>
+            <p class="w3-xxlarge style="text-shadow:2px 2px 0 #444" ">Choose your departure and destination</p>
 
                 <%
                     try{
