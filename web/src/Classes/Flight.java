@@ -12,7 +12,7 @@ public class Flight implements Serializable {
     int arrivalID;
     int airplaneID;
     int flightID;
-
+    int price;
 
     public void setAirplaneID(int airplaneID) {
         this.airplaneID = airplaneID;
@@ -20,6 +20,14 @@ public class Flight implements Serializable {
 
     public void setArrivalID(int arrivalID) {
         this.arrivalID = arrivalID;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setArrivalTime(String arrivalTime) {

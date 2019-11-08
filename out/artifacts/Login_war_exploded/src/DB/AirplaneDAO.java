@@ -44,7 +44,6 @@ public class AirplaneDAO {
         return list;
     }
 
-
     public Airplane get(int id) {
         Airplane airplane = null;
         try {

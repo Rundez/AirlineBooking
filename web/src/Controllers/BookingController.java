@@ -3,9 +3,11 @@ package Controllers;
 import Classes.Booking;
 import Classes.Customer;
 import Classes.Flight;
+import Classes.Seats;
 import DB.BookingDAO;
 import DB.CustomerDAO;
 import DB.FlightDAO;
+import DB.SeatDAO;
 
 
 import javax.jms.Session;
@@ -51,32 +53,61 @@ public class BookingController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
-
 
     private void book(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
 
-
+        // Gets the parameters in the request object from the view.
         String user = request.getParameter("userName");
         int flight = Integer.parseInt(request.getParameter("flightID"));
+        String seatType = request.getParameter("radio");
+        int airplaneID = Integer.parseInt(request.getParameter("airplaneID"));
+        ArrayList<Seats> list = new ArrayList<>();
 
+
+        // Generates the DAO objects
         CustomerDAO customerDAO = new CustomerDAO();
+        BookingDAO bookingDAO = new BookingDAO();
+        SeatDAO seatDAO = new SeatDAO();
 
-        //Getting the associated userID linked to the session stored name
+        //Getting the associated userID linked to the session stored name.
         int userID = customerDAO.getcustomerID(user);
 
-        BookingDAO bookingDAO = new BookingDAO();
+        // Fetches the Seat data from the database and assigns it to a list of Seats objects.
+        list = seatDAO.checkSeats(seatType, airplaneID);
 
-        // Creating a new booking object to be put into the database
-        Booking b = new Booking();
-        b.setfID(flight);
-        b.setcID(userID);
+        // Iterates through the list and removes the objects that does not meet the requirements
+        // (Type of seat and is not occupied.
+        Iterator<Seats> it = list.iterator();
+        while (it.hasNext()) {
+            Seats y = it.next();
+            if (!y.getSeatType().equals(seatType) || y.getAirplaneID() != (airplaneID) || y.getOccupied().equals("Yes")) {
+                it.remove();
+            }
+        }
 
-        // Save the booking object into the database
-        bookingDAO.save(b);
+        //Chooses the index position 0 in the list, if it contains value.
+        if (list.size() >= 1){
+            Seats selectedSeat = list.get(0);
+            int seatID = selectedSeat.getSeatID();
 
+            // Creating a new booking object to be put into the database
+            Booking b = new Booking();
+            b.setfID(flight);
+            b.setcID(userID);
+            b.setSeatID(seatID);
+
+            // Save the booking object into the database and sets "Occupied" to "Yes".
+            bookingDAO.save(b);
+            bookingDAO.setOccupiedSeat(seatID);
+
+
+            // Forwards the user to the next view.
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        // Forwards the user to the next view.
         request.getRequestDispatcher("index.jsp").forward(request, response);
+
     }
 
     private void showMyFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
@@ -94,7 +125,6 @@ public class BookingController extends HttpServlet {
         // Gets the list of Flights which is booked to the userID for the logged in user.
         list = flightDAO.myFlights(customerID);
 
-
         request.setAttribute("list", list);
         request.getRequestDispatcher("listMyFlights.jsp").forward(request, response);
 
@@ -104,8 +134,6 @@ public class BookingController extends HttpServlet {
         int flightID = Integer.parseInt(request.getParameter("flightID"));
         String username = request.getParameter("userName");
 
-        System.out.println(flightID);
-        System.out.println(username);
         BookingDAO bookingDAO = new BookingDAO();
         CustomerDAO customerDAO = new CustomerDAO();
 

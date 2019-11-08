@@ -8,9 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import Classes.Flight;
+import Classes.Seats;
 
 
-public class FlightDAO {
+public class SeatDAO {
 
     Connection connection = null;
     ResultSet resultSet = null;
@@ -41,28 +42,29 @@ public class FlightDAO {
         return flag;
     }
 
-    public ArrayList<Flight> getFlights() throws SQLException {
-        Flight flight = null;
-        ArrayList<Flight> list = new ArrayList<>();
+    public ArrayList<Seats> checkSeats(String seatType, int airplaneID) throws SQLException {
 
-        String sql = "select * from java.Flight";
+        ArrayList<Seats> list = new ArrayList<Seats>();
+        Seats seats = null;
+
+        String sql = "select * from java.Seats";
 
         connection = DBconnection.openConnection();
         statement = connection.createStatement();
-
         resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
-            flight = new Flight();
-            flight.setDepartureTime(resultSet.getString("DepartureTime"));
-            flight.setArrivalTime(resultSet.getString("ArrivalTime"));
-            flight.setArrivalID(resultSet.getInt("ArrivalID"));
-            flight.setDepartureID(resultSet.getInt("DepartureID"));
-            flight.setAirplaneID(resultSet.getInt("AirplaneID"));
-            flight.setFlightID(resultSet.getInt("FlightID"));
-            list.add(flight);
+            seats = new Seats();
+            seats.setSeatID(resultSet.getInt("seatID"));
+            seats.setAirplaneID(resultSet.getInt("airplaneID"));
+            seats.setSeatType(resultSet.getString("seatType"));
+            seats.setSeatNumber(resultSet.getString("seatNumber"));
+            seats.setOccupied(resultSet.getString("Occupied"));
+
+            list.add(seats);
         }
         statement.close();
+
         return list;
     }
 

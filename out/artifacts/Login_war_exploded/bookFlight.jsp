@@ -28,7 +28,8 @@
     String airplaneName = request.getParameter("airplaneName");
     String flightID = request.getParameter("flightID");
     String user = request.getParameter("username");
-
+    String radio = request.getParameter("radio");
+    String airplaneID = request.getParameter("airplaneID");
 
     out.print(departureName + "<br>");
     out.print(arrivalName + "<br>");
@@ -36,6 +37,8 @@
     out.print(arrivalTime + "<br>");
     out.print(airplaneName + "<br>");
     out.print(flightID + "<br>");
+    out.print(radio + "<br>");
+    out.print(airplaneID);
 %>
 
 
@@ -78,8 +81,8 @@
                 <p><% out.print("FG - " + flightID); %></p>
             </div>
             <div class="item">
-                <h4>gate</h4>
-                <p>12</p>
+                <h4>Class</h4>
+                <p><% out.print(radio); %></p>
             </div>
             <div class="item">
                 <h4>seat</h4>
@@ -103,6 +106,9 @@ a reservation.
     <input type="hidden" name="depName" value="<%out.print(departureName);%>">
     <input type="hidden" name="flightID" value="<%out.print(flightID);%>">
     <input type="hidden" name="userName" value="${username}">
+    <input type="hidden" name="airplane" value="<% %>">
+    <input type="hidden" name="radio" value="<%out.print(radio);%>">
+    <input type="hidden" name="airplaneID" value="<% out.print(airplaneID); %>">
 
     <input type="hidden" value="book" name="action">
 </form>
