@@ -36,6 +36,7 @@
         }
 %>
 
+
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
@@ -48,7 +49,7 @@
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
         <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
-        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey"" name="WelcomeBar">My profile</a>
+        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey" name="WelcomeBar">My profile</a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -75,13 +76,15 @@ ${notification}
 
 <div class="login-page">
     <div class="form">
-        <form action="Registration" method="post" class="login-form">
+        <form action="EditProfile" method="post" class="login-form">
             <input type="text" placeholder="First name" name="FirstName"/>
             <input type="text" placeholder="Last name" name="LastName"/>
             <input type="text" placeholder="Email" name="Email"/>
             <input type="password" placeholder="Password" name="PasswordLogin"/>
             <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
             <input type="text" placeholder="Phone" name="PhoneNumber"/>
+            <input type="hidden" value = "${username}" name="username"/>
+
 
 
             <button>Update profile</button>

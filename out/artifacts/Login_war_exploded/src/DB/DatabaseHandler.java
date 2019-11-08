@@ -49,6 +49,29 @@ public class DatabaseHandler
            st.executeUpdate();
        }
 
+    public void editUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber, int personID) throws ClassNotFoundException, SQLException {
+
+        // Executes a static method "openconnection" which connects to the DB.
+        Connection con = DBconnection.openConnection();
+
+        String sql = "UPDATE RegistrationForm SET FirstName = ?, LastName = ?, Email = ?, PasswordLogin = ?, DoB = ?, PhoneNumber = ? "
+                + "WHERE Personid = ?";
+        //Choose the input for the database
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, FirstName);
+        st.setString(2, LastName);
+        st.setString(3, Email);
+        st.setString(4, PasswordLogin);
+        st.setInt(5, DoB);
+        st.setInt(6, PhoneNumber);
+        st.setInt(7, personID);
+
+        //Puts data INTO the database
+        st.executeUpdate();
+    }
+
+
+
        // Adds a plane into the DB
        public void addAirplane(String model, int economySeats, int businessSeats) throws SQLException {
 
