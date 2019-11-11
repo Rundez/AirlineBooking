@@ -21,6 +21,9 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .login-page {
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -75,21 +78,19 @@ ${notification}
 
 
 <div class="login-page">
-    <div class="form">
         <form action="EditProfile" method="post" class="login-form">
-            <input type="text" placeholder="First name" name="FirstName"/>
-            <input type="text" placeholder="Last name" name="LastName"/>
-            <input type="text" placeholder="Email" name="Email"/>
-            <input type="password" placeholder="Password" name="PasswordLogin"/>
-            <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
-            <input type="text" placeholder="Phone" name="PhoneNumber"/>
-            <input type="hidden" value = "${username}" name="username"/>
+            <input type="text" placeholder="First name" name="FirstName"/> <br><br>
+            <input type="text" placeholder="Last name" name="LastName"/> <br><br>
+            <input type="text" placeholder="Email" name="Email"/> <br><br>
+            <input type="password" placeholder="Password" name="PasswordLogin"/> <br><br>
+            <input type="text" placeholder="DD/MM/YYYY" name="DoB"/> <br><br>
+            <input type="text" placeholder="Phone" name="PhoneNumber"/> <br><br>
+            <input type="hidden" value = "${username}" name="username"/> <br><br>   
 
 
 
             <button>Update profile</button>
         </form>
-    </div>
 </div>
 
 </body>
