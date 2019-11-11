@@ -74,25 +74,66 @@
         <input type="hidden" name="userName" value="${username}">
     </form>
 </div>
-${notification}
+
 
 
 <div class="login-page">
+    <h1>Update your profile</h1> <br>
         <form action="CustomerController" method="post" class="login-form">
-            <input type="text" placeholder="First name" name="FirstName"/> <br><br>
-            <input type="text" placeholder="Last name" name="LastName"/> <br><br>
-            <input type="text" placeholder="Email" name="Email"/> <br><br>
-            <input type="password" placeholder="Password" name="PasswordLogin"/> <br><br>
-            <input type="text" placeholder="DD/MM/YYYY" name="DoB"/> <br><br>
-            <input type="text" placeholder="Phone" name="PhoneNumber"/> <br><br>
+            <input type="text" placeholder="First name" name="FirstName"/>
+            <input type="hidden" value="editFirstName" name="action">
+            <input type="hidden" name="userName" value="${username}">
+            <button>Edit</button>
+        </form>
 
-            <input type="hidden" value = "editCustomer" name="action"/> <br>
-            <input type="hidden" value = "${username}" name="username"/> <br>
+    <br>
 
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Last name" name="LastName"/>
+         <input type="hidden" value="editLastName" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
 
+    <br>
 
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Email" name="Email"/>
+         <input type="hidden" value="editMail" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
 
-            <button>Update profile</button>
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+            <input type="password" placeholder="Password" name="PasswordLogin"/>
+            <input type="hidden" value="editPassword" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+        <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
+            <input type="hidden" value="editDOB" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+        </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Phone" name="PhoneNumber"/>
+         <input type="hidden" value="editPhone" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+    <h4>${notification} </h4>
+    <input type="hidden" value = "${username}" name="username"/> <br>
         </form>
 </div>
 

@@ -66,7 +66,8 @@
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo" style="text-shadow:1px 1px 0 #444">Viking Airways</h1>
-    <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Takes you where you need to go!</p>
+    <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Welcome, ${username}</p>
+    <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Where do you want to fly?</p>
     <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="text-shadow:1px 1px 0 #444">Book your next flight now</button>
 </header>
 

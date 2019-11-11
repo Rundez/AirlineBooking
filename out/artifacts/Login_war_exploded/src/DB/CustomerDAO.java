@@ -31,7 +31,7 @@ public class CustomerDAO {
 
 
         Customer customer = new Customer();
-        while(resultSet.next()) {
+        while (resultSet.next()) {
             customer.setPersonID(resultSet.getInt("PersonID"));
         }
 
@@ -58,7 +58,7 @@ public class CustomerDAO {
 
 
         Customer customer = new Customer();
-        while(resultSet.next()) {
+        while (resultSet.next()) {
             customer.setAccountMoney(resultSet.getInt("AccountMoney"));
         }
 
@@ -66,7 +66,8 @@ public class CustomerDAO {
         return customer.getAccountMoney();
 
     }
-        public void calculateMoney(int userID, int amount, int price) throws SQLException {
+
+    public void calculateMoney(int userID, int amount, int price) throws SQLException {
         int sum = amount - price;
 
         String sql = "UPDATE registrationForm SET AccountMoney = " + sum + " WHERE PersonID = "
@@ -94,4 +95,75 @@ public class CustomerDAO {
 
     }
 
+    public void updateFirstName(int userID, String firstName) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET FirstName = '" +firstName + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
+
+    public void updateLastName(int userID, String lastName) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET LastName = '" + lastName + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
+
+    public void updateMail(int userID, String email) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET Email = '" + email + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
+
+    public void updatePassword(int userID, String password) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET PasswordLogin = '" + password + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
+
+    public void updateDoB(int DoB, int userID) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET DoB = '" + DoB + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
+
+    public void updatePhone(int userID, int phone) throws SQLException {
+
+        String sql =  "UPDATE RegistrationForm SET PhoneNumber = '" + phone + "'  WHERE PersonID = " +  userID;
+
+        Connection con = openConnection();
+
+        statement = con.createStatement();
+
+        statement.executeUpdate(sql);
+
+    }
 }
