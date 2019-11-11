@@ -78,7 +78,7 @@ ${notification}
 
 
 <div class="login-page">
-        <form action="EditProfile" method="post" class="login-form">
+        <form action="CustomerController" method="post" class="login-form">
             <input type="text" placeholder="First name" name="FirstName"/> <br><br>
             <input type="text" placeholder="Last name" name="LastName"/> <br><br>
             <input type="text" placeholder="Email" name="Email"/> <br><br>
