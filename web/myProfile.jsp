@@ -78,14 +78,17 @@ ${notification}
 
 
 <div class="login-page">
-        <form action="EditProfile" method="post" class="login-form">
+        <form action="CustomerController" method="post" class="login-form">
             <input type="text" placeholder="First name" name="FirstName"/> <br><br>
             <input type="text" placeholder="Last name" name="LastName"/> <br><br>
             <input type="text" placeholder="Email" name="Email"/> <br><br>
             <input type="password" placeholder="Password" name="PasswordLogin"/> <br><br>
             <input type="text" placeholder="DD/MM/YYYY" name="DoB"/> <br><br>
             <input type="text" placeholder="Phone" name="PhoneNumber"/> <br><br>
-            <input type="hidden" value = "${username}" name="username"/> <br><br>   
+
+            <input type="hidden" value = "editCustomer" name="action"/> <br>
+            <input type="hidden" value = "${username}" name="username"/> <br>
+
 
 
 

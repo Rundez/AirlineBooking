@@ -1,3 +1,5 @@
+package Controllers;
+
 import DB.DatabaseHandler;
 
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +11,17 @@ import java.sql.SQLException;
 import DB.CustomerDAO;
 
 @WebServlet("/EditProfile")
-public class EditProfile extends HttpServlet {
+public class CustomerController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        String action = request.getParameter("action");
+        if (action.equals("editCustomer"))
+            editCustomer(request, response);
+    }
+
+
+    private void editCustomer (HttpServletRequest request, HttpServletResponse response) throws IOException {
         //Getting parameters
         String FirstName = request.getParameter("FirstName");
         String LastName = request.getParameter("LastName");
@@ -21,8 +30,8 @@ public class EditProfile extends HttpServlet {
         int DoB = Integer.parseInt(request.getParameter("DoB"));
         int PhoneNumber = Integer.parseInt(request.getParameter("PhoneNumber"));
         String username = request.getParameter("username");
-
         CustomerDAO cd = new CustomerDAO();
+
         int personID = 0;
         try {
             personID = cd.getcustomerID(username);
@@ -34,12 +43,13 @@ public class EditProfile extends HttpServlet {
             db.editUser(FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber, personID);
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+                e.printStackTrace();
+            }
+
+            response.sendRedirect("login.jsp");
         }
-
-        response.sendRedirect("login.jsp");
-
-    }
 }
+
+
 
 

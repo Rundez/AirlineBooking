@@ -8,7 +8,6 @@ import DB.BookingDAO;
 import DB.CustomerDAO;
 import DB.FlightDAO;
 import DB.SeatDAO;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.FieldAccessor_Integer;
 
 
 import javax.jms.Session;
@@ -18,9 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.print.Book;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -29,7 +29,6 @@ public class EditProfile extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         try {
             DatabaseHandler db = new DatabaseHandler();
             db.editUser(FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber, personID);
