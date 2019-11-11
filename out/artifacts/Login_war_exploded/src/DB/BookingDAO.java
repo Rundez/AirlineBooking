@@ -15,8 +15,9 @@ public class BookingDAO {
             String sql = "INSERT INTO Booking  ("
                     + " fID,"
                     + " cID,"
-                    + " seatID) VALUES ("
-                    + "?, ?, ?)";
+                    + " seatID,"
+                    + " payment) VALUES ("
+                    + "?, ?, ?, ?)";
 
             Connection con = openConnection();
             PreparedStatement st = con.prepareStatement(sql);
@@ -25,6 +26,7 @@ public class BookingDAO {
             st.setInt(1, e.getfID());
             st.setInt(2, e.getcID());
             st.setInt(3,e.getSeatID());
+            st.setInt(4, e.getPayment());
             st.executeUpdate();
             st.close();
 

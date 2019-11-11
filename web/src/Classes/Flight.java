@@ -13,6 +13,16 @@ public class Flight implements Serializable {
     int airplaneID;
     int flightID;
     int price;
+    int seatID;
+
+
+    public int getSeatID() {
+        return seatID;
+    }
+
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
+    }
 
     public void setAirplaneID(int airplaneID) {
         this.airplaneID = airplaneID;
