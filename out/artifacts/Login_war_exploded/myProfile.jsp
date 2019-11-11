@@ -21,6 +21,9 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .login-page {
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -36,6 +39,7 @@
         }
 %>
 
+
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
@@ -48,7 +52,7 @@
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
         <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
-        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey"" name="WelcomeBar">My profile</a>
+        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey" name="WelcomeBar">My profile</a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -73,7 +77,23 @@
 ${notification}
 
 
+<div class="login-page">
+        <form action="EditProfile" method="post" class="login-form">
+            <input type="text" placeholder="First name" name="FirstName"/> <br><br>
+            <input type="text" placeholder="Last name" name="LastName"/> <br><br>
+            <input type="text" placeholder="Email" name="Email"/> <br><br>
+            <input type="password" placeholder="Password" name="PasswordLogin"/> <br><br>
+            <input type="text" placeholder="DD/MM/YYYY" name="DoB"/> <br><br>
+            <input type="text" placeholder="Phone" name="PhoneNumber"/> <br><br>
+            <input type="hidden" value = "${username}" name="username"/> <br><br>
 
+
+
+            <button>Update profile</button>
+        </form>
+</div>
+
+</body>
 <script>
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() {
