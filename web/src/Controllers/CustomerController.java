@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import DB.CustomerDAO;
 
-@WebServlet("/EditProfile")
+@WebServlet("/CustomerController")
 public class CustomerController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
