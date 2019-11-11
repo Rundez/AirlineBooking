@@ -72,7 +72,7 @@ public class FlightDAO {
 
         ArrayList<Flight> list = new ArrayList<>();
 
-        String sql = "SELECT  f.FlightID  , f.DepartureID ,de.AirportName Departure, DepartureTime, f.ArrivalID, ar.AirportName Arrival, ArrivalTime, a.AirplaneID, a.Model Airplane\n" +
+        String sql = "SELECT  f.FlightID  , f.DepartureID ,de.AirportName Departure, DepartureTime, f.ArrivalID, ar.AirportName Arrival, ArrivalTime, a.AirplaneID, a.Model Airplane, Price\n" +
                 "FROM    flight f\n" +
                 "            JOIN    airport de\n" +
                 "                    ON      de.AirportID = f.DepartureID\n" +
@@ -98,6 +98,7 @@ public class FlightDAO {
             flight.setArrivalName(resultSet.getString("Arrival"));
             flight.setDepartureName(resultSet.getString("Departure"));
             flight.setAirplaneName(resultSet.getString("Airplane"));
+            flight.setPrice(resultSet.getInt("Price"));
             list.add(flight);
         }
         statement.close();
@@ -110,7 +111,7 @@ public class FlightDAO {
 
         ArrayList<Flight> list = new ArrayList<>();
 
-        String sql = "SELECT  f.FlightID  , f.DepartureID ,de.AirportName Departure, DepartureTime, f.ArrivalID, ar.AirportName Arrival, ArrivalTime, a.AirplaneID, a.Model Airplane, Booking.cID \n" +
+        String sql = "SELECT  f.FlightID  , f.DepartureID ,de.AirportName Departure, DepartureTime, f.ArrivalID, ar.AirportName Arrival, ArrivalTime, a.AirplaneID, a.Model Airplane, Booking.cID, Booking.seatID, Price \n" +
                 "                FROM    flight f\n" +
                 "                            JOIN    airport de\n" +
                 "                                    ON      de.AirportID = f.DepartureID\n" +
@@ -120,6 +121,7 @@ public class FlightDAO {
                 "                                    ON f.AirplaneID = a.AirplaneID\n" +
                 "                           Join Booking\n" +
                 "                           ON FlightID = Booking.fID\n" +
+                "                           AND seatID = Booking.seatID\n" +
                 "                           where Booking.cID = " + userID;
 
         connection = DBconnection.openConnection();
@@ -138,6 +140,8 @@ public class FlightDAO {
             flight.setArrivalName(resultSet.getString("Arrival"));
             flight.setDepartureName(resultSet.getString("Departure"));
             flight.setAirplaneName(resultSet.getString("Airplane"));
+            flight.setSeatID(resultSet.getInt("seatID"));
+            flight.setPrice(resultSet.getInt("Price"));
             list.add(flight);
         }
         statement.close();
