@@ -21,6 +21,9 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .login-page {
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -36,6 +39,7 @@
         }
 %>
 
+
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
@@ -48,7 +52,7 @@
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
         <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
-        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey"" name="WelcomeBar">My profile</a>
+        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey" name="WelcomeBar">My profile</a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -70,7 +74,6 @@
         <input type="hidden" name="userName" value="${username}">
     </form>
 </div>
-${notification}
 
 
 <div class="login-page">
@@ -91,6 +94,67 @@ ${notification}
 
 
 
+<div class="login-page">
+    <h1>Update your profile</h1> <br>
+        <form action="CustomerController" method="post" class="login-form">
+            <input type="text" placeholder="First name" name="FirstName"/>
+            <input type="hidden" value="editFirstName" name="action">
+            <input type="hidden" name="userName" value="${username}">
+            <button>Edit</button>
+        </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Last name" name="LastName"/>
+         <input type="hidden" value="editLastName" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Email" name="Email"/>
+         <input type="hidden" value="editMail" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+            <input type="password" placeholder="Password" name="PasswordLogin"/>
+            <input type="hidden" value="editPassword" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+        <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
+            <input type="hidden" value="editDOB" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+        </form>
+
+    <br>
+
+    <form action="CustomerController" method="post" class="login-form">
+         <input type="text" placeholder="Phone" name="PhoneNumber"/>
+         <input type="hidden" value="editPhone" name="action">
+        <input type="hidden" name="userName" value="${username}">
+        <button>Edit</button>
+    </form>
+
+    <br>
+    <h4>${notification} </h4>
+    <input type="hidden" value = "${username}" name="username"/> <br>
+        </form>
+</div>
+
+</body>
 <script>
     // Used to toggle the menu on small screens when clicking on the menu button
     function myFunction() {

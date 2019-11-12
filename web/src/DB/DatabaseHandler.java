@@ -49,6 +49,9 @@ public class DatabaseHandler
            st.executeUpdate();
        }
 
+
+
+
        // Adds a plane into the DB
        public void addAirplane(String model, int economySeats, int businessSeats) throws SQLException {
 

@@ -103,6 +103,9 @@ border-collapse: collapse;
             <th>Takeoff</th>
             <th>Landing</th>
             <th>Airplane</th>
+            <th>Seat</th>
+            <th>Amount paid</th>
+            <th>Baggage</th>
         </tr>
         </thead>
 
@@ -115,8 +118,15 @@ border-collapse: collapse;
     <td>${item.departureTime}</td>
     <td>${item.arrivalTime}</td>
     <td>${item.airplaneName}</td>
+    <td>${item.seatType} ${item.seatNumber}</td>
+    <td>${item.payment} kr</td>
+    <td>${item.baggage}</td>
+
         <input type="hidden" name="flightID" value="${item.flightID}" >
         <input type="hidden" name="userName" value="${username}">
+        <input type="hidden" name="seatID" value="${item.seatID}">
+        <input type="hidden" name="price" value="${item.payment}">
+
         <input type="hidden" name="action" value="cancel">
     <td><form><input type="submit" name="cancel" class="btn btn-primary"  value="Cancel Booking"/></form></td></tr>
     </form>

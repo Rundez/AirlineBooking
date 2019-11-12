@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -43,6 +44,8 @@ public class FlightController extends HttpServlet {
 
 
     public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+
 
 
         String departureTime = request.getParameter("departureTime");

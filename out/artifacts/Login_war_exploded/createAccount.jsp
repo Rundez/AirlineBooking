@@ -25,7 +25,6 @@
                   <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
                   <input type="text" placeholder="Phone" name="PhoneNumber"/>
 
-
                    <button>create</button>
               </form>
             </div>

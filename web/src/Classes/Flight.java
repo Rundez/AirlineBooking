@@ -13,6 +13,51 @@ public class Flight implements Serializable {
     int airplaneID;
     int flightID;
     int price;
+    int seatID;
+    int payment;
+    int baggage;
+
+    public int getBaggage() {
+        return baggage;
+    }
+
+    public void setBaggage(int baggage) {
+        this.baggage = baggage;
+    }
+
+    public String getSeatType() {
+        return seatType;
+    }
+
+    public void setSeatType(String seatType) {
+        this.seatType = seatType;
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    String seatType;
+    String seatNumber;
+    public int getPayment() {
+        return payment;
+    }
+
+    public void setPayment(int payment) {
+        this.payment = payment;
+    }
+
+    public int getSeatID() {
+        return seatID;
+    }
+
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
+    }
 
     public void setAirplaneID(int airplaneID) {
         this.airplaneID = airplaneID;
