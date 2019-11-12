@@ -51,7 +51,7 @@ public class CustomerController extends HttpServlet {
         }
 
         request.setAttribute("notification", "First name updated!");
-        request.getRequestDispatcher("myProfile.jsp").forward(request, response);
+        request.getRequestDispatcher("LogoutPost").forward(request, response);
 
     }
 
