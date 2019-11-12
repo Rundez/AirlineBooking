@@ -61,6 +61,8 @@ public class BookingController extends HttpServlet {
         String seatType = request.getParameter("radio");
         int airplaneID = Integer.parseInt(request.getParameter("airplaneID"));
         int price = Integer.parseInt(request.getParameter("price"));
+        int businessPrice = Integer.parseInt(request.getParameter("businessPrice"));
+        int baggage = Integer.parseInt(request.getParameter("baggage"));
         String arrival = request.getParameter("arrival");
 
         ArrayList<Seats> list = new ArrayList<>();
@@ -86,6 +88,10 @@ public class BookingController extends HttpServlet {
             }
         }
 
+        if(seatType.equals("Business")) {
+            price = businessPrice;
+        }
+
         //Chooses the index position 0 in the list, if it contains value.
         if (list.size() >= 1){
             Seats selectedSeat = list.get(0);
@@ -99,11 +105,13 @@ public class BookingController extends HttpServlet {
                 b.setcID(userID);
                 b.setSeatID(seatID);
                 b.setPayment(price);
+                b.setBaggage(baggage);
 
                 // Gets the user's balance and assigns it to amount.
                 // calculateMoney() will then sum up the money to be withdrawn from the user's account.
                 int amount = customerDAO.checkBalance(userID);
                 customerDAO.calculateMoney(userID, amount, price);
+
                 // Save the booking object into the database and sets "Occupied" to "Yes".
                 bookingDAO.save(b);
                 bookingDAO.setOccupiedSeat(seatID);

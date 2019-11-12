@@ -7,6 +7,15 @@ public class Booking {
     int RN;
     int payment;
     int seatID;
+    int baggage;
+
+    public int getBaggage() {
+        return baggage;
+    }
+
+    public void setBaggage(int baggage) {
+        this.baggage = baggage;
+    }
 
     public int getSeatID() {
         return seatID;
