@@ -59,9 +59,9 @@
     <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
     </div>
-<%------------------------------------------------------------------------------------------------------------------------%>
+    <%------------------------------------------------------------------------------------------------------------------------%>
 
-    <!-- Header  (WhiteBanner&Picture) -->
+    <!-- Header (WhiteBanner&Picture) -->
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo">Contact Us</h1>

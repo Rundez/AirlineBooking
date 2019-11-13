@@ -15,20 +15,20 @@
     <title>Register</title>
 </head>
 <body>
-        <div class="login-page">
-            <div class="form">
-              <form action="Registration" method="post" class="login-form">
-                  <input type="text" placeholder="First name" name="FirstName"/>
-                  <input type="text" placeholder="Last name" name="LastName"/>
-                  <input type="text" placeholder="Email" name="Email"/>
-                  <input type="password" placeholder="Password" name="PasswordLogin"/>
-                  <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
-                  <input type="text" placeholder="Phone" name="PhoneNumber"/>
+<div class="login-page">
+    <div class="form">
+        <form action="Registration" method="post" class="login-form">
+            <input type="text" placeholder="First name" name="FirstName"/>
+            <input type="text" placeholder="Last name" name="LastName"/>
+            <input type="text" placeholder="Email" name="Email"/>
+            <input type="password" placeholder="Password" name="PasswordLogin"/>
+            <input type="text" placeholder="DD/MM/YYYY" name="DoB"/>
+            <input type="text" placeholder="Phone" name="PhoneNumber"/>
 
-                   <button>create</button>
-              </form>
-            </div>
-        </div>
+            <button>create</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

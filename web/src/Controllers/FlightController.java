@@ -46,8 +46,6 @@ public class FlightController extends HttpServlet {
     public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
-
-
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
 
@@ -87,18 +85,18 @@ public class FlightController extends HttpServlet {
             String DepartureTimeShort = s.substring(0, s.length() - 11);
             //Removes flights that has one or more variables that dont match with input
             if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure)
-                    || !DepartureTimeShort.equals(departureTimeInput)){
+                    || !DepartureTimeShort.equals(departureTimeInput)) {
                 it.remove();
             }
         }
 
-            // Sends the filtered ArrayList of flights to the next page.
-            request.setAttribute("from", departure);
-            request.setAttribute("to", arrival);
-            request.setAttribute("list", list);
-            request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
-        }
-
+        // Sends the filtered ArrayList of flights to the next page.
+        request.setAttribute("from", departure);
+        request.setAttribute("to", arrival);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
     }
+
+}
 
 

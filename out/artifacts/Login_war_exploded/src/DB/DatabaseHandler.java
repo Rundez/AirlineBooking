@@ -2,8 +2,7 @@ package DB;
 
 import java.sql.*;
 
-public class DatabaseHandler
-{
+public class DatabaseHandler {
     String url = "jdbc:mysql://localhost:3306/java";
     String username = "root";
     String password = "";
@@ -30,59 +29,57 @@ public class DatabaseHandler
         return rs.next();
     }
 
-       public void addUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber) throws ClassNotFoundException, SQLException {
-
-           // Executes a static method "openconnection" which connects to the DB.
-           Connection con = DBconnection.openConnection();
-
-           String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
-           //Choose the input for the database
-           PreparedStatement st = con.prepareStatement(sql);
-           st.setString(1, FirstName);
-           st.setString(2, LastName);
-           st.setString(3, Email);
-           st.setString(4, PasswordLogin);
-           st.setInt(5, DoB);
-           st.setInt(6, PhoneNumber);
-
-           //Puts data INTO the database
-           st.executeUpdate();
-       }
-
-
-
-
-       // Adds a plane into the DB
-       public void addAirplane(String model, int economySeats, int businessSeats) throws SQLException {
+    public void addUser(String FirstName, String LastName, String Email, String PasswordLogin, int DoB, int PhoneNumber) throws ClassNotFoundException, SQLException {
 
         // Executes a static method "openconnection" which connects to the DB.
-           Connection con = DBconnection.openConnection();
+        Connection con = DBconnection.openConnection();
 
-           String sql = "INSERT INTO Airplane (Model, EconomySeats, BusinessSeats) VALUES (?,?,?)";
-           //Choose the input for the database
-           PreparedStatement st = con.prepareStatement(sql);
+        String sql = "INSERT INTO RegistrationForm (FirstName, LastName, Email, PasswordLogin, DoB, PhoneNumber) VALUES (?,?,?,?,?,?)";
+        //Choose the input for the database
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, FirstName);
+        st.setString(2, LastName);
+        st.setString(3, Email);
+        st.setString(4, PasswordLogin);
+        st.setInt(5, DoB);
+        st.setInt(6, PhoneNumber);
 
-           st.setString(1, model);
-           st.setInt(2, economySeats);
-           st.setInt(3, businessSeats);
+        //Puts data INTO the database
+        st.executeUpdate();
+    }
 
-           st.executeUpdate();
-       }
 
-       public void addAirport(String name) throws SQLException {
+    // Adds a plane into the DB
+    public void addAirplane(String model, int economySeats, int businessSeats) throws SQLException {
 
-           // Executes a static method "openconnection" which connects to the DB.
-           Connection con = DBconnection.openConnection();
+        // Executes a static method "openconnection" which connects to the DB.
+        Connection con = DBconnection.openConnection();
 
-           String sql = "INSERT INTO Airport (AirportName) VALUES (?)";
+        String sql = "INSERT INTO Airplane (Model, EconomySeats, BusinessSeats) VALUES (?,?,?)";
+        //Choose the input for the database
+        PreparedStatement st = con.prepareStatement(sql);
 
-           //Choose the input for the database
-           PreparedStatement st = con.prepareStatement(sql);
-           st.setString(1, name);
+        st.setString(1, model);
+        st.setInt(2, economySeats);
+        st.setInt(3, businessSeats);
 
-           st.executeUpdate();
+        st.executeUpdate();
+    }
 
-       }
+    public void addAirport(String name) throws SQLException {
+
+        // Executes a static method "openconnection" which connects to the DB.
+        Connection con = DBconnection.openConnection();
+
+        String sql = "INSERT INTO Airport (AirportName) VALUES (?)";
+
+        //Choose the input for the database
+        PreparedStatement st = con.prepareStatement(sql);
+        st.setString(1, name);
+
+        st.executeUpdate();
+
+    }
 
 }
 

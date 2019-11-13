@@ -60,7 +60,7 @@
     </div>
     </div>
 
-    <!-- Header  (WhiteBanner&Picture) -->
+    <!-- Header (WhiteBanner&Picture) -->
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo">Travelling information</h1>

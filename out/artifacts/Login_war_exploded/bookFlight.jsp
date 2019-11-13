@@ -6,14 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="username" value="${username}" scope="session"/>
 
 <html>
 <head class="w3-container w3-red w3-center" style="padding:128px 16px">
     <title>Book flight</title>
 </head>
-
 
 
 <%
@@ -48,12 +47,12 @@
 %>
 
 
-
-    <meta charset="UTF-8">
-    <title>CSS Boarding Pass</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./Style/booking.css">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<meta charset="UTF-8">
+<title>CSS Boarding Pass</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="./Style/booking.css">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
 </head>
 <body>
@@ -65,7 +64,7 @@
     <div class="content">
         <div class="location">
             <div class="item">
-                <h1><% out.print(departureName);%> </h1>
+                <h1><% out.print(departureName);%></h1>
                 <p><% out.print(departureTime); %></p>
             </div>
             <div class="path">
@@ -96,12 +95,11 @@
             </div>
             <div class="item">
                 <h4>airplane</h4>
-                <p><% out.print(airplaneName); %> </p>
+                <p><% out.print(airplaneName); %></p>
             </div>
         </div>
     </div>
 </div>
-
 
 
 <%--

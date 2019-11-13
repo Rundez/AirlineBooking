@@ -6,15 +6,16 @@ public class Airport implements Serializable {
     String airportName;
     int id;
 
-    public void setAirportName(String airportName){
+
+    public void setAirportName(String airportName) {
         this.airportName = airportName;
     }
 
-    public String getAirportName(){
+    public String getAirportName() {
         return airportName;
     }
 
-    public void setID(int id){
+    public void setID(int id) {
         this.id = id;
     }
 
@@ -22,7 +23,7 @@ public class Airport implements Serializable {
         return id;
     }
 
-    public String toString(){
+    public String toString() {
         return airportName;
     }
 }

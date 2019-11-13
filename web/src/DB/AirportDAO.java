@@ -32,13 +32,13 @@ public class AirportDAO {
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 airport = new Airport();
                 airport.setID(resultSet.getInt("AirportID"));
                 airport.setAirportName(resultSet.getString("AirportName"));
                 list.add(airport);
             }
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
@@ -49,15 +49,15 @@ public class AirportDAO {
         Airport airport = null;
         try {
             airport = new Airport();
-            String sql = "SELECT * FROM Airport where AirportID="+id;
+            String sql = "SELECT * FROM Airport where AirportID=" + id;
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 airport.setID(resultSet.getInt("AirportID"));
                 airport.setAirportName(resultSet.getString("AirportName"));
             }
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return airport;
@@ -77,7 +77,7 @@ public class AirportDAO {
             st.executeUpdate();
 
             flag = true;
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return flag;
@@ -87,12 +87,12 @@ public class AirportDAO {
     public boolean delete(int id) {
         boolean flag = false;
         try {
-            String sql = "DELETE FROM Airport where AirportID="+id;
+            String sql = "DELETE FROM Airport where AirportID=" + id;
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
             flag = true;
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return flag;
@@ -102,12 +102,12 @@ public class AirportDAO {
     public boolean update(Airport airport) {
         boolean flag = false;
         try {
-            String sql = "UPDATE Airport SET AirportName = '"+airport.getAirportName() +"' where id="+airport.getId();
+            String sql = "UPDATE Airport SET AirportName = '" + airport.getAirportName() + "' where id=" + airport.getId();
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
             flag = true;
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return flag;
