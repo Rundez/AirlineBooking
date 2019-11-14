@@ -32,6 +32,18 @@
     .bookingButton{
         text-align: justify;
     }
+    body {
+        background: #76b852; /* fallback for old browsers */
+        background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+        background: -moz-linear-gradient(right, #76b852, #8DC26F);
+        background: -o-linear-gradient(right, #76b852, #8DC26F);
+        background: linear-gradient(to left, #76b852, #8DC26F);
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+        background-image: url(http://cdn.cnn.com/cnnnext/dam/assets/181128110146-12-norway-skiing-travel.jpg);
+    }
 
 </style>
 
@@ -80,10 +92,10 @@
     </div>
 </div>
 
-<div class="bookingButton">
+<div class="bookingButton w3-center">
     <br> <br>
     <form action="BookingController" method="post">
-        <input type="submit" value="My bookings" class="btn btn-primary btn-lg"/>
+        <input type="submit" value="My flights" class="w3-button w3-white w3-padding-large w3-large w3-margin-top " style="text-shadow:1px 1px 0 #444; width: 30% "/>
         <input type="hidden" value="myFlights" name="action">
         <input type="hidden" name="userName" value="${username}">
     </form>
@@ -91,7 +103,7 @@
 
 
 <div class="login-page">
-    <h1>Update your profile</h1> <br>
+    <h1 style="color:whitesmoke; text-shadow:1px 1px 0 #444">Update your profile</h1> <br>
     <form action="CustomerController" method="post" class="login-form">
         <input type="text" placeholder="First name" name="FirstName"/>
         <input type="hidden" value="editFirstName" name="action">
