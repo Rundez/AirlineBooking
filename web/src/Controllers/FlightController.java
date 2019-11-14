@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class FlightController extends HttpServlet {
 
 
-    FlightDAO flightDAO = null;
+    private FlightDAO flightDAO = null;
 
     public FlightController() {
         flightDAO = new FlightDAO();
@@ -39,12 +39,10 @@ public class FlightController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
 
 
     private void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
 
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");

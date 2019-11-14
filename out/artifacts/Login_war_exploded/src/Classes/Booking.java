@@ -2,12 +2,12 @@ package Classes;
 
 public class Booking {
 
-    int cID;
-    int fID;
-    int RN;
-    int payment;
-    int seatID;
-    int baggage;
+    private int cID;
+    private int fID;
+    private int RN;
+    private int payment;
+    private int seatID;
+    private int baggage;
 
     public int getBaggage() {
         return baggage;

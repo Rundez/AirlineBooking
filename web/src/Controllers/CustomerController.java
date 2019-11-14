@@ -61,7 +61,6 @@ public class CustomerController extends HttpServlet {
         String lastName = request.getParameter("LastName");
         String username = request.getParameter("userName");
 
-
         CustomerDAO cd = new CustomerDAO();
 
         int personID = 0;
@@ -130,6 +129,7 @@ public class CustomerController extends HttpServlet {
         request.setAttribute("notification", "Password updated");
         request.getRequestDispatcher("myProfile.jsp").forward(request, response);
     }
+
 
 
     private void editDOB(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

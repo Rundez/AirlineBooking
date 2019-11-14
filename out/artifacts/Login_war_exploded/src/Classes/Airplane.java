@@ -3,10 +3,10 @@ package Classes;
 import java.io.Serializable;
 
 public class Airplane implements Serializable {
-    String model;
-    int businessSeats;
-    int economySeats;
-    int airplaneId;
+    private String model;
+    private int businessSeats;
+    private int economySeats;
+    private int airplaneId;
 
 
     public Airplane(){};

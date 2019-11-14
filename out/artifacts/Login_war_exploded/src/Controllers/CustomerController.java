@@ -61,7 +61,6 @@ public class CustomerController extends HttpServlet {
         String lastName = request.getParameter("LastName");
         String username = request.getParameter("userName");
 
-
         CustomerDAO cd = new CustomerDAO();
 
         int personID = 0;

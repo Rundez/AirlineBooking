@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class FlightController extends HttpServlet {
 
 
-    FlightDAO flightDAO = null;
+    private FlightDAO flightDAO = null;
 
     public FlightController() {
         flightDAO = new FlightDAO();

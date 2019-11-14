@@ -18,7 +18,7 @@ public class AirplaneController extends HttpServlet {
 
     AirplaneDAO airplaneDAO = null;
 
-    public AirplaneController() {
+    private AirplaneController() {
         //Creating a new airplaneDAO to be used later in the program.
         airplaneDAO = new AirplaneDAO();
     }
