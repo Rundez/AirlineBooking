@@ -4,11 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 body{
-    background: #f18053;
+    background-image: url(http://cdn.cnn.com/cnnnext/dam/assets/181128110146-12-norway-skiing-travel.jpg);
 }
 
 
@@ -38,7 +38,7 @@ body{
 
 .wrapper .content{
     width: 70%;
-    background: #fff;
+    background: #9f949c;
     padding: 20px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
