@@ -39,12 +39,10 @@ public class FlightController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
 
 
     private void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
 
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");

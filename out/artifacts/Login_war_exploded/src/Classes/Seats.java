@@ -9,7 +9,6 @@ public class Seats implements Serializable {
     private String seatType;
     private String occupied;
 
-
     public void setAirplaneID(int airplaneID) {
         this.airplaneID = airplaneID;
     }
@@ -21,7 +20,6 @@ public class Seats implements Serializable {
     public int getAirplaneID() {
         return airplaneID;
     }
-
 
     public String getOccupied() {
         return occupied;
