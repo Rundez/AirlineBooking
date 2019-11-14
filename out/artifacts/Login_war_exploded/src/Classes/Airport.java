@@ -3,8 +3,8 @@ package Classes;
 import java.io.Serializable;
 
 public class Airport implements Serializable {
-    String airportName;
-    int id;
+    private String airportName;
+    private int id;
 
 
     public void setAirportName(String airportName) {

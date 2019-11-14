@@ -15,9 +15,9 @@ import java.io.IOException;
 @WebServlet("/AirportController")
 public class AirportController extends HttpServlet {
 
+        private AirportDAO airportDAO = null;
 
-        AirportDAO airportDAO = null;
-        public AirportController() {
+        private AirportController() {
             airportDAO = new AirportDAO();
         }
         public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

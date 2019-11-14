@@ -177,6 +177,4 @@ public class BookingController extends HttpServlet {
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
-
-
 }
