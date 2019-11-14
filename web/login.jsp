@@ -12,6 +12,7 @@
     <title>Welcome to Airline Booking!</title>
 </head>
 
+
 <body>
 <div class="login-page">
     <div class="form">

@@ -20,11 +20,8 @@ public class AirplaneDAO {
 
 
     public List<Airplane> get() {
-
         List<Airplane> list = null;
-
         try {
-
             list = new ArrayList<>();
             String sql = "SELECT * FROM java.Airplane";
             connection = DBconnection.openConnection();
@@ -65,8 +62,8 @@ public class AirplaneDAO {
     }
 
 
-    public boolean save(Airplane e) {
-        boolean flag = false;
+    public void save(Airplane e) {
+
         try {
             String sql = "INSERT INTO Airplane (Model, BusinessSeats, EconomySeats) VALUES (?,?,?)";
 
@@ -81,38 +78,36 @@ public class AirplaneDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return flag;
     }
 
+    public void delete(int id) {
 
-    public boolean delete(int id) {
-        boolean flag = false;
         try {
             String sql = "DELETE FROM java.Airplane where AirplaneID=" + id;
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
-            flag = true;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
+
     }
 
 
-    public boolean update(Airplane airplane) {
-        boolean flag = false;
+    public void update(Airplane airplane) {
+
         try {
             String sql = "UPDATE java.Airplane SET Model = '" + airplane.getModel() + "', "
                     + "BusinessSeats = '" + airplane.getBusinessSeats() + "', EconomySeats = '" + airplane.getEconomySeats() + "' where id=" + airplane.getId();
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
-            flag = true;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
+
     }
 
 }

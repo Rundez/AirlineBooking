@@ -17,7 +17,6 @@ public class AirportController extends HttpServlet {
 
 
         AirportDAO airportDAO = null;
-
         public AirportController() {
             airportDAO = new AirportDAO();
         }
@@ -28,7 +27,7 @@ public class AirportController extends HttpServlet {
                 createAirport(request, response);
         }
 
-    protected void createAirport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void createAirport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name = request.getParameter("airportName");
 

@@ -81,9 +81,11 @@
     <h1 class="w3-margin w3-jumbo" style="text-shadow:1px 1px 0 #444">Viking Airways</h1>
     <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Welcome, ${username}</p>
     <p class="w3-xlarge" style="text-shadow:1px 1px 0 #444">Where do you want to fly?</p>
-    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="text-shadow:1px 1px 0 #444">Book
+    <form action="book.jsp">
+    <button type="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="text-shadow:1px 1px 0 #444">Book
         your next flight now
     </button>
+    </form>
 </header>
 
 <!-- First Grid -->

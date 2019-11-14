@@ -43,7 +43,7 @@ public class FlightController extends HttpServlet {
     }
 
 
-    public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
 
         String departureTime = request.getParameter("departureTime");
@@ -61,7 +61,7 @@ public class FlightController extends HttpServlet {
 
     }
 
-    public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    private void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         //Fetches the airports and the departure time where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");

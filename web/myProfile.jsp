@@ -29,6 +29,10 @@
     .login-page {
         text-align: center;
     }
+    .bookingButton{
+        text-align: justify;
+    }
+
 </style>
 
 <body>
@@ -51,7 +55,7 @@
                 class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey>Book"> Book </a>
-        <a href="bookFlight.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My
+        <a href="listMyFlights.jsp.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My
             bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel
             info</a>
@@ -76,10 +80,10 @@
     </div>
 </div>
 
-<div>
+<div class="bookingButton">
     <br> <br>
     <form action="BookingController" method="post">
-        <input type="submit" value="Mine reiser" class="btn btn-primary btn-lg"/>
+        <input type="submit" value="My bookings" class="btn btn-primary btn-lg"/>
         <input type="hidden" value="myFlights" name="action">
         <input type="hidden" name="userName" value="${username}">
     </form>
