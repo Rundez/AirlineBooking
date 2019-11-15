@@ -105,7 +105,7 @@
             </form>
 
             <!-- Legg til reiser -->
-            <form action="FlightController" method="post">
+            <form action="FlightController" method="post"/>
 <%--Departure dropdown --%>
                     <%
                     try{
