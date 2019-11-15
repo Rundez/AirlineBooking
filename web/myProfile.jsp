@@ -29,9 +29,11 @@
     .login-page {
         text-align: center;
     }
-    .bookingButton{
+
+    .bookingButton {
         text-align: justify;
     }
+
     body {
         background: #76b852; /* fallback for old browsers */
         background: -webkit-linear-gradient(right, #76b852, #8DC26F);
@@ -67,8 +69,6 @@
                 class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey>Book"> Book </a>
-        <a href="listMyFlights.jsp.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My
-            bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel
             info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact
@@ -92,10 +92,11 @@
     </div>
 </div>
 
-<div class="bookingButton w3-center">
+<div class="bookingButton w3-center ">
     <br> <br>
     <form action="BookingController" method="post">
-        <input type="submit" value="My flights" class="w3-button w3-white w3-padding-large w3-large w3-margin-top " style="text-shadow:1px 1px 0 #444; width: 30% "/>
+        <input type="submit" value="My flights" class="w3-button w3-white w3-padding-large w3-large w3-margin-top "
+               style="text-shadow:1px 1px 0 #444; width: 20% "/>
         <input type="hidden" value="myFlights" name="action">
         <input type="hidden" name="userName" value="${username}">
     </form>

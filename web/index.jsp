@@ -50,8 +50,6 @@
                 class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey w3-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey ">Book</a>
-        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My
-            bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel
             info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact
@@ -68,7 +66,6 @@
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
-        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>

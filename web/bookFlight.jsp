@@ -68,8 +68,6 @@
                 class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey w3-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey ">Book</a>
-        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My
-            bookings</a>
         <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel
             info</a>
         <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact
@@ -219,7 +217,7 @@ a reservation.
 <div>
 <form action="BookingController" method="post" class="buttom" style="">
 
-    <input type="submit" class="w3-button w3-white w3-xxlarge w3-auto " value="Confirm and pay!">
+    <input type="submit" class="w3-btn w3-white w3-xxlarge" value="Confirm and pay!">
     <input type="hidden" name="depName" value="<%out.print(departureName);%>">
     <input type="hidden" name="flightID" value="<%out.print(flightID);%>">
     <input type="hidden" name="userName" value="${username}">
