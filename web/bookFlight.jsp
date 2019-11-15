@@ -12,9 +12,9 @@
 <html>
 <meta charset="UTF-8">
 <title>CSS Boarding Pass</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <link rel="stylesheet" href="./Style/booking.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +22,43 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Lato", sans-serif
+    }
+
+    .w3-bar, h1, button {
+        font-family: "Montserrat", sans-serif
+    }
+
+    /*Bakgrunn på toppen*/
+    .w3-red, .w3-hover-red:hover {
+        color: #ffffff !important;
+        background-color: #ffffff !important;
+        /*background-image: url(https://source.unsplash.com/1920x1080?landscape);*/
+        background-image: url(http://cdn.cnn.com/cnnnext/dam/assets/181128110146-12-norway-skiing-travel.jpg);
+        height: 700px;
+    }
+
+    /*Button*/
+    .w3-black, .w3-hover-black:hover {
+        color: #034a06 !important;
+        background-color: #fff !important;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+
+    .buttom {
+        margin: 0;
+        position: absolute;
+        top: 70%;
+        left: 45%;
+    }
+</style>
+
+
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -56,7 +93,7 @@
     </div>
 </div>
 
-<
+
 
 
 <%
@@ -89,12 +126,6 @@
 //    out.print(businessPrice + "<br>");
 //    out.print(baggage);
 %>
-
-
-
-
-
-
 
 <style>
     body, h1, h2, h3, h4, h5, h6 {
@@ -130,7 +161,6 @@
         top: 70%;
         left: 45%;
     }
-
 
 </style>
 
