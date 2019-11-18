@@ -131,7 +131,6 @@ public class CustomerController extends HttpServlet {
     }
 
 
-
     private void editDOB(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int DoB = Integer.parseInt(request.getParameter("DoB"));
         String username = request.getParameter("userName");
@@ -160,7 +159,6 @@ public class CustomerController extends HttpServlet {
     private void editPhone(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int phone = Integer.parseInt(request.getParameter("PhoneNumber"));
         String username = request.getParameter("userName");
-
 
         CustomerDAO cd = new CustomerDAO();
 

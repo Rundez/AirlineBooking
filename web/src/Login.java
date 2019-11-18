@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
             } else {
                 response.sendRedirect("login.jsp");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
