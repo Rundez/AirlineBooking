@@ -18,7 +18,6 @@ public class SeatDAO {
     Statement statement = null;
 
 
-
     public boolean save(Flight e) {
         boolean flag = false;
         try {

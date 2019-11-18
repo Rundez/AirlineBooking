@@ -3,19 +3,19 @@ package Classes;
 import java.io.Serializable;
 
 public class Flight implements Serializable {
-    String arrivalTime;
-    String departureTime;
-    String arrivalName;
-    String departureName;
-    String airplaneName;
-    int departureID;
-    int arrivalID;
-    int airplaneID;
-    int flightID;
-    int price;
-    int seatID;
-    int payment;
-    int baggage;
+    private String arrivalTime;
+    private String departureTime;
+    private String arrivalName;
+    private String departureName;
+    private String airplaneName;
+    private int departureID;
+    private int arrivalID;
+    private int airplaneID;
+    private int flightID;
+    private int price;
+    private int seatID;
+    private int payment;
+    private int baggage;
 
     public int getBaggage() {
         return baggage;

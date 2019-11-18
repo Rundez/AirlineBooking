@@ -17,14 +17,19 @@
 <script src=https://code.jquery.com/jquery-1.12.4.js></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Lato", sans-serif
+    }
+
+    .w3-bar, h1, button {
+        font-family: "Montserrat", sans-serif
+    }
 
 
     /*Bakgrunn på toppen*/
     .w3-red, .w3-hover-red:hover {
-        color: #fff!important;
-        background-color: #ffffff!important;
+        color: #fff !important;
+        background-color: #ffffff !important;
         background-image: url(https://source.unsplash.com/1920x1080?landscape);
         height: 600px;
 
@@ -32,8 +37,8 @@
 
 
     .w3-black, .w3-hover-black:hover {
-        color: #034a06!important;
-        background-color: #fff!important;
+        color: #034a06 !important;
+        background-color: #fff !important;
     }
 </style>
 <body>
@@ -42,16 +47,23 @@
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-white w3-card w3-left-align w3-large">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large"
+           href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                class="fa fa-bars"></i></a>
         <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey">VA</a>
         <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey ">Book</a>
-        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey">My bookings</a>
-        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
-        <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact us</a>
+        <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey">My
+            bookings</a>
+        <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel
+            info</a>
+        <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Contact
+            us</a>
         <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
         <a Welcome class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"> Welcome ${username}</a>
-        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log out</a>
-        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">My profile</a>
+        <a href="Logout" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey" name="WelcomeBar">Log
+            out</a>
+        <a href="myProfile.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey"
+           name="WelcomeBar">My profile</a>
     </div>
 
     <!-- Navbar on small screens -->
@@ -66,8 +78,6 @@
 </div>
 
 
-
-
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h1 class="w3-margin w3-jumbo">Your flights</h1>
@@ -77,7 +87,8 @@
         <form>
             <P></P>
             <div class="input-fields">
-                <input type="text" from="" required="" placeholder="From" style ="text-align: center" class="w3-large"> <input type="text" to="" required="" placeholder="To" style="text-align: center" class="w3-large">
+                <input type="text" from="" required="" placeholder="From" style="text-align: center" class="w3-large">
+                <input type="text" to="" required="" placeholder="To" style="text-align: center" class="w3-large">
 
                 <span></span>
             </div>
@@ -90,8 +101,6 @@
 </header>
 
 
-
-
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
@@ -99,9 +108,10 @@
             <h1>Low Fare Calendar</h1>
             <h5 class="w3-padding-32">Discover great flights around the world with reasonable price.</h5>
 
-            <img src="https://www.sapmer.com/wp-content/uploads/2015/12/header-SAPMER-paris-1024x482.jpg" width=1024 height=482>
+            <img src="https://www.sapmer.com/wp-content/uploads/2015/12/header-SAPMER-paris-1024x482.jpg" width=1024
+                 height=482>
 
-            <p class="w3-text-grey"> </p>
+            <p class="w3-text-grey"></p>
         </div>
 
         <div class="w3-third w3-center">
@@ -114,7 +124,7 @@
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="w3-content">
         <div class="w3-third w3-center">
-            <img src="http://www.pngmart.com/files/7/Earth-Globe-PNG-File.png" width=293 height=258 >
+            <img src="http://www.pngmart.com/files/7/Earth-Globe-PNG-File.png" width=293 height=258>
         </div>
 
         <div class="w3-twothird">

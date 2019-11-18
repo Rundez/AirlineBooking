@@ -17,7 +17,6 @@ public class FlightDAO {
     Statement statement = null;
 
 
-
     public boolean save(Flight e) {
         boolean flag = false;
         try {

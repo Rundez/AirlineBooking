@@ -97,7 +97,7 @@ public class CustomerDAO {
 
     public void updateFirstName(int userID, String firstName) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET FirstName = '" +firstName + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET FirstName = '" + firstName + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 
@@ -109,7 +109,7 @@ public class CustomerDAO {
 
     public void updateLastName(int userID, String lastName) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET LastName = '" + lastName + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET LastName = '" + lastName + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 
@@ -121,7 +121,7 @@ public class CustomerDAO {
 
     public void updateMail(int userID, String email) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET Email = '" + email + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET Email = '" + email + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 
@@ -133,7 +133,7 @@ public class CustomerDAO {
 
     public void updatePassword(int userID, String password) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET PasswordLogin = '" + password + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET PasswordLogin = '" + password + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 
@@ -145,7 +145,7 @@ public class CustomerDAO {
 
     public void updateDoB(int DoB, int userID) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET DoB = '" + DoB + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET DoB = '" + DoB + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 
@@ -157,7 +157,7 @@ public class CustomerDAO {
 
     public void updatePhone(int userID, int phone) throws SQLException {
 
-        String sql =  "UPDATE RegistrationForm SET PhoneNumber = '" + phone + "'  WHERE PersonID = " +  userID;
+        String sql = "UPDATE RegistrationForm SET PhoneNumber = '" + phone + "'  WHERE PersonID = " + userID;
 
         Connection con = openConnection();
 

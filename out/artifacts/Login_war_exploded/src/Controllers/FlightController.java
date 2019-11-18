@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class FlightController extends HttpServlet {
 
 
-    FlightDAO flightDAO = null;
+    private FlightDAO flightDAO = null;
 
     public FlightController() {
         flightDAO = new FlightDAO();
@@ -39,14 +39,10 @@ public class FlightController extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
 
 
-    public void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-
-
+    private void createFlight(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String departureTime = request.getParameter("departureTime");
         String arrivalTime = request.getParameter("arrivalTime");
@@ -63,7 +59,7 @@ public class FlightController extends HttpServlet {
 
     }
 
-    public void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    private void searchFlights(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
         //Fetches the airports and the departure time where the user wants to travel from and to.
         String departure = request.getParameter("from");
         String arrival = request.getParameter("to");
@@ -87,18 +83,18 @@ public class FlightController extends HttpServlet {
             String DepartureTimeShort = s.substring(0, s.length() - 11);
             //Removes flights that has one or more variables that dont match with input
             if (!y.getArrivalName().equals(arrival) || !y.getDepartureName().equals(departure)
-                    || !DepartureTimeShort.equals(departureTimeInput)){
+                    || !DepartureTimeShort.equals(departureTimeInput)) {
                 it.remove();
             }
         }
 
-            // Sends the filtered ArrayList of flights to the next page.
-            request.setAttribute("from", departure);
-            request.setAttribute("to", arrival);
-            request.setAttribute("list", list);
-            request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
-        }
-
+        // Sends the filtered ArrayList of flights to the next page.
+        request.setAttribute("from", departure);
+        request.setAttribute("to", arrival);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("searchFlights.jsp").forward(request, response);
     }
+
+}
 
 

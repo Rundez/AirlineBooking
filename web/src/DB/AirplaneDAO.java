@@ -20,17 +20,14 @@ public class AirplaneDAO {
 
 
     public List<Airplane> get() {
-
         List<Airplane> list = null;
-
         try {
-
             list = new ArrayList<>();
             String sql = "SELECT * FROM java.Airplane";
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Airplane airplane = new Airplane();
                 airplane.setAirplaneId(resultSet.getInt("AirplaneID"));
                 airplane.setModel(resultSet.getString("Model"));
@@ -38,7 +35,7 @@ public class AirplaneDAO {
                 airplane.setBusinessSeats(resultSet.getInt("BusinessSeats"));
                 list.add(airplane);
             }
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
@@ -48,25 +45,25 @@ public class AirplaneDAO {
         Airplane airplane = null;
         try {
             airplane = new Airplane();
-            String sql = "SELECT * FROM java.Airplane where AirplaneID="+id;
+            String sql = "SELECT * FROM java.Airplane where AirplaneID=" + id;
             connection = DBconnection.openConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
-            if(resultSet.next()) {
+            if (resultSet.next()) {
                 airplane.setAirplaneId(resultSet.getInt("AirplaneID"));
                 airplane.setModel(resultSet.getString("Model"));
                 airplane.setBusinessSeats(resultSet.getInt("BusinessSeats"));
                 airplane.setEconomySeats(resultSet.getInt("EconomySeats"));
             }
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return airplane;
     }
 
 
-    public boolean save(Airplane e) {
-        boolean flag = false;
+    public void save(Airplane e) {
+
         try {
             String sql = "INSERT INTO Airplane (Model, BusinessSeats, EconomySeats) VALUES (?,?,?)";
 
@@ -78,41 +75,39 @@ public class AirplaneDAO {
             st.setInt(2, e.getBusinessSeats());
             st.setInt(3, e.getEconomySeats());
             st.executeUpdate();
-        }catch(SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return flag;
     }
 
+    public void delete(int id) {
 
-    public boolean delete(int id) {
-        boolean flag = false;
         try {
-            String sql = "DELETE FROM java.Airplane where AirplaneID="+id;
+            String sql = "DELETE FROM java.Airplane where AirplaneID=" + id;
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
-            flag = true;
-        }catch(SQLException e) {
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
+
     }
 
 
-    public boolean update(Airplane airplane) {
-        boolean flag = false;
+    public void update(Airplane airplane) {
+
         try {
-            String sql = "UPDATE java.Airplane SET Model = '"+airplane.getModel()+"', "
-                    + "BusinessSeats = '"+airplane.getBusinessSeats()+"', EconomySeats = '"+airplane.getEconomySeats()+"' where id="+airplane.getId();
+            String sql = "UPDATE java.Airplane SET Model = '" + airplane.getModel() + "', "
+                    + "BusinessSeats = '" + airplane.getBusinessSeats() + "', EconomySeats = '" + airplane.getEconomySeats() + "' where id=" + airplane.getId();
             connection = DBconnection.openConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
-            flag = true;
-        }catch(SQLException e) {
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
+
     }
 
 }

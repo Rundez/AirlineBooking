@@ -40,7 +40,6 @@
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="index.jsp" class="w3-bar-item w3-button w3-padding-large w3-white w3-hover-grey w3-grey">VA</a>
     <a href="book.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey ">Book</a>
-    <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">My bookings</a>
     <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Travel info</a>
     <a href="contactus.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey w3-grey">Contact us</a>
     <a href="login.jsp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-grey">Login</a>
@@ -55,13 +54,12 @@
     <a href="book.jsp" class="w3-bar-item w3-button w3-padding-large">Book</a>
     <a href="listMyFlights.jsp" class="w3-bar-item w3-button w3-padding-large">My bookings</a>
     <a href="travelinfo.jsp" class="w3-bar-item w3-button w3-padding-large">Travel info</a>
-    <a href="contactus.jsp" class="w3-bar-item w3-button w3-padding-large">Contact us</a>
     <a href="login.jsp" class="w3-bar-item w3-button w3-padding-large">Login</a>
     </div>
     </div>
-<%------------------------------------------------------------------------------------------------------------------------%>
+    <%------------------------------------------------------------------------------------------------------------------------%>
 
-    <!-- Header  (WhiteBanner&Picture) -->
+    <!-- Header (WhiteBanner&Picture) -->
     <header class="w3-container w3-red w3-center" style="padding:128px 16px">
     <h3>${notification}</h3>
     <h1 class="w3-margin w3-jumbo">Contact Us</h1>

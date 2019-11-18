@@ -18,31 +18,21 @@ public class AirplaneController extends HttpServlet {
 
     AirplaneDAO airplaneDAO = null;
 
-    public AirplaneController() {
+    private AirplaneController() {
+        //Creating a new airplaneDAO to be used later in the program.
         airplaneDAO = new AirplaneDAO();
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       String action =  request.getParameter("action");
-       if(action.equals("createplane"))
-           createAirplane(request, response);
-       }
-
-
-
-    private void deleteAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String id = request.getParameter("id");
-
-        if(airplaneDAO.delete(Integer.parseInt(id))) {
-            request.setAttribute("NOTIFICATION", "Airplane Deleted Successfully!");
-        }
-
-        listAirplane(request, response);
+        // The "action" parameter will determine which of the methods who will run.
+        String action = request.getParameter("action");
+        if (action.equals("createplane"))
+            createAirplane(request, response);
     }
 
-    private void getSingleAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+    private void getSingleAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
 
@@ -50,14 +40,7 @@ public class AirplaneController extends HttpServlet {
 
         request.setAttribute("airplane", theAirplane);
 
-
-
         response.sendRedirect("../airplane-list.jsp");
-
-        int m = 5;
-
-
-
     }
 
     private void listAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -67,29 +50,26 @@ public class AirplaneController extends HttpServlet {
         request.setAttribute("list", theList);
 
 
-       response.sendRedirect("../airplane-list.jsp");
+        response.sendRedirect("../airplane-list.jsp");
 
 
     }
 
-    protected void createAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+    private void createAirplane(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String model = request.getParameter("airplaneName");
         int economy = Integer.parseInt(request.getParameter("economy"));
         int business = Integer.parseInt(request.getParameter("business"));
 
-
-
+        // Creates a new airplane object and assigning the necessary parameters to saving a airplane in the DB.
         Airplane e = new Airplane();
         e.setModel(model);
         e.setEconomySeats(economy);
         e.setBusinessSeats(business);
 
+        // Passes the object to the DB save method.
         airplaneDAO.save(e);
         request.setAttribute("notification", "Airplane created");
         request.getRequestDispatcher("welcome.jsp").forward(request, response);
-
-
-
     }
 
 }

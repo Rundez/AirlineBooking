@@ -12,21 +12,21 @@ public class BookingDAO {
     public boolean save(Booking e) throws SQLException {
         boolean flag = false;
 
-            String sql = "INSERT INTO Booking  ("
-                    + " fID,"
-                    + " cID,"
-                    + " seatID,"
-                    + " payment,"
-                    + " baggage) VALUES ("
-                    + "?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Booking  ("
+                + " fID,"
+                + " cID,"
+                + " seatID,"
+                + " payment,"
+                + " baggage) VALUES ("
+                + "?, ?, ?, ?, ?)";
 
-            Connection con = openConnection();
-            PreparedStatement st = con.prepareStatement(sql);
+        Connection con = openConnection();
+        PreparedStatement st = con.prepareStatement(sql);
 
-            try{
+        try {
             st.setInt(1, e.getfID());
             st.setInt(2, e.getcID());
-            st.setInt(3,e.getSeatID());
+            st.setInt(3, e.getSeatID());
             st.setInt(4, e.getPayment());
             st.setInt(5, e.getBaggage());
             st.executeUpdate();
@@ -38,7 +38,7 @@ public class BookingDAO {
         }
         return flag;
     }
-    
+
     // IKKE FERDIG
     public void cancelBooking(int fID, int userID) throws SQLException {
         String sql = "DELETE FROM Booking WHERE cID = "

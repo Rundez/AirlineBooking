@@ -88,12 +88,12 @@ public class BookingController extends HttpServlet {
             }
         }
 
-        if(seatType.equals("Business")) {
+        if (seatType.equals("Business")) {
             price = businessPrice;
         }
 
         //Chooses the index position 0 in the list, if it contains value.
-        if (list.size() >= 1){
+        if (list.size() >= 1) {
             Seats selectedSeat = list.get(0);
             int seatID = selectedSeat.getSeatID();
 
@@ -115,7 +115,7 @@ public class BookingController extends HttpServlet {
                 // Save the booking object into the database and sets "Occupied" to "Yes".
                 bookingDAO.save(b);
                 bookingDAO.setOccupiedSeat(seatID);
-            } else{
+            } else {
                 // Forwards the user to the next view with a notification that he/she ain't got no money to fly.
                 request.setAttribute("notification", "Your balance is too low to book this flight! Please enter the secret code for a refill.");
                 request.getRequestDispatcher("book.jsp").forward(request, response);
@@ -177,6 +177,4 @@ public class BookingController extends HttpServlet {
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
-
-
 }

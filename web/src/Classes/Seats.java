@@ -3,12 +3,11 @@ package Classes;
 import java.io.Serializable;
 
 public class Seats implements Serializable {
-    int seatID;
-    int airplaneID;
-    String seatNumber;
-    String seatType;
-    String occupied;
-
+    private int seatID;
+    private int airplaneID;
+    private String seatNumber;
+    private String seatType;
+    private String occupied;
 
     public void setAirplaneID(int airplaneID) {
         this.airplaneID = airplaneID;
@@ -21,7 +20,6 @@ public class Seats implements Serializable {
     public int getAirplaneID() {
         return airplaneID;
     }
-
 
     public String getOccupied() {
         return occupied;

@@ -3,15 +3,15 @@ package Classes;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-    int personID;
-    int firstName;
-    int lastName;
-    int money;
-    String dob;
-    int phoneNumber;
-    String email;
-    String password;
-    int accountMoney;
+    private int personID;
+    private int firstName;
+    private int lastName;
+    private int money;
+    private String dob;
+    private int phoneNumber;
+    private String email;
+    private String password;
+    private int accountMoney;
 
 
     public int getAccountMoney() {
