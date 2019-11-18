@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import Classes.Flight;
 import Classes.Seats;
 
+import static DB.DBconnection.openConnection;
+
 
 public class SeatDAO {
 
@@ -18,38 +20,21 @@ public class SeatDAO {
     Statement statement = null;
 
 
-    public boolean save(Flight e) {
-        boolean flag = false;
-        try {
-            String arrivalTime = e.getArrivalTime();
-            String departureTime = e.getDepartureTime();
-
-            String sql = "INSERT INTO Flight (ArrivalTime, DepartureTime) VALUES (?,?)";
-
-            Connection con = DBconnection.openConnection();
-            PreparedStatement st = con.prepareStatement(sql);
-
-            st.setString(1, arrivalTime);
-            st.setString(2, departureTime);
-            st.executeUpdate();
-
-
-            flag = true;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return flag;
-    }
-
-    public ArrayList<Seats> checkSeats(String seatType, int airplaneID) throws SQLException {
+    public ArrayList<Seats> checkSeats(int flight, String seatType) throws SQLException {
 
         ArrayList<Seats> list = new ArrayList<Seats>();
         Seats seats = null;
 
-        String sql = "select * from java.Seats";
+        String sql = "select * from java.seats as s\n" +
+                "join flight as f\n" +
+                "on s.AirplaneID = f.AirplaneID\n" +
+                "where f.FlightID ="+flight+"  \n" +
+                "and seatType = '"+seatType+"' \n" +
+                "and Occupied = 'No'";
 
         connection = DBconnection.openConnection();
         statement = connection.createStatement();
+
         resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
@@ -66,6 +51,36 @@ public class SeatDAO {
 
         return list;
     }
+
+    public void setOccupiedSeat(int occupiedSeat) throws SQLException {
+        String sql = "UPDATE Seats SET Occupied = 'Yes' WHERE seatID = "
+                + occupiedSeat;
+
+        Connection con = openConnection();
+
+        Statement st = con.createStatement();
+
+        st.executeUpdate(sql);
+
+    }
+
+    public void setNotOccupiedSeat(int notOccupiedSeat) throws SQLException {
+        String sql = "UPDATE Seats SET Occupied = 'No' WHERE seatID = "
+                + notOccupiedSeat;
+
+        Connection con = openConnection();
+
+        Statement st = con.createStatement();
+
+        st.executeUpdate(sql);
+
+    }
+}
+
+
+
+
+/*
 
     public ArrayList<Flight> getChosenFlights() throws SQLException {
         Flight flight = null;
@@ -145,5 +160,28 @@ public class SeatDAO {
         return list;
 
     }
-}
 
+    public boolean save(Flight e) {
+        boolean flag = false;
+        try {
+            String arrivalTime = e.getArrivalTime();
+            String departureTime = e.getDepartureTime();
+
+            String sql = "INSERT INTO Flight (ArrivalTime, DepartureTime) VALUES (?,?)";
+
+            Connection con = DBconnection.openConnection();
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, arrivalTime);
+            st.setString(2, departureTime);
+            st.executeUpdate();
+
+
+            flag = true;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return flag;
+    }
+}
+*/

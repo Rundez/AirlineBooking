@@ -3,14 +3,10 @@ package DB;
 import java.sql.*;
 
 public class DatabaseHandler {
-    String url = "jdbc:mysql://localhost:3306/java";
-    String username = "root";
-    String password = "";
-    String driver = "com.mysql.jdbc.Driver";
 
 
     // This method checks the username and password with the database.
-    public boolean check(String uname, String pass) throws ClassNotFoundException, SQLException {
+    public boolean check(String uname, String pass) throws SQLException {
         //SQL query
         String sql = "select * from RegistrationForm where FirstName=? and PasswordLogin=?";
 
