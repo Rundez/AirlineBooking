@@ -40,36 +40,8 @@ public class BookingDAO {
     }
 
     // IKKE FERDIG
-    public void cancelBooking(int fID, int userID) throws SQLException {
-        String sql = "DELETE FROM Booking WHERE cID = "
-                + userID
-                + " and "
-                + "fID = "
-                + fID;
-
-        Connection con = openConnection();
-
-        Statement st = con.createStatement();
-
-        st.executeUpdate(sql);
-
-    }
-
-    public void setOccupiedSeat(int occupiedSeat) throws SQLException {
-        String sql = "UPDATE Seats SET Occupied = 'Yes' WHERE seatID = "
-                + occupiedSeat;
-
-        Connection con = openConnection();
-
-        Statement st = con.createStatement();
-
-        st.executeUpdate(sql);
-
-    }
-
-    public void setNotOccupiedSeat(int notOccupiedSeat) throws SQLException {
-        String sql = "UPDATE Seats SET Occupied = 'No' WHERE seatID = "
-                + notOccupiedSeat;
+    public void cancelBooking(int seatID) throws SQLException {
+        String sql = "DELETE FROM Booking WHERE seatID = "+seatID+"";
 
         Connection con = openConnection();
 

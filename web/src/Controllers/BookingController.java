@@ -65,7 +65,7 @@ public class BookingController extends HttpServlet {
         int baggage = Integer.parseInt(request.getParameter("baggage"));
         String arrival = request.getParameter("arrival");
 
-        ArrayList<Seats> list = new ArrayList<>();
+        ArrayList<Seats> list;
 
         // Generates the DAO objects
         CustomerDAO customerDAO = new CustomerDAO();
@@ -76,8 +76,9 @@ public class BookingController extends HttpServlet {
         int userID = customerDAO.getcustomerID(user);
 
         // Fetches the Seat data from the database and assigns it to a list of Seats objects.
-        list = seatDAO.checkSeats(seatType, airplaneID);
+        list = seatDAO.checkSeats(flight, seatType);
 
+        /*
         // Iterates through the list and removes the objects that does not meet the requirements
         // (Type of seat and is not occupied.
         Iterator<Seats> it = list.iterator();
@@ -87,6 +88,7 @@ public class BookingController extends HttpServlet {
                 it.remove();
             }
         }
+         */
 
         if (seatType.equals("Business")) {
             price = businessPrice;
@@ -114,7 +116,7 @@ public class BookingController extends HttpServlet {
 
                 // Save the booking object into the database and sets "Occupied" to "Yes".
                 bookingDAO.save(b);
-                bookingDAO.setOccupiedSeat(seatID);
+                seatDAO.setOccupiedSeat(seatID);
             } else {
                 // Forwards the user to the next view with a notification that he/she ain't got no money to fly.
                 request.setAttribute("notification", "Your balance is too low to book this flight! Please enter the secret code for a refill.");
@@ -163,14 +165,15 @@ public class BookingController extends HttpServlet {
 
         BookingDAO bookingDAO = new BookingDAO();
         CustomerDAO customerDAO = new CustomerDAO();
+        SeatDAO seatDAO = new SeatDAO();
 
 
         // Uses the username as input parameter to get the userID saved in the DB.
         int userID = customerDAO.getcustomerID(username);
         int balance = customerDAO.checkBalance(userID);
         // Cancels the booking in sql using flightID number selected and the associated ID of the customer.
-        bookingDAO.cancelBooking(flightID, userID);
-        bookingDAO.setNotOccupiedSeat(seatID);
+        bookingDAO.cancelBooking(seatID);
+        seatDAO.setNotOccupiedSeat(seatID);
         customerDAO.insertPayback(userID, price, balance);
 
         request.setAttribute("notification", "Booking deleted");
